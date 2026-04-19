@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Neunoide — V·Z·Q Studio</title>
+  <meta name="description" content="El Neunoide, cortometraje dirigido por Fernando Pardo y producido por V·Z·Q Studio.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+
+  <style>
+    .project-hero {
+      min-height: 90vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding: 6rem 3rem 4rem;
+      gap: 4rem;
+      max-width: 1300px;
+      margin: 0 auto;
+      align-items: center;
+    }
+    .project-poster img {
+      width: 100%;
+      max-width: 480px;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+      border-radius: 2px;
+      opacity: 0;
+      animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.3s;
+    }
+    .project-intro {
+      opacity: 0;
+      animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.5s;
+    }
+    .project-status {
+      display: inline-block;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      padding: 0.4rem 1rem;
+      border: 1px solid var(--smoke);
+      color: var(--ash);
+      border-radius: 2px;
+      margin-bottom: 1.5rem;
+    }
+    .project-title {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 7vw, 5rem);
+      font-weight: 400;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 0.8rem;
+    }
+    .project-director {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-style: italic;
+      color: var(--accent);
+      margin-bottom: 2rem;
+    }
+    .project-logline {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-style: italic;
+      color: var(--cream);
+      line-height: 1.5;
+      margin-bottom: 2rem;
+      padding-left: 1.5rem;
+      border-left: 2px solid var(--accent);
+    }
+    .project-meta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem 2rem;
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--charcoal);
+    }
+    .meta-item span:first-child {
+      display: block;
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--ash);
+      margin-bottom: 0.3rem;
+    }
+    .meta-item span:last-child {
+      font-size: 0.9rem;
+      color: var(--cream);
+    }
+    .project-content {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 5rem 3rem;
+    }
+    .project-content h2 {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+    .project-content p {
+      color: var(--silver);
+      font-size: 1rem;
+      line-height: 1.9;
+      margin-bottom: 1.3rem;
+    }
+    .content-block { margin-bottom: 4rem; }
+
+    /* STILLS GRID */
+    .stills-full {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      margin: 3rem 0;
+    }
+    .stills-full img {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      cursor: zoom-in;
+      transition: filter 0.4s, transform 0.4s;
+      filter: brightness(0.92);
+    }
+    .stills-full img:hover {
+      filter: brightness(1.05);
+      transform: scale(1.02);
+      z-index: 2;
+      position: relative;
+    }
+
+    .back-link {
+      position: fixed;
+      top: 50%;
+      left: 2rem;
+      transform: translateY(-50%);
+      color: var(--ash);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      writing-mode: vertical-rl;
+      z-index: 50;
+      transition: color 0.3s;
+    }
+    .back-link:hover { color: var(--accent); }
+
+    .next-project {
+      padding: 5rem 3rem;
+      text-align: center;
+      border-top: 1px solid var(--charcoal);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .next-project-label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .next-project a {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      color: var(--white);
+      font-weight: 400;
+      transition: color 0.3s;
+      display: inline-block;
+    }
+    .next-project a:hover { color: var(--accent); }
+
+    @media (max-width: 900px) {
+      .project-hero {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        padding: 8rem 1.5rem 3rem;
+      }
+      .project-poster img { max-width: 320px; margin: 0 auto; display: block; }
+      .project-meta-grid { grid-template-columns: 1fr; gap: 1.2rem; }
+      .back-link { display: none; }
+      .project-content { padding: 3rem 1.5rem; }
+      .stills-full { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="nav" class="scrolled">
+    <a href="../index.html" class="nav-logo">
+      <img src="../img/0.%20General/LOGO_VZQ.png" alt="V·Z·Q Studio">
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html#origen" onclick="closeNav()">Origen</a></li>
+      <li><a href="../index.html#equipo" onclick="closeNav()">Equipo</a></li>
+      <li><a href="../index.html#filmografia" onclick="closeNav()">Filmografía</a></li>
+      <li><a href="../index.html#colabora" onclick="closeNav()">Colabora</a></li>
+      <li><a href="../index.html#contacto" onclick="closeNav()">Contacto</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <a href="../index.html#filmografia" class="back-link">← Volver</a>
+
+  <header class="project-hero">
+    <div class="project-poster">
+      <img src="../img/2.%20NEUNOIDE/neunoide.png" alt="El Neunoide">
+    </div>
+    <div class="project-intro">
+      <span class="project-status">En distribución</span>
+      <h1 class="project-title">El Neunoide</h1>
+      <p class="project-director">Un cortometraje de Fernando Pardo</p>
+      <p class="project-logline">Un hombre vive convencido de que los extraterrestres que le visitaron en su infancia volverán pronto a por él.</p>
+      <div class="project-meta-grid">
+        <div class="meta-item">
+          <span>Dirección</span>
+          <span>Fernando Pardo</span>
+        </div>
+        <div class="meta-item">
+          <span>Guion</span>
+          <span>Fernando Pardo</span>
+        </div>
+        <div class="meta-item">
+          <span>Protagonista</span>
+          <span>Antoni Ramírez</span>
+        </div>
+        <div class="meta-item">
+          <span>Año</span>
+          <span>2025</span>
+        </div>
+        <div class="meta-item">
+          <span>Distribución</span>
+          <span>YAQ Distribución</span>
+        </div>
+        <div class="meta-item">
+          <span>Productora</span>
+          <span>V·Z·Q Studio</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="project-content">
+
+    <div class="content-block reveal">
+      <h2>Sinopsis</h2>
+      <p>Juan vive convencido de que los Neunoides, una especie de extraterrestres que le visitaron en su infancia, volverán muy pronto a por él.</p>
+      <p>El filme retrata la inocencia y obsesión de un niño atrapado en el cuerpo de un adulto, mostrando cómo se aferra ingenuamente a una fantasía que le da un sentido extraordinario a su vida.</p>
+    </div>
+
+    <div class="content-block reveal">
+      <h2>Sobre el proyecto</h2>
+      <p><em>El Neunoide</em> fue el primer proyecto oficial de V·Z·Q Studio tras su constitución legal. Un cortometraje que exploró, desde una mirada empática y a la vez extraña, la fragilidad de un personaje que construye su identidad sobre una creencia imposible.</p>
+      <p>En octubre de 2025 comenzamos su distribución de la mano de <em>YAQ Distribución</em>, iniciando su recorrido por festivales nacionales e internacionales.</p>
+    </div>
+
+    <div class="content-block reveal">
+      <h2>Stills</h2>
+      <div class="stills-full">
+        <img src="../img/2.%20NEUNOIDE/still1.png" alt="Still 1" onclick="openLightbox(this.src)">
+        <img src="../img/2.%20NEUNOIDE/still2.png" alt="Still 2" onclick="openLightbox(this.src)">
+        <img src="../img/2.%20NEUNOIDE/still3.png" alt="Still 3" onclick="openLightbox(this.src)">
+        <img src="../img/2.%20NEUNOIDE/still4.png" alt="Still 4" onclick="openLightbox(this.src)">
+        <img src="../img/2.%20NEUNOIDE/still5.png" alt="Still 5" onclick="openLightbox(this.src)">
+      </div>
+    </div>
+
+  </div>
+
+  <div class="next-project">
+    <div class="next-project-label">Siguiente proyecto</div>
+    <a href="qmqp.html">Querida mamá, querido papá →</a>
+  </div>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <a href="mailto:vzqstudio@gmail.com">vzqstudio@gmail.com</a>
+        <a href="tel:+34722392524">+34 722 39 25 24</a>
+        <p>Madrid, España</p>
+      </div>
+      <div class="footer-col">
+        <h4>Redes</h4>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/vzq_studio" target="_blank">Instagram ↗</a>
+          <a href="https://www.youtube.com/@vzq_studio" target="_blank">YouTube ↗</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>V·Z·Q Studio</h4>
+        <p style="font-size: 0.8rem; line-height: 1.7;">Productora de cine independiente con sede en Madrid, especializada en ficción autoral y cine emergente.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2025 V·Z·Q Studio. Todos los derechos reservados.
+    </div>
+  </footer>
+
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+    <img id="lightboxImg" src="" alt="">
+  </div>
+
+  <script>
+    const toggle = document.getElementById('navToggle');
+    const links = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => links.classList.toggle('open'));
+    function closeNav() { links.classList.remove('open'); }
+
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+
+    function openLightbox(src) {
+      const lb = document.getElementById('lightbox');
+      document.getElementById('lightboxImg').src = src;
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+  </script>
+</body>
+</html>

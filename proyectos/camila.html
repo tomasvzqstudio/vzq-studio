@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Camila — V·Z·Q Studio</title>
+  <meta name="description" content="Camila, cortometraje dirigido por Ramón Sánchez y producido por V·Z·Q Studio, Estudio Clementine, Kamituga Films y Anomalía Films.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+
+  <style>
+    /* ── PROJECT HERO ── */
+    .project-hero {
+      min-height: 90vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 6rem;
+      padding-bottom: 4rem;
+      gap: 4rem;
+      max-width: 1300px;
+      margin: 0 auto;
+      padding-left: 3rem;
+      padding-right: 3rem;
+      align-items: center;
+    }
+    .project-poster {
+      position: relative;
+    }
+    .project-poster img {
+      width: 100%;
+      max-width: 480px;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+      border-radius: 2px;
+      opacity: 0;
+      animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.3s;
+    }
+    .project-intro {
+      opacity: 0;
+      animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.5s;
+    }
+    .project-status {
+      display: inline-block;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      padding: 0.4rem 1rem;
+      border: 1px solid var(--accent-dim);
+      color: var(--accent);
+      border-radius: 2px;
+      margin-bottom: 1.5rem;
+    }
+    .project-title {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 7vw, 5rem);
+      font-weight: 400;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 0.8rem;
+      letter-spacing: -0.01em;
+    }
+    .project-director {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-style: italic;
+      color: var(--accent);
+      margin-bottom: 2rem;
+    }
+    .project-logline {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-style: italic;
+      color: var(--cream);
+      line-height: 1.5;
+      margin-bottom: 2rem;
+      padding-left: 1.5rem;
+      border-left: 2px solid var(--accent);
+    }
+    .project-meta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem 2rem;
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--charcoal);
+    }
+    .meta-item span:first-child {
+      display: block;
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--ash);
+      margin-bottom: 0.3rem;
+    }
+    .meta-item span:last-child {
+      font-size: 0.9rem;
+      color: var(--cream);
+      font-weight: 400;
+    }
+
+    /* ── CONTENT SECTIONS ── */
+    .project-content {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 5rem 3rem;
+    }
+    .project-content h2 {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+      line-height: 1.15;
+    }
+    .project-content h3 {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: var(--white);
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .project-content p {
+      color: var(--silver);
+      font-size: 1rem;
+      line-height: 1.9;
+      margin-bottom: 1.3rem;
+    }
+    .project-content p em {
+      color: var(--cream);
+      font-style: italic;
+    }
+    .content-block { margin-bottom: 4rem; }
+    .content-block:last-child { margin-bottom: 0; }
+
+    /* ── VIDEO ── */
+    .video-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/9;
+      margin: 3rem 0;
+      background: var(--dark);
+      border-radius: 2px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+    .video-wrap iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* ── CROWDFUNDING BOX ── */
+    .cf-box {
+      background: linear-gradient(135deg, rgba(137,191,233,0.08) 0%, rgba(137,191,233,0.02) 100%);
+      border: 1px solid var(--accent-dim);
+      padding: 3rem;
+      border-radius: 2px;
+      margin: 3rem 0;
+      text-align: center;
+    }
+    .cf-box h3 {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+      margin-top: 0 !important;
+    }
+    .cf-box p {
+      color: var(--silver);
+      margin-bottom: 2rem;
+    }
+    .cf-stats {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+    }
+    .cf-stat {
+      text-align: center;
+    }
+    .cf-stat-value {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      color: var(--accent);
+      font-weight: 400;
+      line-height: 1;
+    }
+    .cf-stat-label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--ash);
+      margin-top: 0.4rem;
+    }
+    .cf-cta {
+      display: inline-block;
+      padding: 1rem 2.8rem;
+      background: var(--accent);
+      color: var(--black);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      font-weight: 600;
+      transition: all 0.3s;
+      border-radius: 2px;
+    }
+    .cf-cta:hover {
+      background: var(--white);
+      transform: translateY(-2px);
+    }
+
+    /* ── BACK LINK ── */
+    .back-link {
+      position: fixed;
+      top: 50%;
+      left: 2rem;
+      transform: translateY(-50%);
+      color: var(--ash);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      writing-mode: vertical-rl;
+      z-index: 50;
+      transition: color 0.3s;
+    }
+    .back-link:hover { color: var(--accent); }
+
+    /* ── NEXT PROJECT ── */
+    .next-project {
+      padding: 5rem 3rem;
+      text-align: center;
+      border-top: 1px solid var(--charcoal);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .next-project-label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .next-project a {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      color: var(--white);
+      font-weight: 400;
+      transition: color 0.3s, letter-spacing 0.3s;
+      display: inline-block;
+    }
+    .next-project a:hover {
+      color: var(--accent);
+      letter-spacing: 0.02em;
+    }
+
+    @media (max-width: 900px) {
+      .project-hero {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        padding: 8rem 1.5rem 3rem;
+      }
+      .project-poster img { max-width: 320px; margin: 0 auto; display: block; }
+      .project-meta-grid { grid-template-columns: 1fr; gap: 1.2rem; }
+      .back-link { display: none; }
+      .project-content { padding: 3rem 1.5rem; }
+      .cf-box { padding: 2rem 1.5rem; }
+      .cf-stats { gap: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav" class="scrolled">
+    <a href="../index.html" class="nav-logo">
+      <img src="../img/0.%20General/LOGO_VZQ.png" alt="V·Z·Q Studio">
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html#origen" onclick="closeNav()">Origen</a></li>
+      <li><a href="../index.html#equipo" onclick="closeNav()">Equipo</a></li>
+      <li><a href="../index.html#filmografia" onclick="closeNav()">Filmografía</a></li>
+      <li><a href="../index.html#colabora" onclick="closeNav()">Colabora</a></li>
+      <li><a href="../index.html#contacto" onclick="closeNav()">Contacto</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <a href="../index.html#filmografia" class="back-link">← Volver</a>
+
+  <!-- HERO -->
+  <header class="project-hero">
+    <div class="project-poster">
+      <img src="../img/3.%20CAMILA/camila.jpg" alt="Camila">
+    </div>
+    <div class="project-intro">
+      <span class="project-status">En preproducción</span>
+      <h1 class="project-title">Camila</h1>
+      <p class="project-director">Un cortometraje de Ramón Sánchez</p>
+      <p class="project-logline">Una joven hija de inmigrantes dominicanos finge no conocer a sus padres en el trabajo. Un gesto pequeño que lo cambia todo.</p>
+      <div class="project-meta-grid">
+        <div class="meta-item">
+          <span>Dirección</span>
+          <span>Ramón Sánchez</span>
+        </div>
+        <div class="meta-item">
+          <span>Guion</span>
+          <span>Ramón Sánchez</span>
+        </div>
+        <div class="meta-item">
+          <span>Protagonista</span>
+          <span>Jeo Rosso</span>
+        </div>
+        <div class="meta-item">
+          <span>Año</span>
+          <span>2026</span>
+        </div>
+        <div class="meta-item">
+          <span>Duración</span>
+          <span>Cortometraje</span>
+        </div>
+        <div class="meta-item">
+          <span>Rodaje</span>
+          <span>Marzo-abril 2026</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <div class="project-content">
+
+    <!-- VIDEO -->
+    <div class="video-wrap reveal">
+      <iframe src="https://www.youtube.com/embed/GvNBh2mnQqc" title="Camila - Vídeo del proyecto" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <!-- ORIGEN -->
+    <div class="content-block reveal">
+      <h2>Origen</h2>
+      <p><em>Camila</em> nace de una experiencia personal y cercana. En un parque de Burgos, mientras mi hija jugaba con una de sus mejores amigas, Camila, de origen dominicano, su madre me contó que nunca visitaba a su hija mayor en el trabajo. Cuando le pregunté por qué, me respondió: <em>"No quiero avergonzarla"</em>.</p>
+      <p>A partir de ese momento vi con claridad que detrás de esa frase había algo mucho más profundo: el miedo a la mirada ajena, la vergüenza heredada, el deseo de proteger a los hijos incluso a costa de desaparecer. Ese gesto, pequeño pero revelador, conectaba con temas que siempre me han interesado como cineasta: la identidad, la pertenencia y la experiencia de los jóvenes españoles hijos de inmigrantes que crecen entre dos mundos.</p>
+    </div>
+
+    <!-- SINOPSIS -->
+    <div class="content-block reveal">
+      <h2>Sinopsis</h2>
+      <p>Camila tiene 19 años, vive en Burgos y es hija de inmigrantes dominicanos. Compagina su trabajo en una zapatería de barrio con su vida como jugadora de voleibol en un equipo de primera división femenina. En la cancha es fuerte, decidida y líder; fuera de ella, se enfrenta a un conflicto interno que no sabe verbalizar.</p>
+      <p>Cuando en su primer día de trabajo finge no conocer a sus padres al verlos entrar en la tienda, ese gesto abre una grieta que la enfrenta a su familia, a sus raíces y al miedo a no encajar. A partir de ahí, Camila comienza un viaje interior marcado por la duda, la culpa y la necesidad de entender quién es realmente y a qué lugar pertenece.</p>
+      <p>El cortometraje aborda temas universales como la identidad, la familia, la presión social y la autoaceptación. Un relato <em>coming of age</em> sobre crecer, equivocarse y aprender a mirarse sin vergüenza.</p>
+    </div>
+
+    <!-- INTENCIÓN -->
+    <div class="content-block reveal">
+      <h2>Intención y mirada autoral</h2>
+      <p><em>Camila</em> no es una historia sobre racismo explícito ni sobre grandes conflictos externos. Es una historia íntima, silenciosa, sobre una decisión que nace casi sin pensarlo y que, sin embargo, lo cambia todo. Explora ese instante en el que uno se traiciona a sí mismo sin saber muy bien por qué, y las consecuencias emocionales que eso tiene.</p>
+    </div>
+
+    <!-- EQUIPO -->
+    <div class="content-block reveal">
+      <h3>Ramón Sánchez — Director, guionista y coproductor</h3>
+      <p>Autor de mirada social y profundamente humana, Ramón Sánchez desarrolla su trabajo entre el documental creativo y la ficción, con un marcado interés por las historias de identidad, pertenencia y Derechos Humanos. Ha trabajado internacionalmente en países como Ruanda, República Democrática del Congo, Sudán del Sur, Kenia, Camboya o Marruecos, donde ha dirigido y producido proyectos vinculados a migraciones, educación y justicia social.</p>
+
+      <h3>Jeo Rosso — Protagonista</h3>
+      <p>Jeo Rosso es una joven de origen dominicano que reside en Burgos. Comparte con Camila el conflicto interno de crecer entre dos culturas, el sentimiento de pertenecer a ambas y, al mismo tiempo, no encajar del todo en ninguna. <em>Camila</em> es su primera experiencia cinematográfica.</p>
+    </div>
+
+    <!-- FINANCIACIÓN -->
+    <div class="content-block reveal">
+      <h2>Estado del proyecto</h2>
+      <p>El guion está cerrado, el equipo artístico y técnico conformado, las localizaciones identificadas y el planteamiento visual, narrativo y sonoro claramente definido. El proyecto cuenta con la implicación directa del <em>Club Voleibol Burgos</em>, de la <em>Federación de Voleibol de Castilla y León</em> y la <em>comunidad dominicana local</em>.</p>
+      <p><em>Camila</em> ha obtenido financiación pública de la Junta de Castilla y León y del Gobierno de Cantabria. Más del 50% del presupuesto total ya está asegurado.</p>
+    </div>
+
+    <!-- CROWDFUNDING BOX -->
+    <div class="cf-box reveal">
+      <h3>Apoya el proyecto</h3>
+      <p>Estamos a un paso de rodar. Solo necesitamos el último impulso para cerrar la financiación.</p>
+      <div class="cf-stats">
+        <div class="cf-stat">
+          <div class="cf-stat-value">46</div>
+          <div class="cf-stat-label">Aportantes</div>
+        </div>
+        <div class="cf-stat">
+          <div class="cf-stat-value">70%</div>
+          <div class="cf-stat-label">Del objetivo</div>
+        </div>
+        <div class="cf-stat">
+          <div class="cf-stat-value">Abril</div>
+          <div class="cf-stat-label">Cierre 2026</div>
+        </div>
+      </div>
+      <a href="https://www.platinocrowdfunding.com/camila_2026/5433" target="_blank" class="cf-cta">Aportar en Platino Crowdfunding ↗</a>
+    </div>
+
+  </div>
+
+  <!-- NEXT PROJECT -->
+  <div class="next-project">
+    <div class="next-project-label">Siguiente proyecto</div>
+    <a href="neunoide.html">El Neunoide →</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <a href="mailto:vzqstudio@gmail.com">vzqstudio@gmail.com</a>
+        <a href="tel:+34722392524">+34 722 39 25 24</a>
+        <p>Madrid, España</p>
+      </div>
+      <div class="footer-col">
+        <h4>Redes</h4>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/vzq_studio" target="_blank">Instagram ↗</a>
+          <a href="https://www.youtube.com/@vzq_studio" target="_blank">YouTube ↗</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>V·Z·Q Studio</h4>
+        <p style="font-size: 0.8rem; line-height: 1.7;">Productora de cine independiente con sede en Madrid, especializada en ficción autoral y cine emergente.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2025 V·Z·Q Studio. Todos los derechos reservados.
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('navToggle');
+    const links = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => links.classList.toggle('open'));
+    function closeNav() { links.classList.remove('open'); }
+
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
