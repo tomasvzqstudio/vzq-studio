@@ -5,112 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>V·Z·Q Studio — Realidades que arden, imágenes que persisten</title>
   <meta name="description" content="V·Z·Q Studio es una productora de cine independiente con sede en Madrid, especializada en ficción autoral y cine emergente.">
-  
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 
   <style>
-    :root {
-      --black: #0a0a0a;
-      --dark: #111111;
-      --charcoal: #1a1a1a;
-      --smoke: #2a2a2a;
-      --ash: #888888;
-      --silver: #b0b0b0;
-      --cream: #e8e4df;
-      --white: #f5f3f0;
-      --accent: #7eafc4;
-      --accent-dim: #5a8ba3;
-      --warm: #c4956e;
-      --font-display: 'Cormorant Garamond', Georgia, serif;
-      --font-body: 'Manrope', sans-serif;
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    html {
-      scroll-behavior: smooth;
-      scrollbar-width: thin;
-      scrollbar-color: var(--smoke) var(--black);
-    }
-
-    body {
-      font-family: var(--font-body);
-      background: var(--black);
-      color: var(--cream);
-      overflow-x: hidden;
-      font-weight: 300;
-      line-height: 1.7;
-      letter-spacing: 0.01em;
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 100;
-      padding: 1.2rem 3rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      transition: background 0.4s, backdrop-filter 0.4s;
-    }
-    nav.scrolled {
-      background: rgba(10,10,10,0.85);
-      backdrop-filter: blur(12px);
-    }
-    .nav-logo img {
-      height: 32px;
-      opacity: 0.9;
-      transition: opacity 0.3s;
-    }
-    .nav-logo img:hover { opacity: 1; }
-    .nav-links {
-      display: flex;
-      gap: 2.5rem;
-      list-style: none;
-    }
-    .nav-links a {
-      color: var(--silver);
-      text-decoration: none;
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      font-weight: 400;
-      transition: color 0.3s;
-      position: relative;
-    }
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0;
-      height: 1px;
-      background: var(--accent);
-      transition: width 0.3s;
-    }
-    .nav-links a:hover { color: var(--white); }
-    .nav-links a:hover::after { width: 100%; }
-
-    .nav-toggle {
-      display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 8px;
-    }
-    .nav-toggle span {
-      display: block;
-      width: 22px;
-      height: 1.5px;
-      background: var(--cream);
-      margin: 5px 0;
-      transition: 0.3s;
-    }
-
     /* ── HERO ── */
     .hero {
       height: 100vh;
@@ -124,22 +25,22 @@
       position: absolute;
       inset: 0;
       background: url('img/0.%20General/hero.jpeg') center/cover no-repeat;
-      filter: brightness(0.35) saturate(0.8);
+      filter: brightness(0.4) saturate(0.85);
       transform: scale(1.05);
-      animation: heroZoom 20s ease-in-out infinite alternate;
+      animation: heroZoom 22s ease-in-out infinite alternate;
     }
     @keyframes heroZoom {
       from { transform: scale(1.05); }
-      to { transform: scale(1.12); }
+      to { transform: scale(1.14); }
     }
     .hero-overlay {
       position: absolute;
       inset: 0;
       background: linear-gradient(
         to bottom,
-        rgba(10,10,10,0.3) 0%,
+        rgba(10,10,10,0.35) 0%,
         rgba(10,10,10,0.1) 40%,
-        rgba(10,10,10,0.6) 80%,
+        rgba(10,10,10,0.65) 80%,
         rgba(10,10,10,1) 100%
       );
     }
@@ -150,20 +51,20 @@
       padding: 0 2rem;
     }
     .hero-content img {
-      width: min(380px, 65vw);
+      width: min(420px, 70vw);
       margin-bottom: 2rem;
       opacity: 0;
-      animation: fadeUp 1.2s ease forwards 0.3s;
+      animation: fadeUp 1.3s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.3s;
     }
     .hero-tagline {
       font-family: var(--font-display);
-      font-size: clamp(1rem, 2vw, 1.3rem);
+      font-size: clamp(1rem, 2vw, 1.35rem);
       font-weight: 300;
       font-style: italic;
       color: var(--silver);
       letter-spacing: 0.12em;
       opacity: 0;
-      animation: fadeUp 1.2s ease forwards 0.8s;
+      animation: fadeUp 1.3s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.8s;
     }
     .hero-scroll {
       position: absolute;
@@ -185,50 +86,6 @@
     @keyframes scrollPulse {
       0%, 100% { opacity: 0.3; transform: scaleY(1); }
       50% { opacity: 1; transform: scaleY(1.3); }
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    /* ── SECTIONS ── */
-    section {
-      padding: 7rem 3rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .section-label {
-      font-size: 0.65rem;
-      text-transform: uppercase;
-      letter-spacing: 0.25em;
-      color: var(--accent);
-      font-weight: 500;
-      margin-bottom: 1rem;
-    }
-    .section-title {
-      font-family: var(--font-display);
-      font-size: clamp(2.2rem, 5vw, 3.5rem);
-      font-weight: 300;
-      line-height: 1.15;
-      margin-bottom: 2rem;
-      color: var(--white);
-    }
-    .section-divider {
-      width: 40px;
-      height: 1px;
-      background: var(--accent);
-      margin-bottom: 2.5rem;
-    }
-    .section-text {
-      max-width: 640px;
-      color: var(--silver);
-      font-size: 0.95rem;
-      line-height: 1.8;
     }
 
     /* ── ABOUT ── */
@@ -256,7 +113,7 @@
     .about-image::after {
       content: '';
       position: absolute;
-      inset: 8px -8px -8px 8px;
+      inset: 12px -12px -12px 12px;
       border: 1px solid var(--smoke);
       border-radius: 2px;
       z-index: -1;
@@ -266,77 +123,123 @@
     .team-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 4rem;
+      gap: 5rem;
       margin-top: 3rem;
     }
     .team-member {
       display: flex;
-      gap: 2rem;
-      align-items: flex-start;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .team-photo-wrap {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 3/4;
+      border-radius: 2px;
     }
     .team-photo {
-      width: 140px;
-      height: 175px;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
-      border-radius: 2px;
-      filter: saturate(0.7);
-      flex-shrink: 0;
+      filter: saturate(0.8) brightness(0.95);
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s;
+    }
+    .team-photo-wrap:hover .team-photo {
+      transform: scale(1.04);
+      filter: saturate(1) brightness(1);
+    }
+    .team-photo-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,10,10,0.3) 0%, transparent 40%);
+      pointer-events: none;
     }
     .team-info h3 {
       font-family: var(--font-display);
-      font-size: 1.4rem;
+      font-size: 1.8rem;
       font-weight: 400;
       color: var(--white);
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.4rem;
+      letter-spacing: 0.01em;
     }
     .team-role {
       font-size: 0.7rem;
       text-transform: uppercase;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.18em;
       color: var(--accent);
-      margin-bottom: 0.8rem;
+      margin-bottom: 1rem;
       display: block;
     }
     .team-info p {
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       color: var(--ash);
-      line-height: 1.7;
+      line-height: 1.8;
     }
 
     /* ── FILMOGRAPHY ── */
     .film-card {
       display: grid;
-      grid-template-columns: 320px 1fr;
-      gap: 3rem;
-      margin-bottom: 5rem;
+      grid-template-columns: 340px 1fr;
+      gap: 3.5rem;
+      margin-bottom: 5.5rem;
       align-items: center;
     }
     .film-card:nth-child(even) {
-      grid-template-columns: 1fr 320px;
+      grid-template-columns: 1fr 340px;
     }
     .film-card:nth-child(even) .film-poster { order: 2; }
     .film-card:nth-child(even) .film-info { order: 1; }
 
+    .film-poster {
+      display: block;
+      overflow: hidden;
+      position: relative;
+      border-radius: 2px;
+    }
     .film-poster img {
       width: 100%;
-      border-radius: 2px;
-      transition: transform 0.5s ease, filter 0.5s;
-      filter: brightness(0.9);
+      height: auto;
+      display: block;
+      transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s;
+      filter: brightness(0.92);
     }
     .film-poster:hover img {
-      transform: scale(1.02);
-      filter: brightness(1);
+      transform: scale(1.03);
+      filter: brightness(1.05);
     }
+    .film-poster::before {
+      content: 'Ver proyecto →';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1rem 1.5rem;
+      background: linear-gradient(to top, rgba(10,10,10,0.9), transparent);
+      color: var(--accent);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.4s, transform 0.4s;
+      z-index: 2;
+    }
+    .film-poster:hover::before {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     .film-status {
       display: inline-block;
       font-size: 0.6rem;
       text-transform: uppercase;
-      letter-spacing: 0.2em;
-      padding: 0.3rem 0.8rem;
+      letter-spacing: 0.22em;
+      padding: 0.35rem 0.9rem;
       border: 1px solid var(--smoke);
       color: var(--ash);
       border-radius: 2px;
-      margin-bottom: 1rem;
+      margin-bottom: 1.2rem;
     }
     .film-status.active {
       border-color: var(--accent-dim);
@@ -344,10 +247,18 @@
     }
     .film-title {
       font-family: var(--font-display);
-      font-size: 2rem;
+      font-size: 2.3rem;
       font-weight: 400;
       color: var(--white);
       margin-bottom: 0.3rem;
+      line-height: 1.1;
+    }
+    .film-director {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--accent);
+      margin-bottom: 0.8rem;
     }
     .film-year {
       font-family: var(--font-display);
@@ -357,51 +268,55 @@
       margin-bottom: 1rem;
     }
     .film-meta {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       color: var(--ash);
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 1.2rem;
+      letter-spacing: 0.12em;
+      margin-bottom: 1.3rem;
     }
     .film-description {
       color: var(--silver);
-      font-size: 0.9rem;
-      line-height: 1.8;
+      font-size: 0.92rem;
+      line-height: 1.85;
       margin-bottom: 1.5rem;
     }
     .film-link {
       color: var(--accent);
-      text-decoration: none;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       text-transform: uppercase;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.2em;
       font-weight: 500;
-      transition: color 0.3s;
+      transition: color 0.3s, letter-spacing 0.3s;
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.6rem;
     }
-    .film-link:hover { color: var(--white); }
+    .film-link:hover {
+      color: var(--white);
+      letter-spacing: 0.25em;
+    }
     .film-link svg { width: 14px; height: 14px; transition: transform 0.3s; }
-    .film-link:hover svg { transform: translateX(3px); }
+    .film-link:hover svg { transform: translateX(4px); }
 
     /* ── STILLS GALLERY ── */
     .stills-row {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 4px;
+      gap: 6px;
       margin-top: 3rem;
+      margin-bottom: 2rem;
     }
     .stills-row img {
       width: 100%;
       aspect-ratio: 16/9;
       object-fit: cover;
-      filter: saturate(0.8) brightness(0.85);
-      transition: filter 0.4s, transform 0.4s;
+      filter: saturate(0.85) brightness(0.88);
+      transition: filter 0.5s, transform 0.5s;
+      cursor: zoom-in;
     }
     .stills-row img:hover {
       filter: saturate(1) brightness(1);
-      transform: scale(1.02);
+      transform: scale(1.03);
       z-index: 2;
       position: relative;
     }
@@ -409,8 +324,11 @@
     /* ── COLLABORATE ── */
     .collab-section {
       text-align: center;
-      padding: 8rem 3rem;
+      padding: 9rem 3rem;
       position: relative;
+      border-top: 1px solid var(--charcoal);
+      border-bottom: 1px solid var(--charcoal);
+      margin-top: 4rem;
     }
     .collab-section .section-title {
       max-width: 600px;
@@ -418,130 +336,48 @@
     }
     .collab-text {
       max-width: 520px;
-      margin: 0 auto 2.5rem;
+      margin: 0 auto 2.8rem;
       color: var(--ash);
       font-size: 0.95rem;
-      line-height: 1.8;
+      line-height: 1.85;
     }
     .collab-cta {
       display: inline-block;
-      padding: 0.9rem 2.8rem;
+      padding: 1rem 3rem;
       border: 1px solid var(--accent-dim);
       color: var(--accent);
-      text-decoration: none;
       font-size: 0.72rem;
       text-transform: uppercase;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.22em;
       font-weight: 500;
-      transition: all 0.35s;
+      transition: all 0.4s;
       border-radius: 2px;
     }
     .collab-cta:hover {
       background: var(--accent);
       color: var(--black);
-    }
-
-    /* ── CONTACT / FOOTER ── */
-    footer {
-      border-top: 1px solid var(--charcoal);
-      padding: 4rem 3rem 3rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 3rem;
-      margin-bottom: 3rem;
-    }
-    .footer-col h4 {
-      font-family: var(--font-display);
-      font-size: 1.1rem;
-      font-weight: 400;
-      color: var(--white);
-      margin-bottom: 1rem;
-    }
-    .footer-col p,
-    .footer-col a {
-      font-size: 0.85rem;
-      color: var(--ash);
-      line-height: 1.8;
-      text-decoration: none;
-      transition: color 0.3s;
-      display: block;
-    }
-    .footer-col a:hover { color: var(--accent); }
-    .footer-social {
-      display: flex;
-      gap: 1.5rem;
-      margin-top: 0.5rem;
-    }
-    .footer-social a {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-    }
-    .footer-bottom {
-      text-align: center;
-      padding-top: 2rem;
-      border-top: 1px solid var(--charcoal);
-      font-size: 0.7rem;
-      color: var(--smoke);
-      letter-spacing: 0.1em;
-    }
-
-    /* ── REVEAL ANIMATION ── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
+      letter-spacing: 0.28em;
     }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
-      nav { padding: 1rem 1.5rem; }
-      .nav-links { display: none; }
-      .nav-links.open {
-        display: flex;
-        flex-direction: column;
-        position: fixed;
-        inset: 0;
-        background: rgba(10,10,10,0.97);
-        justify-content: center;
-        align-items: center;
-        gap: 2rem;
-        z-index: 99;
-      }
-      .nav-links.open a { font-size: 1.1rem; }
-      .nav-toggle { display: block; z-index: 101; }
-
-      section { padding: 4rem 1.5rem; }
       .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .about-image { order: -1; }
-      .team-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      .team-member { flex-direction: column; align-items: center; text-align: center; }
+      .team-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .team-photo-wrap { max-width: 400px; margin: 0 auto; }
       .film-card,
       .film-card:nth-child(even) {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
+        gap: 1.8rem;
       }
       .film-card:nth-child(even) .film-poster,
       .film-card:nth-child(even) .film-info { order: unset; }
-      .film-poster img { max-width: 280px; margin: 0 auto; display: block; }
+      .film-poster { max-width: 320px; margin: 0 auto; }
       .stills-row { grid-template-columns: 1fr 1fr; }
-      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
     }
-
     @media (max-width: 500px) {
       .stills-row { grid-template-columns: 1fr; }
-      .hero-content img { width: 70vw; }
+      .hero-content img { width: 75vw; }
     }
   </style>
 </head>
@@ -549,7 +385,7 @@
 
   <!-- NAV -->
   <nav id="nav">
-    <a href="#" class="nav-logo">
+    <a href="index.html" class="nav-logo">
       <img src="img/0.%20General/LOGO_VZQ.png" alt="V·Z·Q Studio">
     </a>
     <ul class="nav-links" id="navLinks">
@@ -599,7 +435,9 @@
     <div class="section-divider reveal"></div>
     <div class="team-grid">
       <div class="team-member reveal">
-        <img src="img/0.%20General/tomas.jpg" alt="Tomás Vázquez" class="team-photo">
+        <div class="team-photo-wrap">
+          <img src="img/0.%20General/tomas.jpg" alt="Tomás Vázquez" class="team-photo">
+        </div>
         <div class="team-info">
           <h3>Tomás Vázquez</h3>
           <span class="team-role">Fundador · Productor · Director</span>
@@ -607,7 +445,9 @@
         </div>
       </div>
       <div class="team-member reveal">
-        <img src="img/0.%20General/constanza.jpg" alt="Constanza Padilla" class="team-photo">
+        <div class="team-photo-wrap">
+          <img src="img/0.%20General/constanza.jpg" alt="Constanza Padilla" class="team-photo">
+        </div>
         <div class="team-info">
           <h3>Constanza Padilla</h3>
           <span class="team-role">Cofundadora · Directora de arte · Directora</span>
@@ -625,17 +465,18 @@
 
     <!-- CAMILA -->
     <div class="film-card reveal">
-      <div class="film-poster">
+      <a href="proyectos/camila.html" class="film-poster">
         <img src="img/3.%20CAMILA/camila.jpg" alt="Camila — Cortometraje">
-      </div>
+      </a>
       <div class="film-info">
         <span class="film-status active">En preproducción</span>
-        <h3 class="film-title">Camila</h3>
+        <h3 class="film-title"><a href="proyectos/camila.html">Camila</a></h3>
+        <p class="film-director">Un cortometraje de Ramón Sánchez</p>
         <p class="film-year">2026</p>
-        <p class="film-meta">Cortometraje · Dir. Ramón Sánchez · Prod. V·Z·Q Studio, Estudio Clementine, Kamituga Films, Anomalía Films</p>
-        <p class="film-description">Camila tiene 19 años, vive en Burgos y es hija de inmigrantes dominicanos. Cuando en su primer día de trabajo finge no conocer a sus padres, ese gesto abre una grieta que la enfrenta a su familia, a sus raíces y al miedo a no encajar. Un relato coming of age sobre identidad, pertenencia y autoaceptación.</p>
-        <a href="https://www.platinocrowdfunding.com/camila_2026/5433" target="_blank" class="film-link">
-          Apoya el crowdfunding
+        <p class="film-meta">Cortometraje · Coprod. V·Z·Q Studio, Estudio Clementine, Kamituga Films, Anomalía Films</p>
+        <p class="film-description">Camila tiene 19 años, vive en Burgos y es hija de inmigrantes dominicanos. Cuando en su primer día de trabajo finge no conocer a sus padres, ese gesto abre una grieta que la enfrenta a su familia, a sus raíces y al miedo a no encajar.</p>
+        <a href="proyectos/camila.html" class="film-link">
+          Ver proyecto
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
@@ -643,50 +484,60 @@
 
     <!-- EL NEUNOIDE -->
     <div class="film-card reveal">
-      <div class="film-poster">
+      <a href="proyectos/neunoide.html" class="film-poster">
         <img src="img/2.%20NEUNOIDE/neunoide.png" alt="El Neunoide — Cortometraje">
-      </div>
+      </a>
       <div class="film-info">
         <span class="film-status">En distribución</span>
-        <h3 class="film-title">El Neunoide</h3>
+        <h3 class="film-title"><a href="proyectos/neunoide.html">El Neunoide</a></h3>
+        <p class="film-director">Un cortometraje de Fernando Pardo</p>
         <p class="film-year">2025</p>
-        <p class="film-meta">Cortometraje · Dir. Fernando Pardo · Prod. V·Z·Q Studio</p>
-        <p class="film-description">Juan vive convencido de que los Neunoides, una especie de extraterrestres que le visitaron en su infancia, volverán pronto a por él. El primer proyecto oficial de V·Z·Q Studio retrata la inocencia y obsesión de un niño atrapado en el cuerpo de un adulto que se aferra a una fantasía que da sentido a su vida.</p>
+        <p class="film-meta">Cortometraje · Prod. V·Z·Q Studio</p>
+        <p class="film-description">Juan vive convencido de que los Neunoides, una especie de extraterrestres que le visitaron en su infancia, volverán pronto a por él. El primer proyecto oficial de V·Z·Q Studio retrata la inocencia y obsesión de un niño atrapado en el cuerpo de un adulto.</p>
+        <a href="proyectos/neunoide.html" class="film-link">
+          Ver proyecto
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
       </div>
     </div>
 
     <!-- STILLS EL NEUNOIDE -->
     <div class="stills-row reveal">
-      <img src="img/2.%20NEUNOIDE/still1.png" alt="Still El Neunoide 1">
-      <img src="img/2.%20NEUNOIDE/still2.png" alt="Still El Neunoide 2">
-      <img src="img/2.%20NEUNOIDE/still3.png" alt="Still El Neunoide 3">
-      <img src="img/2.%20NEUNOIDE/still4.png" alt="Still El Neunoide 4">
+      <img src="img/2.%20NEUNOIDE/still1.png" alt="Still El Neunoide 1" onclick="openLightbox(this.src)">
+      <img src="img/2.%20NEUNOIDE/still2.png" alt="Still El Neunoide 2" onclick="openLightbox(this.src)">
+      <img src="img/2.%20NEUNOIDE/still3.png" alt="Still El Neunoide 3" onclick="openLightbox(this.src)">
+      <img src="img/2.%20NEUNOIDE/still4.png" alt="Still El Neunoide 4" onclick="openLightbox(this.src)">
     </div>
 
     <!-- QUERIDA MAMÁ QUERIDO PAPÁ -->
     <div class="film-card reveal" style="margin-top: 5rem;">
-      <div class="film-poster">
-        <img src="img/1.%20QMQP/CARTEL_QMQP.jpeg" alt="Querida mamá, querido papá" style="aspect-ratio: 16/9; object-fit: cover;">
-      </div>
+      <a href="proyectos/qmqp.html" class="film-poster">
+        <img src="img/1.%20QMQP/CARTEL_QMQP.jpeg" alt="Querida mamá, querido papá">
+      </a>
       <div class="film-info">
         <span class="film-status">Terminada</span>
-        <h3 class="film-title">Querida mamá, querido papá</h3>
+        <h3 class="film-title"><a href="proyectos/qmqp.html">Querida mamá, querido papá</a></h3>
+        <p class="film-director">Un cortometraje de Fernando Pardo</p>
         <p class="film-year">2024</p>
-        <p class="film-meta">Cortometraje experimental · Dir. Fernando Pardo · Prod. V·Z·Q Studio</p>
+        <p class="film-meta">Cortometraje experimental · Prod. V·Z·Q Studio</p>
         <p class="film-description">Concebido como una carta de amor a Madrid, una joven recién llegada a la capital retrata la experiencia de descubrir la ciudad mientras enfrenta la soledad y la memoria de la pérdida. El filme combina la intimidad del duelo con una mirada poética sobre la ciudad.</p>
+        <a href="proyectos/qmqp.html" class="film-link">
+          Ver proyecto
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
       </div>
     </div>
 
     <!-- STILLS QMQP -->
     <div class="stills-row reveal">
-      <img src="img/1.%20QMQP/qmqp1.png" alt="Still QMQP 1">
-      <img src="img/1.%20QMQP/qmqp2.png" alt="Still QMQP 2">
-      <img src="img/1.%20QMQP/qmqp3.png" alt="Still QMQP 3">
-      <img src="img/1.%20QMQP/qmqp4.png" alt="Still QMQP 4">
+      <img src="img/1.%20QMQP/qmqp1.png" alt="Still QMQP 1" onclick="openLightbox(this.src)">
+      <img src="img/1.%20QMQP/qmqp2.png" alt="Still QMQP 2" onclick="openLightbox(this.src)">
+      <img src="img/1.%20QMQP/qmqp3.png" alt="Still QMQP 3" onclick="openLightbox(this.src)">
+      <img src="img/1.%20QMQP/qmqp4.png" alt="Still QMQP 4" onclick="openLightbox(this.src)">
     </div>
 
     <!-- EN DESARROLLO -->
-    <div style="margin-top: 5rem;">
+    <div style="margin-top: 6rem;">
       <span class="section-label reveal">En desarrollo</span>
       <h2 class="section-title reveal" style="font-size: clamp(1.8rem, 4vw, 2.5rem);">Próximos proyectos</h2>
       <div class="section-divider reveal"></div>
@@ -694,15 +545,23 @@
 
     <!-- LO QUE ESTÁ EN JUEGO -->
     <div class="film-card reveal">
-      <div class="film-poster">
-        <img src="img/4.%20LQEEJ/still5.png" alt="Lo que está en juego" style="aspect-ratio: 16/9; object-fit: cover;">
-      </div>
+      <a href="proyectos/lqeej.html" class="film-poster" style="background: linear-gradient(135deg, #1a1a1a, #0a0a0a); aspect-ratio: 3/4; display: flex; align-items: center; justify-content: center;">
+        <div style="text-align: center; padding: 2rem;">
+          <div style="font-family: var(--font-display); font-size: 2.5rem; color: var(--accent); font-style: italic; line-height: 1.1; margin-bottom: 0.5rem;">Lo que<br>está en<br>juego</div>
+          <div style="font-size: 0.6rem; color: var(--ash); text-transform: uppercase; letter-spacing: 0.3em; margin-top: 1rem;">Próximamente</div>
+        </div>
+      </a>
       <div class="film-info">
-        <span class="film-status active">En desarrollo</span>
-        <h3 class="film-title">Lo que está en juego</h3>
+        <span class="film-status active">En preproducción</span>
+        <h3 class="film-title"><a href="proyectos/lqeej.html">Lo que está en juego</a></h3>
+        <p class="film-director">Un cortometraje de Tomás Vázquez</p>
         <p class="film-year">Próximamente</p>
-        <p class="film-meta">Largometraje · Dir. Tomás Vázquez · Prod. V·Z·Q Studio</p>
-        <p class="film-description">El proyecto de debut en largometraje de Tomás Vázquez abordará la normalización de las apuestas deportivas y sus consecuencias en la vida de los jóvenes. Un relato con enfoque naturalista y retorcidamente cómico sobre cómo lo que empieza siendo un juego puede convertirse en un pozo sin salida.</p>
+        <p class="film-meta">Cortometraje · Guion: Rubén Jiménez · Prod. V·Z·Q Studio</p>
+        <p class="film-description">Tras perder una apuesta deportiva mientras conoce a los padres de su novia, Christian tendrá que recurrir a medidas desesperadas para poder pagar la cena. El debut en dirección de Tomás Vázquez, sobre la normalización de las apuestas deportivas y sus consecuencias en los jóvenes.</p>
+        <a href="proyectos/lqeej.html" class="film-link">
+          Ver proyecto
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
       </div>
     </div>
   </section>
@@ -715,7 +574,7 @@
     <a href="mailto:vzqstudio@gmail.com" class="collab-cta reveal">Envíanos tu proyecto</a>
   </section>
 
-  <!-- FOOTER / CONTACTO -->
+  <!-- FOOTER -->
   <footer id="contacto">
     <div class="footer-grid">
       <div class="footer-col">
@@ -741,20 +600,23 @@
     </div>
   </footer>
 
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+    <img id="lightboxImg" src="" alt="">
+  </div>
+
   <script>
-    // Nav scroll effect
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => {
       nav.classList.toggle('scrolled', window.scrollY > 60);
     });
 
-    // Mobile nav
     const toggle = document.getElementById('navToggle');
     const links = document.getElementById('navLinks');
     toggle.addEventListener('click', () => links.classList.toggle('open'));
     function closeNav() { links.classList.remove('open'); }
 
-    // Reveal on scroll
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => {
@@ -765,6 +627,20 @@
       });
     }, { threshold: 0.12 });
     reveals.forEach(el => observer.observe(el));
+
+    function openLightbox(src) {
+      const lb = document.getElementById('lightbox');
+      document.getElementById('lightboxImg').src = src;
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
   </script>
 </body>
 </html>
