@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>V·Z·Q Studio · Productora de cine independiente · Madrid</title>
-  <meta name="description" content="V·Z·Q Studio es una productora de cine independiente con sede en Madrid. Producimos y coproducimos ficción de autor: Camila, El Neunoide, Chinchón, Punto Limpio.">
+  <meta name="description" content="V·Z·Q Studio es una productora de cine independiente con sede en Madrid. Producimos y coproducimos ficción de autor: Camila, El Neunoide, Chinchón, Punto Limpio, El Ciervo.">
   <meta property="og:title" content="V·Z·Q Studio">
   <meta property="og:description" content="Productora de cine independiente · Madrid">
-  <meta property="og:image" content="img/hero.jpeg">
+  <meta property="og:image" content="img/0.%20General/hero.jpeg">
   <meta property="og:type" content="website">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -72,7 +72,7 @@
     }
     .hero-bg {
       position: absolute; inset: 0;
-      background: url('img/hero.jpeg') center/cover no-repeat;
+      background: url('img/0.%20General/hero.jpeg') center/cover no-repeat;
       filter: brightness(.33) saturate(.8);
     }
     .hero-overlay {
@@ -180,6 +180,7 @@
     .team-info h3 { font-family: var(--font-display); font-weight: 400; font-size: 1.5rem; color: var(--white); }
     .team-role { display: block; font-size: .8rem; color: var(--accent); margin-bottom: .8rem; }
     .team-info p { font-size: .88rem; color: var(--ash); line-height: 1.75; }
+    .team-info p + p { margin-top: .8rem; }
 
     /* ── COLABORA ── */
     .collab-section { text-align: center; padding-top: 6rem; padding-bottom: 8rem; }
@@ -199,6 +200,31 @@
     .footer-col a, .footer-col p { display: block; font-size: .86rem; color: var(--ash); text-decoration: none; line-height: 1.9; }
     .footer-col a:hover { color: var(--accent); }
     .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid var(--charcoal); font-size: .72rem; color: #555; }
+
+    .film-link { display: inline-block; margin-top: 1.4rem; font-size: .8rem; color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-dim); padding-bottom: 2px; }
+    .film-link:hover { color: var(--white); border-color: var(--white); }
+    .about-films { font-family: var(--font-display); font-style: italic; font-size: 1.35rem; line-height: 1.55; color: var(--cream); margin-bottom: 1.6rem; max-width: 30em; }
+
+    /* ── COMPAÑEROS ── */
+    .partners { border-top: 1px solid var(--smoke); }
+    .partner { display: grid; grid-template-columns: 260px 1fr 220px; gap: 2.5rem; padding: 1.8rem 0; border-bottom: 1px solid var(--smoke); align-items: baseline; }
+    .partner h3 { font-family: var(--font-display); font-weight: 400; font-size: 1.4rem; color: var(--white); line-height: 1.2; }
+    .partner h3 small { display: block; font-family: var(--font-body); font-size: .78rem; color: var(--ash); margin-top: .2rem; }
+    .partner p { color: var(--silver); font-size: .9rem; line-height: 1.75; }
+    .partner .with { font-family: var(--font-display); font-style: italic; color: var(--ash); font-size: 1.05rem; text-align: right; }
+
+    /* ── SERVICIOS ── */
+    .services-intro { color: var(--silver); max-width: 36em; margin: -1rem 0 3rem; font-size: 1rem; }
+    .services { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid var(--smoke); border-bottom: 1px solid var(--smoke); }
+    .service { padding: 2.6rem 3rem 2.8rem 0; }
+    .service + .service { padding: 2.6rem 0 2.8rem 3rem; border-left: 1px solid var(--smoke); }
+    .service h3 { font-family: var(--font-display); font-weight: 400; font-size: 1.9rem; color: var(--white); line-height: 1.15; margin-bottom: 1rem; }
+    .service > p { color: var(--silver); font-size: .95rem; line-height: 1.8; margin-bottom: 1rem; max-width: 32em; }
+    .service h4 { font-weight: 500; font-size: .8rem; color: var(--accent); margin: 1.8rem 0 .6rem; }
+    .service ul { list-style: none; }
+    .service li { color: var(--cream); font-size: .9rem; padding: .45rem 0; border-bottom: 1px solid var(--charcoal); }
+    .services-cta { display: flex; justify-content: space-between; align-items: center; gap: 2rem; flex-wrap: wrap; padding-top: 2.4rem; }
+    .services-cta p { font-family: var(--font-display); font-style: italic; font-size: 1.35rem; color: var(--cream); }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
@@ -220,6 +246,11 @@
       .selection { grid-template-columns: 1fr; gap: 1.2rem; text-align: center; }
       .selection .film { text-align: center; }
       .team-member { flex-direction: column; }
+      .partner { grid-template-columns: 1fr; gap: .6rem; }
+      .services { grid-template-columns: 1fr; }
+      .service, .service + .service { padding: 2.2rem 0; border-left: 0; }
+      .service + .service { border-top: 1px solid var(--smoke); }
+      .partner .with { text-align: left; }
       .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
       .hero-laurels { gap: 2rem; }
       .hero-laurels img { height: 60px; }
@@ -234,11 +265,12 @@
 <body>
 
   <nav id="nav">
-    <a href="#" class="nav-logo"><img src="img/LOGO_VZQ.png" alt="V·Z·Q Studio"></a>
+    <a href="#" class="nav-logo"><img src="img/0.%20General/LOGO_VZQ.png" alt="V·Z·Q Studio"></a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#estudio">Estudio</a></li>
-      <li><a href="#peliculas">Películas</a></li>
+      <li><a href="#origen">Estudio</a></li>
+      <li><a href="#filmografia">Películas</a></li>
       <li><a href="#selecciones">Selecciones</a></li>
+      <li><a href="#servicios">Servicios</a></li>
       <li><a href="#equipo">Equipo</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
@@ -252,7 +284,7 @@
     <div class="hero-bg"></div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <img src="img/LOGO_VZQ.png" alt="V·Z·Q Studio">
+      <img src="img/0.%20General/LOGO_VZQ.png" alt="V·Z·Q Studio">
       <p class="hero-tagline">Productora de cine independiente · Madrid</p>
     </div>
     <div class="hero-laurels" aria-label="Selecciones">
@@ -262,79 +294,92 @@
   </header>
 
   <!-- ESTUDIO -->
-  <section id="estudio">
+  <section id="origen">
     <div class="about-grid">
       <div class="about-text">
         <span class="section-label">El estudio</span>
-        <h2 class="section-title">Cine de autor, hecho en equipo</h2>
-        <p>V·Z·Q Studio es una productora de cine independiente fundada en Madrid en 2025 por Tomás Vázquez y Constanza Padilla.</p>
-        <p>Producimos y coproducimos ficción de autor, sobre todo cortometrajes, y acompañamos a cada proyecto desde el desarrollo y la financiación hasta el rodaje y el recorrido por festivales.</p>
-        <p>Trabajamos junto a productoras de Madrid, Castilla y León y Cantabria, y apostamos por cineastas emergentes con historias propias.</p>
+        <h2 class="section-title">Nos gustan las historias que empiezan con un gesto pequeño</h2>
+        <p class="about-films">Una hija que finge no conocer a sus padres. Una apuesta de cinco euros. Dos chavales que no saben dónde tirar un móvil. Un hombre que sigue esperando a unos extraterrestres.</p>
+        <p>Nos interesan esos momentos mínimos que acaban cambiándolo todo, y contarlos con humor cuando se puede y sin sermones siempre.</p>
+        <p>V·Z·Q Studio nace en Madrid en 2025, fundada por Tomás Vázquez y Constanza Padilla. Producimos y coproducimos ficción, sobre todo cortometrajes, junto a productoras de Castilla y León y Cantabria, y acompañamos cada proyecto desde el guion hasta los festivales.</p>
       </div>
       <div class="about-image">
-        <img src="img/hero.jpeg" alt="Fotograma de una producción de V·Z·Q Studio">
+        <img src="img/0.%20General/hero.jpeg" alt="Fotograma de una producción de V·Z·Q Studio">
       </div>
     </div>
   </section>
 
   <!-- PELÍCULAS -->
-  <section id="peliculas">
+  <section id="filmografia">
     <span class="section-label">Nuestro trabajo</span>
     <h2 class="section-title">Películas</h2>
 
     <!-- CAMILA -->
     <article class="film-card">
-      <div class="film-poster"><img src="img/camila.jpg" alt="Cartel de Camila"></div>
+      <div class="film-poster"><img src="img/3.%20CAMILA/poster_final_seminci.jpeg" alt="Cartel de Camila"></div>
       <div class="film-info">
-        <span class="film-status active">En festivales</span>
+        <span class="film-status active">En distribución</span>
         <h3 class="film-title">Camila</h3>
         <p class="film-year">Cortometraje, 2026</p>
         <dl class="credits">
-          <dt>Dirección</dt><dd>Ramón Sánchez</dd>
-          <dt>Producción</dt><dd>V·Z·Q Studio, Kamituga Films, Estudio Clementine, Anomalía Films</dd>
+          <dt>Dirección</dt><dd>Ramón Sánchez Orense</dd>
+          <dt>Reparto</dt><dd>Jeo Rosso, Chus Gutiérrez, Lula Sáez</dd>
+          <dt>Producción</dt><dd>Kamituga Films, Estudio Clementine, V·Z·Q Studio, Anomalía Films</dd>
         </dl>
-        <p class="film-description">Camila tiene 19 años, vive en Burgos y es hija de inmigrantes dominicanos. Cuando en su primer día de trabajo finge no conocer a sus padres, ese gesto abre una grieta que la enfrenta a su familia, a sus raíces y al miedo a no encajar.</p>
+        <p class="film-description">Camila tiene 19 años, juega al voleibol en Burgos y es hija de inmigrantes dominicanos. Cuando sus padres entran en la zapatería donde empieza a trabajar, finge no conocerlos. Un gesto pequeño que abre una grieta con su familia, con sus raíces y con ella misma.</p>
         <div class="film-laurels">
           <img src="img/selecciones/seminci-cyl-en-corto.png" alt="Selección oficial SEMINCI 2026, Castilla y León en Corto">
           <img class="quercus" src="img/selecciones/quercus-2026.png" alt="Catálogo QUERCUS 2026">
         </div>
+        <a class="film-link" href="proyectos/camila.html">Ver la película</a>
       </div>
     </article>
 
+    <div class="stills-row">
+      <img src="img/3.%20CAMILA/0e9cf8c5-83c1-45c1-b1c6-84df1711bcd3.JPG" alt="Fotograma de Camila">
+      <img src="img/3.%20CAMILA/4b4f0ef3-4840-4975-90f4-d9b165d45f48.JPG" alt="Fotograma de Camila">
+      <img src="img/3.%20CAMILA/7ac32311-46d2-47f7-87d1-7c9598474f2d.JPG" alt="Fotograma de Camila">
+      <img src="img/3.%20CAMILA/b393e7cc-3947-493d-b89c-b324dc715a36.JPG" alt="Fotograma de Camila">
+    </div>
+
     <!-- EL NEUNOIDE -->
     <article class="film-card flip">
-      <div class="film-poster"><img src="img/neunoide.png" alt="Cartel de El Neunoide"></div>
+      <div class="film-poster"><img src="img/2.%20NEUNOIDE/neunoide.png" alt="Cartel de El Neunoide"></div>
       <div class="film-info">
         <span class="film-status">En distribución</span>
         <h3 class="film-title">El Neunoide</h3>
         <p class="film-year">Cortometraje, 2025</p>
         <dl class="credits">
-          <dt>Dirección</dt><dd>Fernando Pardo</dd>
+          <dt>Guion y dirección</dt><dd>Fernando Pardo</dd>
+          <dt>Reparto</dt><dd>Antoni Ramírez</dd>
           <dt>Producción</dt><dd>V·Z·Q Studio</dd>
+          <dt>Distribución</dt><dd>YAQ Distribución</dd>
         </dl>
-        <p class="film-description">Juan está convencido de que los Neunoides, unos extraterrestres que le visitaron de niño, volverán pronto a por él. Un retrato de la inocencia y la obsesión de un adulto que se aferra a la fantasía que da sentido a su vida.</p>
+        <p class="film-description">Juan está convencido de que los Neunoides, unos extraterrestres que le visitaron de niño, volverán pronto a por él. Nuestra primera producción: un niño atrapado en el cuerpo de un adulto, aferrado a la única fantasía que da sentido a su vida.</p>
+        <a class="film-link" href="proyectos/neunoide.html">Ver la película</a>
       </div>
     </article>
 
     <div class="stills-row">
-      <img src="img/still1.png" alt="Fotograma de El Neunoide">
-      <img src="img/still2.png" alt="Fotograma de El Neunoide">
-      <img src="img/still3.png" alt="Fotograma de El Neunoide">
-      <img src="img/still4.png" alt="Fotograma de El Neunoide">
+      <img src="img/2.%20NEUNOIDE/still1.png" alt="Fotograma de El Neunoide">
+      <img src="img/2.%20NEUNOIDE/still2.png" alt="Fotograma de El Neunoide">
+      <img src="img/2.%20NEUNOIDE/still3.png" alt="Fotograma de El Neunoide">
+      <img src="img/2.%20NEUNOIDE/still4.png" alt="Fotograma de El Neunoide">
     </div>
 
     <!-- QMQP -->
     <article class="film-card">
-      <div class="film-poster"><img class="wide" src="img/qmqp1.png" alt="Fotograma de Querida mamá, querido papá"></div>
+      <div class="film-poster"><img src="img/1.%20QMQP/CARTEL_QMQP.jpeg" alt="Cartel de Querida mamá, querido papá"></div>
       <div class="film-info">
         <span class="film-status">Terminada</span>
         <h3 class="film-title">Querida mamá, querido papá</h3>
         <p class="film-year">Cortometraje experimental, 2024</p>
         <dl class="credits">
-          <dt>Dirección</dt><dd>Fernando Pardo</dd>
+          <dt>Guion y dirección</dt><dd>Fernando Pardo</dd>
           <dt>Producción</dt><dd>V·Z·Q Studio</dd>
         </dl>
-        <p class="film-description">Una joven recién llegada a Madrid descubre la ciudad mientras convive con la soledad y la memoria de una pérdida. Una carta de amor a Madrid entre el diario íntimo y el duelo.</p>
+        <p class="film-description">Una joven recién llegada a Madrid escribe a sus padres ausentes mientras descubre la ciudad. Una carta de amor a Madrid escrita desde la soledad y el duelo.</p>
+        <a class="film-link" href="proyectos/qmqp.html">Ver la película</a>
       </div>
     </article>
 
@@ -346,7 +391,7 @@
         <div class="upcoming-media placeholder"><span>Chinchón</span></div>
         <span class="film-status active">En postproducción</span>
         <h3 class="film-title">Chinchón</h3>
-        <p class="film-year">Cortometraje</p>
+        <p class="film-year">Cortometraje, Santander</p>
         <dl class="credits">
           <dt>Guion y dirección</dt><dd>Daniel González Catalina</dd>
           <dt>Producción</dt><dd>WIP.MOV, V·Z·Q Studio</dd>
@@ -355,20 +400,47 @@
       </article>
 
       <article>
-        <div class="upcoming-media placeholder"><span>Punto Limpio</span></div>
-        <span class="film-status active">En desarrollo</span>
-        <h3 class="film-title">Punto Limpio</h3>
-        <p class="film-year">Cortometraje, rodaje en Potes (Cantabria) en 2026</p>
+        <div class="upcoming-media placeholder"><span>Lo que está en juego</span></div>
+        <span class="film-status active">En preproducción</span>
+        <h3 class="film-title">Lo que está en juego</h3>
+        <p class="film-year">Cortometraje, rodaje en Madrid en 2027</p>
         <dl class="credits">
-          <dt>Dirección</dt><dd>Alejandro Sánchez y Pedro Gusmão</dd>
-          <dt>Guion</dt><dd>Ramón Sánchez</dd>
-          <dt>Producción</dt><dd>El Nidu, Kamituga Films, V·Z·Q Studio</dd>
+          <dt>Dirección</dt><dd>Tomás Vázquez</dd>
+          <dt>Guion</dt><dd>Rubén Jiménez</dd>
+          <dt>Reparto</dt><dd>Álex Fernández, Alicia Cisneros</dd>
+          <dt>Producción</dt><dd>V·Z·Q Studio, Kamituga Films, Estudio Clementine</dd>
         </dl>
-        <p class="film-description">Dos traficantes de poca monta reciben la orden de tirar sus móviles al mar. Pero uno de ellos es ecologista y se empeña en llevarlos a un punto limpio. Una comedia absurda sobre lo difícil que es hacer las cosas bien.</p>
+        <p class="film-description">Tras perder una apuesta deportiva online mientras cena con los padres de su novia, Christian tendrá que recurrir a medidas desesperadas para poder pagar la cuenta. Una comedia negra sobre la ludopatía que te hace reír hasta que deja de tener gracia.</p>
+        <a class="film-link" href="proyectos/lqeej.html">Ver el proyecto</a>
       </article>
 
       <article>
-        <div class="upcoming-media"><img src="img/qmqp3.png" alt="Imagen de referencia de Clemencia"></div>
+        <div class="upcoming-media placeholder"><span>Punto Limpio</span></div>
+        <span class="film-status active">En desarrollo</span>
+        <h3 class="film-title">Punto Limpio</h3>
+        <p class="film-year">Cortometraje, rodaje en Potes (Cantabria)</p>
+        <dl class="credits">
+          <dt>Dirección</dt><dd>Alejandro Sánchez y Pedro Gusmão</dd>
+          <dt>Guion</dt><dd>Ramón Sánchez Orense</dd>
+          <dt>Producción</dt><dd>El Nidu, Kamituga Films, V·Z·Q Studio</dd>
+        </dl>
+        <p class="film-description">Dos traficantes de poca monta reciben la orden de tirar sus móviles al mar. Pero uno de ellos es ecologista y se empeña en llevarlos a un punto limpio. Una comedia absurda sobre lo difícil que es portarse bien.</p>
+      </article>
+
+      <article>
+        <div class="upcoming-media placeholder"><span>El Ciervo</span></div>
+        <span class="film-status active">En desarrollo</span>
+        <h3 class="film-title">El Ciervo</h3>
+        <p class="film-year">Cortometraje, thriller en blanco y negro. Rodaje en Burgos en 2027</p>
+        <dl class="credits">
+          <dt>Guion y dirección</dt><dd>Ramón Sánchez Orense</dd>
+          <dt>Producción</dt><dd>Kamituga Films, V·Z·Q Studio</dd>
+        </dl>
+        <p class="film-description">Una pareja de atracadores huye hacia Francia de noche y bajo la lluvia. En una carretera de montaña atropellan a un ciervo, y lo que hacer con el animal herido les obliga a descubrir hasta qué punto se conocen. La huida se convierte en una prueba de su amor.</p>
+      </article>
+
+      <article>
+        <div class="upcoming-media"><img src="img/1.%20QMQP/qmqp3.png" alt="Imagen de referencia de Clemencia"></div>
         <span class="film-status active">En desarrollo</span>
         <h3 class="film-title">Clemencia</h3>
         <p class="film-year">Cortometraje</p>
@@ -376,19 +448,7 @@
           <dt>Dirección</dt><dd>Constanza Padilla</dd>
           <dt>Producción</dt><dd>V·Z·Q Studio, Claqueta Blanca Producciones</dd>
         </dl>
-        <p class="film-description">El debut en la dirección de Constanza Padilla. Una noche que lo cambia todo, a través de la que explora la culpa religiosa y la orientación sexual.</p>
-      </article>
-
-      <article>
-        <div class="upcoming-media"><img src="img/still5.png" alt="Imagen de referencia de Lo que está en juego"></div>
-        <span class="film-status active">En desarrollo</span>
-        <h3 class="film-title">Lo que está en juego</h3>
-        <p class="film-year">Largometraje</p>
-        <dl class="credits">
-          <dt>Dirección</dt><dd>Tomás Vázquez</dd>
-          <dt>Producción</dt><dd>V·Z·Q Studio</dd>
-        </dl>
-        <p class="film-description">El primer largometraje de Tomás Vázquez aborda la normalización de las apuestas deportivas entre los jóvenes. Un relato naturalista y con humor negro sobre cómo un juego se convierte en un pozo sin salida.</p>
+        <p class="film-description">Una noche que empieza con alcohol y risas se convierte en pesadilla cuando Tamara recibe una llamada. Desde ese momento, el miedo a perder a su padre choca con su fe y con la creencia de que amar a otra mujer puede ser castigado. El debut en la dirección de Constanza Padilla.</p>
       </article>
 
     </div>
@@ -418,26 +478,113 @@
     </div>
   </section>
 
+  <!-- SERVICIOS -->
+  <section id="servicios">
+    <span class="section-label">Servicios</span>
+    <h2 class="section-title">Lo que hemos aprendido, a tu servicio</h2>
+    <p class="services-intro">Levantar un cortometraje en España implica tanto papeleo como cine. Ya hemos pasado por ahí varias veces, así que ahora ayudamos a otros equipos a hacerlo.</p>
+    <div class="services">
+      <article class="service">
+        <h3>Consultoría de producción ejecutiva</h3>
+        <p>Te acompañamos en la parte administrativa, legal y financiera de tu proyecto, para que puedas centrarte en la película.</p>
+        <h4>Trámites en el ICAA</h4>
+        <ul>
+          <li>Alta de tu cortometraje en el ICAA</li>
+          <li>Comunicación de la fecha de inicio de rodaje</li>
+          <li>Certificado de nacionalidad española</li>
+          <li>Calificación por edades</li>
+        </ul>
+        <h4>Financiación y contratos</h4>
+        <ul>
+          <li>Presupuesto y plan de financiación</li>
+          <li>Solicitud y justificación de ayudas autonómicas</li>
+          <li>Coproducciones entre productoras y comunidades autónomas</li>
+          <li>Contratos de coproducción, dirección y composición musical</li>
+        </ul>
+        <h4>Y además</h4>
+        <ul>
+          <li>Orientación para fundar tu propia productora</li>
+          <li>Orientación para la distribución y el recorrido por festivales</li>
+        </ul>
+      </article>
+      <article class="service">
+        <h3>Diseño de dosieres</h3>
+        <p>Diseñamos y ayudamos a estructurar el dosier de tu proyecto para convocatorias de ayudas, laboratorios, mercados, festivales o campañas de crowdfunding.</p>
+        <p>Nuestros dosieres ya han conseguido ayudas públicas de la Junta de Castilla y León y del Gobierno de Cantabria. Sabemos qué se valora, cómo ordenar la memoria de dirección y de producción, y cómo hacer que un proyecto se entienda de un vistazo.</p>
+        <h4>Qué incluye</h4>
+        <ul>
+          <li>Estructura del dosier según la convocatoria</li>
+          <li>Revisión de sinopsis, memorias y textos</li>
+          <li>Diseño gráfico y maquetación</li>
+          <li>Versiones adaptadas para distintas convocatorias</li>
+        </ul>
+      </article>
+    </div>
+    <div class="services-cta">
+      <p>Nos adaptamos a cada proyecto. Escríbenos y te contamos cómo podemos ayudarte.</p>
+      <a href="mailto:vzqstudio@gmail.com?subject=Servicios%20V%C2%B7Z%C2%B7Q%20Studio" class="collab-cta">Pide información</a>
+    </div>
+  </section>
+
   <!-- EQUIPO -->
   <section id="equipo">
     <span class="section-label">Quiénes somos</span>
     <h2 class="section-title">Equipo</h2>
     <div class="team-grid">
       <div class="team-member">
-        <img src="img/tomas.jpg" alt="Tomás Vázquez" class="team-photo">
+        <img src="img/0.%20General/tomas.jpg" alt="Tomás Vázquez" class="team-photo">
         <div class="team-info">
           <h3>Tomás Vázquez</h3>
           <span class="team-role">Fundador, productor y director</span>
-          <p>Nacido en Sevilla y formado en Ingeniería Robótica. En 2023 se traslada a Madrid para dedicarse al cine. Tras formarse en el Instituto del Cine de Madrid y especializarse en producción en la Universidad Carlos III, funda V·Z·Q Studio en 2025.</p>
+          <p>Sevillano e ingeniero robótico. En 2023 se muda a Madrid para hacer cine, se forma en el Instituto del Cine de Madrid y en el Máster en Gestión de la Industria Cinematográfica de la Universidad Carlos III, y en 2025 funda V·Z·Q Studio. Sigue compaginando la ingeniería con la producción.</p>
+          <p>Le fascina lo bien que se nos da engañarnos a nosotros mismos, y cree que una historia que te hace reír y dudar de si deberías estar riéndote dice más que un sermón. Prepara su debut como director con Lo que está en juego.</p>
         </div>
       </div>
       <div class="team-member">
-        <img src="img/constanza.jpg" alt="Constanza Padilla" class="team-photo">
+        <img src="img/0.%20General/constanza.jpg" alt="Constanza Padilla" class="team-photo">
         <div class="team-info">
           <h3>Constanza Padilla</h3>
           <span class="team-role">Cofundadora, directora de arte y directora</span>
-          <p>Nacida en Ciudad de México en 1999, arquitecta de formación. Llega a Madrid en 2023 y se especializa en dirección de arte en el Instituto del Cine de Madrid. Prepara su debut como directora con Clemencia.</p>
+          <p>Nacida en Ciudad de México en 1999 y arquitecta de formación. Llega a Madrid en 2023 empujada por su pasión por el cine de terror y se especializa en dirección de arte en el Instituto del Cine de Madrid. Diseñó el vestuario de Camila y prepara su debut como directora con Clemencia.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPAÑEROS -->
+  <section id="companeros">
+    <span class="section-label">Con quién hacemos cine</span>
+    <h2 class="section-title">Compañeros de viaje</h2>
+    <div class="partners">
+      <div class="partner">
+        <h3>Ramón Sánchez Orense<small>Kamituga Films · Burgos</small></h3>
+        <p>Cineasta de Santoña afincado en Burgos, con una trayectoria en documental creativo y Derechos Humanos rodada en Ruanda, RD Congo, Sudán del Sur o Camboya. Su corto A Second Family fue premiado en AcampaDOC y en el Festival Internacional de Cortometrajes de Glasgow, y su documental Zeta está en RTVE Play. Con Camila dio el salto a la ficción.</p>
+        <div class="with">Camila, Punto Limpio, El Ciervo, Lo que está en juego</div>
+      </div>
+      <div class="partner">
+        <h3>Estudio Clementine<small>María Castillo y Patxi Gabella · Cantabria</small></h3>
+        <p>Productora fundada en 2010, con más de quince años en ficción y documental. Su corto El barrio que no se rindió ganó el premio al Mejor Documental en el Festival de Cortometrajes de Torrelavega en 2025, y prepara su primer largo de ficción, El Florentina.</p>
+        <div class="with">Camila, Lo que está en juego</div>
+      </div>
+      <div class="partner">
+        <h3>WIP.MOV<small>Alejandro Sánchez Porras · Santander</small></h3>
+        <p>Estudio cántabro de producción y postproducción que trabaja en ficción, publicidad y videoclip.</p>
+        <div class="with">Chinchón, Punto Limpio</div>
+      </div>
+      <div class="partner">
+        <h3>El Nidu<small>Pedro Gusmão · Cantabria</small></h3>
+        <p>Productora de desarrollo con foco en el guion y organizadora de El Lab del Norte, laboratorio de guion para talentos del norte de España.</p>
+        <div class="with">Punto Limpio</div>
+      </div>
+      <div class="partner">
+        <h3>Fernando Pardo<small>Guionista y director</small></h3>
+        <p>Firmó nuestras dos primeras películas.</p>
+        <div class="with">El Neunoide, Querida mamá, querido papá</div>
+      </div>
+      <div class="partner">
+        <h3>Anomalía Films y Claqueta Blanca<small>Productoras</small></h3>
+        <p>Coproductoras de Camila y Clemencia, respectivamente.</p>
+        <div class="with">Camila, Clemencia</div>
       </div>
     </div>
   </section>
@@ -446,7 +593,7 @@
   <section class="collab-section" id="colabora">
     <span class="section-label">Colabora</span>
     <h2 class="section-title">¿Tienes un proyecto?</h2>
-    <p class="collab-text">Buscamos historias con las que conectar. Si eres cineasta o guionista y quieres levantar tu proyecto, escríbenos.</p>
+    <p class="collab-text">Casi todo lo que hacemos lo hacemos con otros. Si eres cineasta o productora y tienes una historia que te quita el sueño, escríbenos.</p>
     <a href="mailto:vzqstudio@gmail.com" class="collab-cta">Envíanos tu proyecto</a>
   </section>
 
