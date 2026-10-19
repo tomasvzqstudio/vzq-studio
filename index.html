@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>V·Z·Q Studio · Productora de cine independiente · Madrid</title>
-  <meta name="description" content="V·Z·Q Studio es una productora de cine independiente con sede en Madrid. Producimos y coproducimos ficción de autor: Camila, El Neunoide, Chinchón, Punto Limpio, El Ciervo.">
+  <meta name="description" content="V·Z·Q Studio es una productora de cine independiente con sede en Madrid. Producimos y coproducimos ficción de autor: Camila, El Neunoide, Chinchón, El Ciervo.">
   <meta property="og:title" content="V·Z·Q Studio">
   <meta property="og:description" content="Productora de cine independiente · Madrid">
   <meta property="og:image" content="img/0.%20General/hero.jpeg">
@@ -156,6 +156,15 @@
     .stills-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; margin: -2rem 0 5rem; }
     .stills-row img { width: 100%; aspect-ratio: 16/9; object-fit: cover; filter: saturate(.8) brightness(.85); transition: filter .4s; }
     .stills-row img:hover { filter: none; }
+    .stills-row img { cursor: zoom-in; }
+    .lightbox { position: fixed; inset: 0; z-index: 200; background: rgba(5,5,5,.96); display: none; align-items: center; justify-content: center; padding: 2rem; }
+    .lightbox.open { display: flex; }
+    .lightbox img { max-width: 100%; max-height: 100%; object-fit: contain; }
+    .lightbox-close, .lightbox-nav { position: absolute; background: none; border: 0; color: var(--cream); cursor: pointer; font-size: 1.6rem; padding: 1rem; opacity: .7; transition: opacity .3s; }
+    .lightbox-close:hover, .lightbox-nav:hover { opacity: 1; }
+    .lightbox-close { top: 1rem; right: 1rem; }
+    .lightbox-prev { left: .5rem; top: 50%; transform: translateY(-50%); font-size: 2.4rem; }
+    .lightbox-next { right: .5rem; top: 50%; transform: translateY(-50%); font-size: 2.4rem; }
 
     /* Proyectos en marcha */
     .upcoming { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem 3.5rem; }
@@ -406,19 +415,6 @@
       </article>
 
       <article>
-        <div class="upcoming-media placeholder"><span>Punto Limpio</span></div>
-        <span class="film-status active">En desarrollo</span>
-        <h3 class="film-title">Punto Limpio</h3>
-        <p class="film-year">Cortometraje, rodaje en Potes (Cantabria)</p>
-        <dl class="credits">
-          <dt>Dirección</dt><dd>Alejandro Sánchez y Pedro Gusmão</dd>
-          <dt>Guion</dt><dd>Ramón Sánchez Orense</dd>
-          <dt>Producción</dt><dd>El Nidu, Kamituga Films, V·Z·Q Studio</dd>
-        </dl>
-        <p class="film-description">Dos traficantes de poca monta reciben la orden de tirar sus móviles al mar. Pero uno de ellos es ecologista y se empeña en llevarlos a un punto limpio. Una comedia absurda sobre lo difícil que es portarse bien.</p>
-      </article>
-
-      <article>
         <div class="upcoming-media placeholder"><span>El Ciervo</span></div>
         <span class="film-status active">En desarrollo</span>
         <h3 class="film-title">El Ciervo</h3>
@@ -570,7 +566,37 @@
     <div class="footer-bottom">© 2026 V·Z·Q Studio. Todos los derechos reservados.</div>
   </footer>
 
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Fotograma a pantalla completa">
+    <button class="lightbox-close" id="lbClose" aria-label="Cerrar">✕</button>
+    <button class="lightbox-nav lightbox-prev" id="lbPrev" aria-label="Anterior">‹</button>
+    <img id="lbImg" src="" alt="">
+    <button class="lightbox-nav lightbox-next" id="lbNext" aria-label="Siguiente">›</button>
+  </div>
+
   <script>
+    (() => {
+      const lb = document.getElementById('lightbox'), img = document.getElementById('lbImg');
+      let group = [], i = 0;
+      const show = () => { img.src = group[i].src; img.alt = group[i].alt; };
+      const open = (g, n) => { group = g; i = n; show(); lb.classList.add('open'); document.body.style.overflow = 'hidden'; };
+      const close = () => { lb.classList.remove('open'); document.body.style.overflow = ''; };
+      const step = d => { i = (i + d + group.length) % group.length; show(); };
+      document.querySelectorAll('.stills-row').forEach(row => {
+        const imgs = [...row.querySelectorAll('img')];
+        imgs.forEach((im, n) => im.addEventListener('click', () => open(imgs, n)));
+      });
+      document.getElementById('lbClose').addEventListener('click', close);
+      document.getElementById('lbPrev').addEventListener('click', e => { e.stopPropagation(); step(-1); });
+      document.getElementById('lbNext').addEventListener('click', e => { e.stopPropagation(); step(1); });
+      lb.addEventListener('click', e => { if (e.target === lb) close(); });
+      document.addEventListener('keydown', e => {
+        if (!lb.classList.contains('open')) return;
+        if (e.key === 'Escape') close();
+        if (e.key === 'ArrowLeft') step(-1);
+        if (e.key === 'ArrowRight') step(1);
+      });
+    })();
+
     const nav = document.getElementById('nav');
     addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 60), { passive: true });
     const toggle = document.getElementById('navToggle');
