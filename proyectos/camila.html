@@ -273,6 +273,8 @@
       .cf-box { padding: 2rem 1.5rem; }
       .cf-stats { gap: 1.5rem; }
     }
+    .imdb-link { display: inline-block; margin-top: 1.6rem; font-size: .8rem; letter-spacing: .08em; color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-dim); padding-bottom: 2px; transition: color .3s, border-color .3s; }
+    .imdb-link:hover { color: var(--white); border-color: var(--white); }
     .laurels { display: flex; gap: 2rem; align-items: center; margin-top: 2.2rem; flex-wrap: wrap; }
     .laurels img { height: 76px; width: auto; }
     .laurels img.quercus { height: 62px; }
@@ -281,8 +283,8 @@
     .crew dt { color: var(--ash); }
     .crew dd { color: var(--cream); }
     .stills-full { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 1.5rem; }
-    .stills-full img { width: 100%; aspect-ratio: 16/9; object-fit: cover; cursor: zoom-in; filter: brightness(.92); transition: filter .4s; }
-    .stills-full img:hover { filter: brightness(1.05); }
+    .stills-full img { width: 100%; aspect-ratio: 16/9; object-fit: cover; cursor: pointer; filter: brightness(.85); transition: filter .5s ease, transform .5s cubic-bezier(.2,.8,.2,1), box-shadow .5s ease; }
+    .stills-full img:hover { filter: brightness(1.05); transform: translateY(-6px); box-shadow: 0 18px 40px rgba(0,0,0,.6); position: relative; z-index: 2; }
     .logos img.jpg-logo { mix-blend-mode: lighten; height: 64px; }
     .logos-label { font-size: .7rem !important; letter-spacing: .18em; text-transform: uppercase; color: var(--ash) !important; margin: 2rem 0 0 !important; }
     .logos { display: flex; flex-wrap: wrap; align-items: center; gap: 2.2rem 3rem; margin-top: 1rem; padding: 1.4rem 0; border-top: 1px solid var(--charcoal); }
@@ -343,6 +345,7 @@
         <img src="../img/selecciones/seminci-cyl-en-corto.png" alt="Selección oficial SEMINCI 2026, Castilla y León en Corto">
         <img class="quercus" src="../img/selecciones/quercus-2026.png" alt="Catálogo QUERCUS 2026">
       </div>
+      <a class="imdb-link" href="https://www.imdb.com/title/tt48434080/" target="_blank" rel="noopener">Ver en IMDb ↗</a>
     </div>
   </header>
 

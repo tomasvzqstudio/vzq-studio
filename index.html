@@ -135,7 +135,13 @@
     .film-card { display: grid; grid-template-columns: 340px 1fr; gap: 3.5rem; align-items: center; margin-bottom: 5rem; }
     .film-card.flip { grid-template-columns: 1fr 340px; }
     .film-card.flip .film-poster { order: 2; }
-    .film-poster img { width: 100%; filter: brightness(.92); }
+    .film-poster a { display: block; }
+    .film-poster img { width: 100%; filter: brightness(.92); transition: filter .5s ease, transform .5s cubic-bezier(.2,.8,.2,1), box-shadow .5s ease; }
+    .film-poster a:hover img { filter: brightness(1.05); transform: translateY(-8px); box-shadow: 0 24px 60px rgba(0,0,0,.65); }
+    .upcoming-media-link { display: block; text-decoration: none; transition: transform .5s cubic-bezier(.2,.8,.2,1); }
+    .upcoming-media-link:hover { transform: translateY(-6px); }
+    .upcoming-media-link:hover .placeholder { border-color: var(--accent-dim); }
+    .film-links { display: flex; gap: 1.6rem; flex-wrap: wrap; align-items: baseline; }
     .film-poster img.wide { aspect-ratio: 16/9; object-fit: cover; }
 
     .film-status {
@@ -154,9 +160,8 @@
     .film-laurels img.quercus { height: 48px; }
 
     .stills-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; margin: -2rem 0 5rem; }
-    .stills-row img { width: 100%; aspect-ratio: 16/9; object-fit: cover; filter: saturate(.8) brightness(.85); transition: filter .4s; }
-    .stills-row img:hover { filter: none; }
-    .stills-row img { cursor: zoom-in; }
+    .stills-row img { width: 100%; aspect-ratio: 16/9; object-fit: cover; cursor: pointer; filter: saturate(.8) brightness(.8); transition: filter .5s ease, transform .5s cubic-bezier(.2,.8,.2,1), box-shadow .5s ease; }
+    .stills-row img:hover { filter: none; transform: translateY(-6px); box-shadow: 0 18px 40px rgba(0,0,0,.6); position: relative; z-index: 2; }
     .lightbox { position: fixed; inset: 0; z-index: 200; background: rgba(5,5,5,.96); display: none; align-items: center; justify-content: center; padding: 2rem; }
     .lightbox.open { display: flex; }
     .lightbox img { max-width: 100%; max-height: 100%; object-fit: contain; }
@@ -316,7 +321,7 @@
 
     <!-- CAMILA -->
     <article class="film-card">
-      <div class="film-poster"><img src="img/3.%20CAMILA/poster_final_seminci.jpeg" alt="Cartel de Camila"></div>
+      <div class="film-poster"><a href="proyectos/camila.html"><img src="img/3.%20CAMILA/poster_final_seminci.jpeg" alt="Cartel de Camila"></a></div>
       <div class="film-info">
         <span class="film-status active">En distribución</span>
         <h3 class="film-title">Camila</h3>
@@ -331,7 +336,10 @@
           <img src="img/selecciones/seminci-cyl-en-corto.png" alt="Selección oficial SEMINCI 2026, Castilla y León en Corto">
           <img class="quercus" src="img/selecciones/quercus-2026.png" alt="Catálogo QUERCUS 2026">
         </div>
-        <a class="film-link" href="proyectos/camila.html">Ver la película</a>
+        <div class="film-links">
+          <a class="film-link" href="proyectos/camila.html">Ver la película</a>
+          <a class="film-link" href="https://www.imdb.com/title/tt48434080/" target="_blank" rel="noopener">IMDb ↗</a>
+        </div>
       </div>
     </article>
 
@@ -344,7 +352,7 @@
 
     <!-- EL NEUNOIDE -->
     <article class="film-card flip">
-      <div class="film-poster"><img src="img/2.%20NEUNOIDE/neunoide.png" alt="Cartel de El Neunoide"></div>
+      <div class="film-poster"><a href="proyectos/neunoide.html"><img src="img/2.%20NEUNOIDE/neunoide.png" alt="Cartel de El Neunoide"></a></div>
       <div class="film-info">
         <span class="film-status">En distribución</span>
         <h3 class="film-title">El Neunoide</h3>
@@ -369,7 +377,7 @@
 
     <!-- QMQP -->
     <article class="film-card">
-      <div class="film-poster"><img src="img/1.%20QMQP/CARTEL_QMQP.jpeg" alt="Cartel de Querida mamá, querido papá"></div>
+      <div class="film-poster"><a href="proyectos/qmqp.html"><img src="img/1.%20QMQP/CARTEL_QMQP.jpeg" alt="Cartel de Querida mamá, querido papá"></a></div>
       <div class="film-info">
         <span class="film-status">Terminada</span>
         <h3 class="film-title">Querida mamá, querido papá</h3>
@@ -400,7 +408,7 @@
       </article>
 
       <article>
-        <div class="upcoming-media placeholder"><span>Lo que está en juego</span></div>
+        <a class="upcoming-media-link" href="proyectos/lqeej.html" aria-label="Ver Lo que está en juego"><div class="upcoming-media placeholder"><span>Lo que está en juego</span></div></a>
         <span class="film-status active">En preproducción</span>
         <h3 class="film-title">Lo que está en juego</h3>
         <p class="film-year">Cortometraje, rodaje en Madrid en 2027</p>
