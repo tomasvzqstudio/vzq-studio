@@ -154,6 +154,8 @@
     .credits { display: grid; grid-template-columns: max-content 1fr; gap: .25rem 1.2rem; font-size: .84rem; margin-bottom: 1.3rem; }
     .credits dt { color: var(--ash); }
     .credits dd { color: var(--cream); }
+    .credits dd a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--accent-dim); transition: color .3s, border-color .3s; }
+    .credits dd a:hover { color: var(--accent); border-color: var(--accent); }
     .film-description { color: var(--silver); font-size: .95rem; line-height: 1.8; max-width: 36em; }
     .film-laurels { display: flex; gap: 1.6rem; align-items: center; margin-top: 1.8rem; }
     .film-laurels img { height: 58px; width: auto; }
@@ -330,6 +332,7 @@
           <dt>Dirección</dt><dd>Ramón Sánchez Orense</dd>
           <dt>Reparto</dt><dd>Jeo Rosso, Santa Simona Esperanza, Pedro Alcántara</dd>
           <dt>Producción</dt><dd>Kamituga Films, Estudio Clementine, V·Z·Q Studio, Anomalía Films</dd>
+          <dt>Distribución</dt><dd><a href="https://www.digital104filmdistribution.com" target="_blank" rel="noopener">Digital 104</a></dd>
         </dl>
         <p class="film-description">Cuando su familia pasa a visitarla durante su primer día de trabajo en una zapatería, Camila finge no conocerlos.</p>
         <div class="film-laurels">
