@@ -177,6 +177,8 @@
     .lightbox-close, .lightbox-nav { position: absolute; background: none; border: 0; color: var(--cream); cursor: pointer; font-size: 1.6rem; padding: 1rem; opacity: .7; transition: opacity .3s; }
     .lightbox-close:hover, .lightbox-nav:hover { opacity: 1; }
     .lightbox-close { top: 1rem; right: 1rem; }
+    .video-modal-frame { width: min(1100px, 100%); aspect-ratio: 16/9; background: #000; box-shadow: 0 30px 80px rgba(0,0,0,.6); }
+    .video-modal-frame iframe { width: 100%; height: 100%; border: 0; display: block; }
     .lightbox-prev { left: .5rem; top: 50%; transform: translateY(-50%); font-size: 2.4rem; }
     .lightbox-next { right: .5rem; top: 50%; transform: translateY(-50%); font-size: 2.4rem; }
 
@@ -354,6 +356,7 @@
         </div>
         <div class="film-links">
           <a class="film-link" href="proyectos/camila.html">Más información</a>
+          <a class="film-link" href="https://youtu.be/reqfVppA9ws" data-trailer="reqfVppA9ws" data-title="Camila, tráiler oficial">Ver tráiler ▸</a>
           <a class="film-link" href="https://www.imdb.com/title/tt48434080/" target="_blank" rel="noopener">IMDb ↗</a>
         </div>
       </div>
@@ -602,6 +605,11 @@
     <div class="footer-bottom">© 2026 V·Z·Q Studio. Todos los derechos reservados.</div>
   </footer>
 
+  <div class="lightbox video-modal" id="videoModal" role="dialog" aria-modal="true" aria-label="Tráiler">
+    <button class="lightbox-close" id="vmClose" aria-label="Cerrar">✕</button>
+    <div class="video-modal-frame"><iframe id="vmFrame" title="Tráiler" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
+  </div>
+
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Fotograma a pantalla completa">
     <button class="lightbox-close" id="lbClose" aria-label="Cerrar">✕</button>
     <button class="lightbox-nav lightbox-prev" id="lbPrev" aria-label="Anterior">‹</button>
@@ -631,6 +639,20 @@
         if (e.key === 'ArrowLeft') step(-1);
         if (e.key === 'ArrowRight') step(1);
       });
+    })();
+
+    (() => {
+      const m = document.getElementById('videoModal'), f = document.getElementById('vmFrame');
+      const close = () => { m.classList.remove('open'); f.src = ''; document.body.style.overflow = ''; };
+      document.querySelectorAll('[data-trailer]').forEach(a => a.addEventListener('click', e => {
+        e.preventDefault();
+        f.title = a.dataset.title || 'Tráiler';
+        f.src = 'https://www.youtube-nocookie.com/embed/' + a.dataset.trailer + '?autoplay=1&rel=0';
+        m.classList.add('open'); document.body.style.overflow = 'hidden';
+      }));
+      document.getElementById('vmClose').addEventListener('click', close);
+      m.addEventListener('click', e => { if (e.target === m) close(); });
+      document.addEventListener('keydown', e => { if (e.key === 'Escape' && m.classList.contains('open')) close(); });
     })();
 
     const nav = document.getElementById('nav');
