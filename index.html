@@ -151,6 +151,8 @@
     .film-status.active { border-color: var(--accent-dim); color: var(--accent); }
     .film-title { font-family: var(--font-display); font-weight: 400; font-size: 2.3rem; line-height: 1.1; color: var(--white); }
     .film-year { font-family: var(--font-display); font-style: italic; color: var(--ash); font-size: 1.1rem; margin-bottom: 1.2rem; }
+    .film-kind { font-size: .78rem; letter-spacing: .06em; color: var(--silver); margin-bottom: .35rem; }
+    .film-funding { font-size: .8rem; color: var(--ash); margin: -.4rem 0 1.2rem; padding-left: .8rem; border-left: 1px solid var(--accent-dim); }
     .credits { display: grid; grid-template-columns: max-content 1fr; gap: .25rem 1.2rem; font-size: .84rem; margin-bottom: 1.3rem; }
     .credits dt { color: var(--ash); }
     .credits dd { color: var(--cream); }
@@ -308,7 +310,7 @@
         <h2 class="section-title">Un lugar para el cine que queremos hacer</h2>
         <p>V·Z·Q Studio es una productora de cine independiente fundada en Madrid en 2025 por Tomás Vázquez y Constanza Padilla.</p>
         <p>Producimos y coproducimos ficción de autor, sobre todo cortometrajes, y acompañamos a cada proyecto desde el desarrollo y la financiación hasta el rodaje y el recorrido por festivales.</p>
-        <p>Trabajamos junto a productoras de Madrid, Castilla y León y Cantabria, y apostamos por cineastas emergentes con historias propias.</p>
+        <p>Tenemos la sede en Madrid y las raíces en Sevilla. Trabajamos junto a productoras de Madrid, Andalucía, Castilla y León y Cantabria, y apostamos por cineastas emergentes con historias propias.</p>
       </div>
       <div class="about-image">
         <img src="img/0.%20General/hero.jpeg" alt="Fotograma de una producción de V·Z·Q Studio">
@@ -326,14 +328,16 @@
       <div class="film-poster"><a href="proyectos/camila.html"><img src="img/3.%20CAMILA/poster_final_seminci.jpeg" alt="Cartel de Camila"></a></div>
       <div class="film-info">
         <span class="film-status active">En distribución</span>
+        <p class="film-kind">Cortometraje · Drama social</p>
         <h3 class="film-title">Camila</h3>
-        <p class="film-year">Cortometraje, 2026</p>
+        <p class="film-year">2026 · Burgos</p>
         <dl class="credits">
           <dt>Dirección</dt><dd>Ramón Sánchez Orense</dd>
           <dt>Reparto</dt><dd>Jeo Rosso, Santa Simona Esperanza, Pedro Alcántara</dd>
           <dt>Producción</dt><dd>Kamituga Films, Estudio Clementine, V·Z·Q Studio, Anomalía Films</dd>
           <dt>Distribución</dt><dd><a href="https://www.digital104filmdistribution.com" target="_blank" rel="noopener">Digital 104</a></dd>
         </dl>
+        <p class="film-funding">Con el apoyo de la Junta de Castilla y León y el Gobierno de Cantabria</p>
         <p class="film-description">Cuando su familia pasa a visitarla durante su primer día de trabajo en una zapatería, Camila finge no conocerlos.</p>
         <div class="film-laurels">
           <img src="img/selecciones/seminci-cyl-en-corto.png" alt="Selección oficial SEMINCI 2026, Castilla y León en Corto">
@@ -358,8 +362,9 @@
       <div class="film-poster"><a href="proyectos/neunoide.html"><img src="img/2.%20NEUNOIDE/neunoide.png" alt="Cartel de El Neunoide"></a></div>
       <div class="film-info">
         <span class="film-status">En distribución</span>
+        <p class="film-kind">Cortometraje · Drama</p>
         <h3 class="film-title">El Neunoide</h3>
-        <p class="film-year">Cortometraje, 2025</p>
+        <p class="film-year">2025</p>
         <dl class="credits">
           <dt>Guion y dirección</dt><dd>Fernando Pardo</dd>
           <dt>Reparto</dt><dd>Antoni Ramírez, Gemma Costa, Laura Carrillo</dd>
@@ -383,8 +388,9 @@
       <div class="film-poster"><a href="proyectos/qmqp.html"><img src="img/1.%20QMQP/CARTEL_QMQP.jpeg" alt="Cartel de Querida mamá, querido papá"></a></div>
       <div class="film-info">
         <span class="film-status">Terminada</span>
+        <p class="film-kind">Cortometraje · Experimental</p>
         <h3 class="film-title">Querida mamá, querido papá</h3>
-        <p class="film-year">Cortometraje experimental, 2024</p>
+        <p class="film-year">2024 · Madrid</p>
         <dl class="credits">
           <dt>Guion y dirección</dt><dd>Fernando Pardo</dd>
           <dt>Reparto</dt><dd>Patricia Cobos</dd>
@@ -402,20 +408,23 @@
       <article>
         <div class="upcoming-media placeholder"><span>Chinchón</span></div>
         <span class="film-status active">En postproducción</span>
+        <p class="film-kind">Cortometraje · Drama</p>
         <h3 class="film-title">Chinchón</h3>
-        <p class="film-year">Cortometraje, Santander</p>
+        <p class="film-year">Santander</p>
         <dl class="credits">
           <dt>Guion y dirección</dt><dd>Daniel González Catalina</dd>
           <dt>Producción</dt><dd>Alejandro Sánchez, V·Z·Q Studio</dd>
         </dl>
+        <p class="film-funding">Con el apoyo del Gobierno de Cantabria</p>
         <p class="film-description">Juan es guía turístico en Santander y cada verano le pesa más: playas llenas, patios vacíos, pisos turísticos y amigos con los que nunca coincide. Una partida de cartas puede ser lo único que le devuelva al presente.</p>
       </article>
 
       <article>
         <a class="upcoming-media-link" href="proyectos/lqeej.html" aria-label="Ver Lo que está en juego"><div class="upcoming-media placeholder"><span>Lo que está en juego</span></div></a>
         <span class="film-status active">En preproducción</span>
+        <p class="film-kind">Cortometraje · Comedia negra</p>
         <h3 class="film-title">Lo que está en juego</h3>
-        <p class="film-year">Cortometraje, rodaje en Madrid en 2027</p>
+        <p class="film-year">Rodaje en Madrid, 2027</p>
         <dl class="credits">
           <dt>Dirección</dt><dd>Tomás Vázquez</dd>
           <dt>Guion</dt><dd>Rubén Jiménez</dd>
@@ -429,8 +438,9 @@
       <article>
         <div class="upcoming-media placeholder"><span>El Ciervo</span></div>
         <span class="film-status active">En desarrollo</span>
+        <p class="film-kind">Cortometraje · Thriller</p>
         <h3 class="film-title">El Ciervo</h3>
-        <p class="film-year">Cortometraje, thriller en blanco y negro. Rodaje en Burgos en 2027</p>
+        <p class="film-year">Rodaje en Burgos, 2027 · Blanco y negro</p>
         <dl class="credits">
           <dt>Guion y dirección</dt><dd>Ramón Sánchez Orense</dd>
           <dt>Producción</dt><dd>Kamituga Films, V·Z·Q Studio</dd>
@@ -441,8 +451,9 @@
       <article>
         <div class="upcoming-media placeholder"><span>Clemencia</span></div>
         <span class="film-status active">En desarrollo</span>
+        <p class="film-kind">Cortometraje · Drama</p>
         <h3 class="film-title">Clemencia</h3>
-        <p class="film-year">Cortometraje</p>
+        <p class="film-year">Próximamente</p>
         <dl class="credits">
           <dt>Dirección</dt><dd>Constanza Padilla</dd>
           <dt>Producción</dt><dd>V·Z·Q Studio, Kamituga Films</dd>
@@ -551,10 +562,10 @@
 
   <!-- COLABORA -->
   <section class="collab-section" id="colabora">
-    <span class="section-label">Colabora</span>
-    <h2 class="section-title">¿Tienes un proyecto?</h2>
-    <p class="collab-text">Casi todo lo que hacemos lo hacemos con otros. Si eres cineasta o productora y tienes una historia que te quita el sueño, escríbenos.</p>
-    <a href="mailto:vzqstudio@gmail.com" class="collab-cta">Envíanos tu proyecto</a>
+    <span class="section-label">Coproduce con nosotros</span>
+    <h2 class="section-title">Hagamos la próxima juntos</h2>
+    <p class="collab-text">Casi todas nuestras películas son coproducciones entre productoras de distintas comunidades. Si eres productora y buscas socios para un proyecto, o cineasta con una historia que quieres levantar, escríbenos.</p>
+    <a href="mailto:vzqstudio@gmail.com?subject=Coproducci%C3%B3n%20con%20V%C2%B7Z%C2%B7Q%20Studio" class="collab-cta">Escríbenos</a>
   </section>
 
   <footer id="contacto">
@@ -572,7 +583,7 @@
       </div>
       <div class="footer-col">
         <h4>V·Z·Q Studio</h4>
-        <p>V.Z.Q FILMS S.L.<br>Productora de cine independiente con sede en Madrid.</p>
+        <p>V.Z.Q FILMS S.L.<br>Productora de cine independiente entre Madrid y Sevilla.</p>
       </div>
     </div>
     <div class="footer-bottom">© 2026 V·Z·Q Studio. Todos los derechos reservados.</div>
