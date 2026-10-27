@@ -284,6 +284,13 @@
     .dist-links a { font-size: .85rem; color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-dim); padding-bottom: 2px; transition: color .3s, border-color .3s; }
     .dist-links a:hover { color: var(--white); border-color: var(--white); }
     .ext-links { display: flex; gap: 1.6rem; flex-wrap: wrap; }
+    .premiere { margin-top: 1.5rem; }
+    .premiere img { width: 100%; display: block; cursor: pointer; filter: brightness(.9); transition: filter .5s ease, transform .5s cubic-bezier(.2,.8,.2,1), box-shadow .5s ease; }
+    .premiere img:hover { filter: brightness(1.05); transform: translateY(-6px); box-shadow: 0 18px 40px rgba(0,0,0,.6); position: relative; z-index: 2; }
+    .premiere-main { margin-bottom: 8px; }
+    .premiere-grid { columns: 2; column-gap: 8px; }
+    .premiere-grid img { margin-bottom: 8px; break-inside: avoid; }
+    @media (max-width: 700px) { .premiere-grid { columns: 1; } }
     .imdb-link { display: inline-block; margin-top: 1.6rem; font-size: .8rem; letter-spacing: .08em; color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-dim); padding-bottom: 2px; transition: color .3s, border-color .3s; }
     .imdb-link:hover { color: var(--white); border-color: var(--white); }
     .laurels { display: flex; gap: 2rem; align-items: center; margin-top: 2.2rem; flex-wrap: wrap; }
@@ -388,6 +395,21 @@
         <img src="../img/3.%20CAMILA/b393e7cc-3947-493d-b89c-b324dc715a36.JPG" alt="Fotograma de Camila" loading="lazy" onclick="openLightbox(this.src)">
         <img src="../img/3.%20CAMILA/db5e72fb-869f-4705-b306-307506d46b10.JPG" alt="Fotograma de Camila" loading="lazy" onclick="openLightbox(this.src)">
         <img src="../img/3.%20CAMILA/f8f25d5e-377e-4741-a1b1-becb8a640f57.JPG" alt="Fotograma de Camila" loading="lazy" onclick="openLightbox(this.src)">
+      </div>
+    </div>
+
+    <div class="content-block reveal">
+      <h2>Estreno en SEMINCI 2026</h2>
+      <p>Camila se estrenó en la 71.ª Semana Internacional de Cine de Valladolid, dentro de la sección competitiva Castilla y León en Corto.</p>
+      <div class="premiere">
+        <img class="premiere-main" src="../img/3.%20CAMILA/seminci/seminci-2026-01.jpg" alt="Equipo de Camila en el photocall de SEMINCI 2026" loading="lazy" onclick="openLightbox(this.src)">
+        <div class="premiere-grid">
+        <img src="../img/3.%20CAMILA/seminci/seminci-2026-05.jpg" alt="Equipo de Camila en el estreno en SEMINCI 2026" loading="lazy" onclick="openLightbox(this.src)">
+        <img src="../img/3.%20CAMILA/seminci/seminci-2026-03.jpg" alt="Equipo de Camila en el estreno en SEMINCI 2026" loading="lazy" onclick="openLightbox(this.src)">
+        <img src="../img/3.%20CAMILA/seminci/seminci-2026-02.jpg" alt="Equipo de Camila en el estreno en SEMINCI 2026" loading="lazy" onclick="openLightbox(this.src)">
+        <img src="../img/3.%20CAMILA/seminci/seminci-2026-04.jpg" alt="Equipo de Camila en el estreno en SEMINCI 2026" loading="lazy" onclick="openLightbox(this.src)">
+        <img src="../img/3.%20CAMILA/seminci/seminci-2026-06.jpg" alt="Equipo de Camila en el estreno en SEMINCI 2026" loading="lazy" onclick="openLightbox(this.src)">
+        </div>
       </div>
     </div>
 
