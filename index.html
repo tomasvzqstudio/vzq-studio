@@ -134,6 +134,10 @@
     .selection h3 { font-family: var(--font-display); font-weight: 400; font-size: 1.7rem; color: var(--white); line-height: 1.2; }
     .sel-link { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-dim); white-space: nowrap; transition: color .3s, border-color .3s; }
     .sel-link:hover { color: var(--white); border-color: var(--white); }
+    .selection-photo { grid-column: 1 / -1; display: block; margin: .6rem 0 0; }
+    .selection-photo img { width: 100%; aspect-ratio: 16/8; object-fit: cover; object-position: center 70%; cursor: pointer; filter: brightness(.9); transition: filter .5s ease, transform .5s cubic-bezier(.2,.8,.2,1), box-shadow .5s ease; }
+    .selection-photo img:hover { filter: brightness(1.05); transform: translateY(-6px); box-shadow: 0 18px 40px rgba(0,0,0,.6); }
+    .selection-photo figcaption { margin-top: .8rem; font-size: .85rem; color: var(--ash); }
     .selection p { color: var(--ash); font-size: .9rem; margin-top: .3rem; }
     .selection .film { color: var(--silver); font-size: .9rem; text-align: right; }
     .selection .film strong { display: block; font-family: var(--font-display); font-weight: 400; font-style: italic; font-size: 1.4rem; color: var(--cream); }
@@ -216,7 +220,6 @@
     .contact-big { display: flex; flex-direction: column; align-items: center; gap: .6rem; }
     .contact-big a { font-family: var(--font-display); font-weight: 300; font-size: clamp(1.8rem, 4.5vw, 3rem); line-height: 1.15; color: var(--white); text-decoration: none; border-bottom: 1px solid transparent; transition: color .3s, border-color .3s; overflow-wrap: anywhere; }
     .contact-big a:hover { color: var(--accent); border-color: var(--accent-dim); }
-    .contact-name { margin-top: 1.6rem; font-size: .85rem; color: var(--ash); }
     .collab-cta {
       display: inline-block; padding: .9rem 2.6rem; border: 1px solid var(--accent-dim); color: var(--accent);
       text-decoration: none; font-size: .74rem; letter-spacing: .16em; text-transform: uppercase; font-weight: 500;
@@ -491,6 +494,10 @@
           <p>Semana Internacional de Cine de Valladolid. Sección competitiva Castilla y León en Corto. Estreno el 25 de octubre de 2026.</p>
         </div>
         <div class="film"><strong>Camila</strong>Selección oficial</div>
+        <figure class="selection-photo">
+          <img src="img/selecciones/seminci-2026-presentacion.jpg" alt="Presentación de Camila en SEMINCI 2026 con el equipo en el escenario" loading="lazy">
+          <figcaption>Presentación de Camila con el equipo en SEMINCI 2026. <a class="sel-link" href="proyectos/camila.html#estreno">Ver fotos del estreno</a></figcaption>
+        </figure>
       </div>
       <div class="selection">
         <div class="selection-logo"><img src="img/selecciones/quercus-2026.png" alt="QUERCUS, cortos de Castilla y León"></div>
@@ -584,7 +591,6 @@
       <a href="mailto:contacto@vzqstudio.com">contacto@vzqstudio.com</a>
       <a href="tel:+34722392524">+34 722 39 25 24</a>
     </div>
-    <p class="contact-name">Tomás Vázquez, productor</p>
   </section>
 
   <footer>
@@ -628,7 +634,7 @@
       const open = (g, n) => { group = g; i = n; show(); lb.classList.add('open'); document.body.style.overflow = 'hidden'; };
       const close = () => { lb.classList.remove('open'); document.body.style.overflow = ''; };
       const step = d => { i = (i + d + group.length) % group.length; show(); };
-      document.querySelectorAll('.stills-row').forEach(row => {
+      document.querySelectorAll('.stills-row, .selection-photo').forEach(row => {
         const imgs = [...row.querySelectorAll('img')];
         imgs.forEach((im, n) => im.addEventListener('click', () => open(imgs, n)));
       });
