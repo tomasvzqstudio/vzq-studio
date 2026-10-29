@@ -190,6 +190,15 @@
     }
     html { scroll-padding-top: 90px; }
   </style>
+  <link rel="alternate" hreflang="es" href="https://www.vzqstudio.com/querida-mama-querido-papa">
+  <link rel="alternate" hreflang="en" href="https://www.vzqstudio.com/en/querida-mama-querido-papa">
+  <style>
+    .lang-switch { display: flex; align-items: center; gap: .55rem; margin-left: 2rem; position: relative; z-index: 101; }
+    .lang-switch a { display: flex; line-height: 0; opacity: .45; filter: grayscale(.6); transition: opacity .3s, filter .3s, transform .3s; border-radius: 2px; overflow: hidden; }
+    .lang-switch a:hover { opacity: .9; filter: none; transform: translateY(-1px); }
+    .lang-switch a.on { opacity: 1; filter: none; box-shadow: 0 0 0 1px rgba(255,255,255,.35); }
+    @media (max-width: 900px) { .lang-switch { margin-left: auto; margin-right: 1rem; } }
+  </style>
 </head>
 <body>
 
@@ -203,6 +212,7 @@
       <li><a href="./#filmografia" onclick="closeNav()">Filmografía</a></li>
       <li><a href="./#contacto" onclick="closeNav()">Contacto</a></li>
     </ul>
+    <div class="lang-switch"><a href="/querida-mama-querido-papa" hreflang="es" lang="es" aria-label="Español" title="Español" class="on"><svg viewBox="0 0 3 2" width="22" height="15" aria-hidden="true"><rect width="3" height="2" fill="#c60b1e"/><rect y=".5" width="3" height="1" fill="#ffc400"/></svg></a><a href="/en/querida-mama-querido-papa" hreflang="en" lang="en" aria-label="English" title="English"><svg viewBox="0 0 60 30" width="22" height="15" aria-hidden="true"><clipPath id="ukc"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#ukc)" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></svg></a></div>
     <button class="nav-toggle" id="navToggle" aria-label="Menú">
       <span></span><span></span><span></span>
     </button>

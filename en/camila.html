@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Camila · A short film by Ramón Sánchez Orense · V·Z·Q Studio</title>
+  <link rel="icon" href="../favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="../img/0.%20General/favicon/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../img/0.%20General/favicon/favicon-16.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../img/0.%20General/favicon/favicon-192.png">
+  <link rel="apple-touch-icon" href="../img/0.%20General/favicon/apple-touch-icon.png">
+  <meta name="description" content="Camila, a short film directed by Ramón Sánchez Orense and co-produced by V·Z·Q Studio, Estudio Clementine, Kamituga Films and Anomalía Films.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+
+  <style>
+    /* ── PROJECT HERO ── */
+    .project-hero {
+      min-height: 90vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 6rem;
+      padding-bottom: 4rem;
+      gap: 4rem;
+      max-width: 1300px;
+      margin: 0 auto;
+      padding-left: 3rem;
+      padding-right: 3rem;
+      align-items: center;
+    }
+    .project-poster {
+      position: relative;
+    }
+    .project-poster img {
+      width: 100%;
+      max-width: 480px;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+      border-radius: 2px;
+      opacity: 0;
+      animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.3s;
+    }
+    .project-intro {
+      opacity: 0;
+      animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.5s;
+    }
+    .project-status {
+      display: inline-block;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      padding: 0.4rem 1rem;
+      border: 1px solid var(--accent-dim);
+      color: var(--accent);
+      border-radius: 2px;
+      margin-bottom: 1.5rem;
+    }
+    .project-title {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 7vw, 5rem);
+      font-weight: 400;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 0.8rem;
+      letter-spacing: -0.01em;
+    }
+    .project-director {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-style: italic;
+      color: var(--accent);
+      margin-bottom: 2rem;
+    }
+    .project-logline {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-style: italic;
+      color: var(--cream);
+      line-height: 1.5;
+      margin-bottom: 2rem;
+      padding-left: 1.5rem;
+      border-left: 2px solid var(--accent);
+    }
+    .project-meta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem 2rem;
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--charcoal);
+    }
+    .meta-item span:first-child {
+      display: block;
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--ash);
+      margin-bottom: 0.3rem;
+    }
+    .meta-item span:last-child {
+      font-size: 0.9rem;
+      color: var(--cream);
+      font-weight: 400;
+    }
+
+    /* ── CONTENT SECTIONS ── */
+    .project-content {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 5rem 3rem;
+    }
+    .project-content h2 {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+      line-height: 1.15;
+    }
+    .project-content h3 {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: var(--white);
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .project-content p {
+      color: var(--silver);
+      font-size: 1rem;
+      line-height: 1.9;
+      margin-bottom: 1.3rem;
+    }
+    .project-content p em {
+      color: var(--cream);
+      font-style: italic;
+    }
+    .content-block { margin-bottom: 4rem; }
+    .content-block:last-child { margin-bottom: 0; }
+
+    /* ── VIDEO ── */
+    .video-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/9;
+      margin: 1.5rem 0 0;
+      background: var(--dark);
+      border-radius: 2px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+    .video-wrap iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* ── CROWDFUNDING BOX ── */
+    .cf-box {
+      background: linear-gradient(135deg, rgba(137,191,233,0.08) 0%, rgba(137,191,233,0.02) 100%);
+      border: 1px solid var(--accent-dim);
+      padding: 3rem;
+      border-radius: 2px;
+      margin: 3rem 0;
+      text-align: center;
+    }
+    .cf-box h3 {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+      margin-top: 0 !important;
+    }
+    .cf-box p {
+      color: var(--silver);
+      margin-bottom: 2rem;
+    }
+    .cf-stats {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+    }
+    .cf-stat {
+      text-align: center;
+    }
+    .cf-stat-value {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      color: var(--accent);
+      font-weight: 400;
+      line-height: 1;
+    }
+    .cf-stat-label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--ash);
+      margin-top: 0.4rem;
+    }
+    .cf-cta {
+      display: inline-block;
+      padding: 1rem 2.8rem;
+      background: var(--accent);
+      color: var(--black);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      font-weight: 600;
+      transition: all 0.3s;
+      border-radius: 2px;
+    }
+    .cf-cta:hover {
+      background: var(--white);
+      transform: translateY(-2px);
+    }
+
+    /* ── BACK LINK ── */
+    .back-link {
+      position: fixed;
+      top: 50%;
+      left: 2rem;
+      transform: translateY(-50%);
+      color: var(--ash);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      writing-mode: vertical-rl;
+      z-index: 50;
+      transition: color 0.3s;
+    }
+    .back-link:hover { color: var(--accent); }
+
+    /* ── NEXT PROJECT ── */
+    .next-project {
+      padding: 5rem 3rem;
+      text-align: center;
+      border-top: 1px solid var(--charcoal);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .next-project-label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .next-project a {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      color: var(--white);
+      font-weight: 400;
+      transition: color 0.3s, letter-spacing 0.3s;
+      display: inline-block;
+    }
+    .next-project a:hover {
+      color: var(--accent);
+      letter-spacing: 0.02em;
+    }
+
+    @media (max-width: 900px) {
+      .project-hero {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        padding: 8rem 1.5rem 3rem;
+      }
+      .project-poster img { max-width: 320px; margin: 0 auto; display: block; }
+      .project-meta-grid { grid-template-columns: 1fr; gap: 1.2rem; }
+      .back-link { display: none; }
+      .project-content { padding: 3rem 1.5rem; }
+      .cf-box { padding: 2rem 1.5rem; }
+      .cf-stats { gap: 1.5rem; }
+    }
+    .meta-item span a, .crew dd a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--accent-dim); transition: color .3s, border-color .3s; }
+    .meta-item span a:hover, .crew dd a:hover { color: var(--accent); border-color: var(--accent); }
+    .dist-links { display: flex; gap: 1.8rem; flex-wrap: wrap; margin-top: .4rem; }
+    .dist-links a { font-size: .85rem; color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-dim); padding-bottom: 2px; transition: color .3s, border-color .3s; }
+    .dist-links a:hover { color: var(--white); border-color: var(--white); }
+    .ext-links { display: flex; gap: 1.6rem; flex-wrap: wrap; }
+    .premiere { margin-top: 1.5rem; }
+    .premiere img { width: 100%; display: block; cursor: pointer; filter: brightness(.9); transition: filter .5s ease, transform .5s cubic-bezier(.2,.8,.2,1), box-shadow .5s ease; }
+    .premiere img:hover { filter: brightness(1.05); transform: translateY(-6px); box-shadow: 0 18px 40px rgba(0,0,0,.6); position: relative; z-index: 2; }
+    .premiere-main { margin-bottom: 8px; }
+    .premiere-grid { columns: 2; column-gap: 8px; }
+    .premiere-grid img { margin-bottom: 8px; break-inside: avoid; }
+    @media (max-width: 700px) { .premiere-grid { columns: 1; } }
+    .imdb-link { display: inline-block; margin-top: 1.6rem; font-size: .8rem; letter-spacing: .08em; color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-dim); padding-bottom: 2px; transition: color .3s, border-color .3s; }
+    .imdb-link:hover { color: var(--white); border-color: var(--white); }
+    .laurels { display: flex; gap: 2rem; align-items: center; margin-top: 2.2rem; flex-wrap: wrap; }
+    .laurels img { height: 76px; width: auto; }
+    .laurels img.quercus { height: 62px; }
+    .signature { font-family: var(--font-display); font-style: italic; color: var(--ash) !important; text-align: right; }
+    .crew { display: grid; grid-template-columns: max-content 1fr; gap: .35rem 1.5rem; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--charcoal); font-size: .9rem; }
+    .crew dt { color: var(--ash); }
+    .crew dd { color: var(--cream); }
+    .stills-full { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 1.5rem; }
+    .stills-full img { width: 100%; aspect-ratio: 16/9; object-fit: cover; cursor: pointer; filter: brightness(.85); transition: filter .5s ease, transform .5s cubic-bezier(.2,.8,.2,1), box-shadow .5s ease; }
+    .stills-full img:hover { filter: brightness(1.05); transform: translateY(-6px); box-shadow: 0 18px 40px rgba(0,0,0,.6); position: relative; z-index: 2; }
+    .logos img.jpg-logo { mix-blend-mode: lighten; height: 64px; }
+    .logos-label { font-size: .7rem !important; letter-spacing: .18em; text-transform: uppercase; color: var(--ash) !important; margin: 2rem 0 0 !important; }
+    .logos { display: flex; flex-wrap: wrap; align-items: center; gap: 2.2rem 3rem; margin-top: 1rem; padding: 1.4rem 0; border-top: 1px solid var(--charcoal); }
+    .logos img { height: 52px; width: auto; max-width: 220px; object-fit: contain; opacity: .85; }
+    .logos img.tall { height: 72px; }
+    @media (max-width: 900px) {
+      .stills-full { grid-template-columns: 1fr; }
+      .crew { grid-template-columns: 1fr; gap: 0; }
+      .crew dd { margin-bottom: .6rem; }
+      .logos img { height: 40px; }
+      .logos img.tall { height: 56px; }
+    }
+    html { scroll-padding-top: 90px; }
+  </style>
+  <link rel="alternate" hreflang="es" href="https://www.vzqstudio.com/camila">
+  <link rel="alternate" hreflang="en" href="https://www.vzqstudio.com/en/camila">
+  <style>
+    .lang-switch { display: flex; align-items: center; gap: .55rem; margin-left: 2rem; position: relative; z-index: 101; }
+    .lang-switch a { display: flex; line-height: 0; opacity: .45; filter: grayscale(.6); transition: opacity .3s, filter .3s, transform .3s; border-radius: 2px; overflow: hidden; }
+    .lang-switch a:hover { opacity: .9; filter: none; transform: translateY(-1px); }
+    .lang-switch a.on { opacity: 1; filter: none; box-shadow: 0 0 0 1px rgba(255,255,255,.35); }
+    @media (max-width: 900px) { .lang-switch { margin-left: auto; margin-right: 1rem; } }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav" class="scrolled">
+    <a href="./" class="nav-logo">
+      <img src="../img/0.%20General/LOGO_VZQ.png" alt="V·Z·Q Studio">
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="./#origen" onclick="closeNav()">About</a></li>
+      <li><a href="./#equipo" onclick="closeNav()">Team</a></li>
+      <li><a href="./#filmografia" onclick="closeNav()">Films</a></li>
+      <li><a href="./#contacto" onclick="closeNav()">Contact</a></li>
+    </ul>
+    <div class="lang-switch"><a href="/camila" hreflang="es" lang="es" aria-label="Español" title="Español"><svg viewBox="0 0 3 2" width="22" height="15" aria-hidden="true"><rect width="3" height="2" fill="#c60b1e"/><rect y=".5" width="3" height="1" fill="#ffc400"/></svg></a><a href="/en/camila" hreflang="en" lang="en" aria-label="English" title="English" class="on"><svg viewBox="0 0 60 30" width="22" height="15" aria-hidden="true"><clipPath id="ukc"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#ukc)" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></svg></a></div>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <a href="./#filmografia" class="back-link">← Back</a>
+
+  <!-- HERO -->
+  <header class="project-hero">
+    <div class="project-poster">
+      <img src="../img/3.%20CAMILA/poster_final_seminci.jpeg" alt="Camila">
+    </div>
+    <div class="project-intro">
+      <span class="project-status">In distribution</span>
+      <h1 class="project-title">Camila</h1>
+      <p class="project-director">A short film by Ramón Sánchez Orense</p>
+      <p class="project-logline">When her family drops by on her first day working at a shoe shop, Camila pretends not to know them.</p>
+      <div class="project-meta-grid">
+        <div class="meta-item"><span>Director</span><span>Ramón Sánchez Orense</span></div>
+        <div class="meta-item"><span>Screenplay</span><span>Ramón Sánchez Orense and Sheryll Reyes</span></div>
+        <div class="meta-item"><span>Cast</span><span>Jeo Rosso, Santa Simona Esperanza, Pedro Alcántara</span></div>
+        <div class="meta-item"><span>Genre</span><span>Social drama</span></div>
+        <div class="meta-item"><span>Running time</span><span>21 min 28 s</span></div>
+        <div class="meta-item"><span>Format</span><span>Digital 4K, 4:3, color</span></div>
+        <div class="meta-item"><span>Language</span><span>Spanish and Dominican Spanish</span></div>
+        <div class="meta-item"><span>Shooting</span><span>Burgos, 2026</span></div>
+        <div class="meta-item"><span>Funding</span><span>Junta de Castilla y León and Government of Cantabria</span></div>
+        <div class="meta-item"><span>Production companies</span><span>Kamituga Films, Estudio Clementine, V·Z·Q Studio and Anomalía Films</span></div>
+        <div class="meta-item"><span>Distribution</span><span><a href="https://www.digital104filmdistribution.com" target="_blank" rel="noopener">Digital 104</a></span></div>
+      </div>
+      <div class="laurels">
+        <img src="../img/selecciones/seminci-cyl-en-corto.png" alt="Official Selection SEMINCI 2026, Castilla y León en Corto">
+        <img class="quercus" src="../img/selecciones/quercus-2026.png" alt="QUERCUS 2026 catalogue">
+      </div>
+      <div class="ext-links">
+        <a class="imdb-link" href="https://www.imdb.com/title/tt48434080/" target="_blank" rel="noopener">See on IMDb ↗</a>
+        <a class="imdb-link" href="https://boxd.it/16FNI" target="_blank" rel="noopener">See on Letterboxd ↗</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <div class="project-content">
+
+    <div class="content-block reveal">
+      <h2>Trailer</h2>
+      <div class="video-wrap">
+        <iframe src="https://www.youtube-nocookie.com/embed/QB8ytswAVMs?rel=0" title="Camila, official trailer" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <div class="content-block reveal">
+      <h2>Synopsis</h2>
+      <p>When her family drops by on her first day working at a shoe shop, Camila pretends not to know them.</p>
+    </div>
+
+    <div class="content-block reveal">
+      <h2>Stills</h2>
+      <div class="stills-full">
+        <img src="../img/3.%20CAMILA/0e9cf8c5-83c1-45c1-b1c6-84df1711bcd3.JPG" alt="Still from Camila" loading="lazy" onclick="openLightbox(this.src)">
+        <img src="../img/3.%20CAMILA/4b4f0ef3-4840-4975-90f4-d9b165d45f48.JPG" alt="Still from Camila" loading="lazy" onclick="openLightbox(this.src)">
+        <img src="../img/3.%20CAMILA/7ac32311-46d2-47f7-87d1-7c9598474f2d.JPG" alt="Still from Camila" loading="lazy" onclick="openLightbox(this.src)">
+        <img src="../img/3.%20CAMILA/b393e7cc-3947-493d-b89c-b324dc715a36.JPG" alt="Still from Camila" loading="lazy" onclick="openLightbox(this.src)">
+        <img src="../img/3.%20CAMILA/db5e72fb-869f-4705-b306-307506d46b10.JPG" alt="Still from Camila" loading="lazy" onclick="openLightbox(this.src)">
+        <img src="../img/3.%20CAMILA/f8f25d5e-377e-4741-a1b1-becb8a640f57.JPG" alt="Still from Camila" loading="lazy" onclick="openLightbox(this.src)">
+      </div>
+    </div>
+
+    <div class="content-block reveal" id="estreno">
+      <h2>Premiere at SEMINCI 2026</h2>
+      <p>Camila premiered on Sunday 25 October at the 71st Valladolid International Film Festival, in the Castilla y León en Corto competitive section. The next day, Monday 26, it screened again at the presentation of the QUERCUS 2026 catalogue.</p>
+      <div class="premiere">
+        <img class="premiere-main" src="../img/selecciones/seminci-2026-presentacion.jpg" alt="Camila team presentation on stage at SEMINCI 2026" loading="lazy" onclick="openLightbox(this.src)">
+        <div class="premiere-grid">
+        <img src="../img/3.%20CAMILA/seminci/seminci-2026-01.jpg" alt="Camila team at the SEMINCI 2026 photocall" loading="lazy" onclick="openLightbox(this.src)">
+        <img src="../img/3.%20CAMILA/seminci/seminci-2026-05.jpg" alt="Camila team at the SEMINCI 2026 premiere" loading="lazy" onclick="openLightbox(this.src)">
+        <img src="../img/3.%20CAMILA/seminci/seminci-2026-04.jpg" alt="Camila team at the SEMINCI 2026 premiere" loading="lazy" onclick="openLightbox(this.src)">
+        <img src="../img/3.%20CAMILA/seminci/seminci-2026-02.jpg" alt="Camila team at the SEMINCI 2026 premiere" loading="lazy" onclick="openLightbox(this.src)">
+        <img src="../img/3.%20CAMILA/seminci/seminci-2026-03.jpg" alt="Camila team at the SEMINCI 2026 premiere" loading="lazy" onclick="openLightbox(this.src)">
+        <img src="../img/3.%20CAMILA/seminci/seminci-2026-06.jpg" alt="Camila team at the SEMINCI 2026 premiere" loading="lazy" onclick="openLightbox(this.src)">
+        </div>
+      </div>
+    </div>
+
+    <div class="content-block reveal">
+      <h2>Credits</h2>
+      <dl class="crew">
+        <dt>Director</dt><dd>Ramón Sánchez Orense</dd>
+        <dt>Screenplay</dt><dd>Ramón Sánchez Orense and Sheryll Reyes</dd>
+        <dt>Production</dt><dd>Ramón Sánchez Orense, María Castillo Herrero and Patxi Gabella</dd>
+        <dt>Executive production</dt><dd>América Almodóvar, Tomás Vázquez Ruiz and Enrique Torralbo Sarabia</dd>
+        <dt>Funding</dt><dd>Junta de Castilla y León and Government of Cantabria</dd>
+        <dt>In collaboration with</dt><dd>Platino Crowdfunding</dd>
+        <dt>Production companies</dt><dd>Kamituga Films, Estudio Clementine, V·Z·Q Studio and Anomalía Films</dd>
+        <dt>Line producer</dt><dd>Marina Ortiz Lenoir-Grand</dd>
+        <dt>Production coordinator</dt><dd>Carlos del Hierro</dd>
+        <dt>Assistant director</dt><dd>Saúl González Abejón</dd>
+        <dt>Script supervisor</dt><dd>Sofía Sanz</dd>
+        <dt>Director of photography</dt><dd>Enrique Torralbo Sarabia</dd>
+        <dt>Art director</dt><dd>Jairo Fuentes Redondo</dd>
+        <dt>Costume design</dt><dd>Constanza Padilla Cerdio</dd>
+        <dt>Hair and make-up</dt><dd>Sarah Castro Makeup</dd>
+        <dt>Production sound and mix</dt><dd>Óscar Pérez García</dd>
+        <dt>Editing</dt><dd>Ramón Sánchez Orense and Alejandro Sánchez Porras</dd>
+        <dt>Colour grading and graphics</dt><dd>Alejandro Sánchez Porras</dd>
+        <dt>Graphic design</dt><dd>Beltrán Hortigüela</dd>
+        <dt>Music</dt><dd>Song «Tanta Vita», by Ana Maes</dd>
+        <dt>Stills photographer</dt><dd>Franny Rodríguez Torres</dd>
+        <dt>Distribution</dt><dd><a href="https://www.digital104filmdistribution.com" target="_blank" rel="noopener">Digital 104</a></dd>
+      </dl>
+    </div>
+
+    <div class="content-block reveal">
+      <h2>Cast</h2>
+      <dl class="crew">
+        <dt>Camila</dt><dd>Jeo Rosso</dd>
+        <dt>Camila's mother</dt><dd>Santa Simona Esperanza</dd>
+        <dt>Camila's father</dt><dd>Pedro Alcántara</dd>
+        <dt>Gema</dt><dd>Chus Gutiérrez</dd>
+        <dt>Dani</dt><dd>Lula Sáez</dd>
+        <dt>Lara</dt><dd>Carla Bonilla</dd>
+      </dl>
+    </div>
+
+    <div class="content-block reveal">
+      <h2>Distribution</h2>
+      <p>Camila is distributed to festivals by Digital 104 as part of the QUERCUS 2026 catalogue of short films from Castilla y León, which is also promoted at the Clermont-Ferrand International Short Film Festival.</p>
+      <div class="dist-links">
+        <a href="https://www.digital104filmdistribution.com" target="_blank" rel="noopener">Website ↗</a>
+        <a href="https://www.cortosquercus.com/index.html" target="_blank" rel="noopener">QUERCUS catalogue ↗</a>
+        <a href="https://www.instagram.com/digital104_filmdistribution/" target="_blank" rel="noopener">Instagram ↗</a>
+        <a href="https://www.facebook.com/Digital104FilmDistribution" target="_blank" rel="noopener">Facebook ↗</a>
+      </div>
+    </div>
+
+    <div class="content-block reveal">
+      <p class="logos-label">Funding</p>
+      <div class="logos">
+        <img src="../img/3.%20CAMILA/MarcaDifusionJCYL_linea%20blanco-01.png" alt="Junta de Castilla y León">
+        <img src="../img/3.%20CAMILA/GOBIERNO_CANTABRIA_CULTURA_blanco.png" alt="Government of Cantabria">
+      </div>
+      <p class="logos-label">Collaborators</p>
+      <div class="logos">
+        <img src="../img/3.%20CAMILA/Platino%20Crowdfunding%20(Logo%202022)_Version%201%20-%205%20Blanco.jpg" alt="Platino Crowdfunding" class="jpg-logo">
+        <img src="../img/3.%20CAMILA/AYUNTAMIENTO_BURGOS_blanco.png" alt="Burgos City Council">
+        <img src="../img/3.%20CAMILA/UNIVERSIDAD_BURGOS_blanco.png" alt="University of Burgos">
+        <img class="tall" src="../img/3.%20CAMILA/BURGOS_FILM_COMMISSION_blanco.png" alt="Burgos Film Commission">
+        <img src="../img/3.%20CAMILA/WIP.png" alt="WIP.MOV">
+      </div>
+    </div>
+
+  </div>
+
+  <!-- NEXT PROJECT -->
+  <div class="next-project">
+    <div class="next-project-label">Next project</div>
+    <a href="el-neunoide">El Neunoide →</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:contacto@vzqstudio.com">contacto@vzqstudio.com</a>
+        <a href="tel:+34722392524">+34 722 39 25 24</a>
+        <p>Madrid, Spain</p>
+      </div>
+      <div class="footer-col">
+        <h4>Social</h4>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/vzq_studio" target="_blank">Instagram ↗</a>
+          <a href="https://www.youtube.com/@vzq_studio" target="_blank">YouTube ↗</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>V·Z·Q Studio</h4>
+        <p style="font-size: 0.8rem; line-height: 1.7;">Independent film production company based in Madrid, specialising in auteur fiction and emerging cinema.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 V·Z·Q Studio. All rights reserved.
+    </div>
+  </footer>
+
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">✕</button>
+    <img id="lightboxImg" src="" alt="">
+  </div>
+
+  <script>
+    function openLightbox(src) {
+      document.getElementById('lightboxImg').src = src;
+      document.getElementById('lightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+    const toggle = document.getElementById('navToggle');
+    const links = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => links.classList.toggle('open'));
+    function closeNav() { links.classList.remove('open'); }
+
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+  <script>
+    // Desplazamiento suave sin mostrar #seccion en la dirección
+    (() => {
+      const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const clean = () => history.replaceState(null, '', location.pathname.replace(/index\.html$/, '').replace(/\.html$/, '') + location.search);
+      document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
+        const id = a.getAttribute('href').slice(1);
+        const t = id ? document.getElementById(id) : null;
+        if (!id) { e.preventDefault(); scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); clean(); return; }
+        if (t) { e.preventDefault(); t.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' }); clean(); }
+      }));
+      if (location.hash || /\.html$/.test(location.pathname)) {
+        const t = location.hash ? document.getElementById(decodeURIComponent(location.hash.slice(1))) : null;
+        clean();
+        if (t) addEventListener('load', () => t.scrollIntoView(), { once: true });
+      }
+    })();
+  </script>
+</body>
+</html>

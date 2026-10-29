@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services · V·Z·Q Studio · Executive production and pitch deck design</title>
+  <link rel="icon" href="../../favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../img/0.%20General/favicon/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../img/0.%20General/favicon/favicon-16.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../../img/0.%20General/favicon/favicon-192.png">
+  <link rel="apple-touch-icon" href="../../img/0.%20General/favicon/apple-touch-icon.png">
+  <meta name="description" content="Executive production consulting (ICAA, grants, contracts, co-productions) plus pitch deck design and creative consulting for short films. V·Z·Q Studio, Madrid and Seville.">
+  <meta property="og:title" content="V·Z·Q Studio">
+  <meta property="og:description" content="Executive production and pitch deck design for your short film">
+  <meta property="og:image" content="../../img/0.%20General/hero.jpeg">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --black: #0a0a0a;
+      --charcoal: #1a1a1a;
+      --smoke: #2a2a2a;
+      --ash: #8a8a8a;
+      --silver: #b4b4b4;
+      --cream: #e8e4df;
+      --white: #f5f3f0;
+      --accent: #7eafc4;
+      --accent-dim: #5a8ba3;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Manrope', system-ui, sans-serif;
+      --wrap: 1180px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    body {
+      font-family: var(--font-body);
+      background: var(--black);
+      color: var(--cream);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible { outline: 1px solid var(--accent); outline-offset: 4px; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      padding: 1.1rem 3rem;
+      display: flex; justify-content: space-between; align-items: center;
+      transition: background .4s;
+    }
+    nav.scrolled { background: rgba(10,10,10,.92); }
+    nav:not(.scrolled) { mix-blend-mode: lighten; }
+    .nav-logo img { height: 30px; mix-blend-mode: lighten; }
+    .nav-links { display: flex; gap: 2.4rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none; color: var(--silver);
+      font-size: .74rem; letter-spacing: .14em; text-transform: uppercase;
+      transition: color .3s;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-toggle { display: none; background: none; border: 0; cursor: pointer; padding: 8px; }
+    .nav-toggle span { display: block; width: 22px; height: 1.5px; background: var(--cream); margin: 5px 0; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh; position: relative; overflow: hidden;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      padding: 6rem 1.5rem 3rem; text-align: center;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: url('../../img/0.%20General/hero.jpeg') center/cover no-repeat;
+      filter: brightness(.33) saturate(.8);
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(10,10,10,.25) 0%, rgba(10,10,10,.1) 45%, rgba(10,10,10,.85) 88%, var(--black) 100%);
+    }
+    .hero-content { position: relative; z-index: 2; margin-top: auto; mix-blend-mode: lighten; animation: fadeUp 1.2s ease both .2s; }
+    .hero-content > img { width: min(360px, 64vw); margin: 0 auto 1.6rem; mix-blend-mode: lighten; }
+    .hero-cities { display: block; margin-top: .7rem; font-size: .72rem; letter-spacing: .3em; color: var(--ash); }
+    .hero-tagline {
+      font-size: .8rem; letter-spacing: .22em; text-transform: uppercase; color: var(--silver);
+    }
+    .hero-laurels {
+      position: relative; z-index: 2;
+      margin-top: auto; padding-top: 4rem;
+      display: flex; gap: 3rem; align-items: center; justify-content: center; flex-wrap: wrap;
+      animation: fadeUp 1.2s ease both .8s;
+    }
+    .hero-laurels a { display: block; opacity: .9; transition: opacity .3s; }
+    .hero-laurels a:hover { opacity: 1; }
+    .hero-laurels img { height: 78px; width: auto; }
+    .hero-laurels img.quercus { height: 64px; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+
+    /* ── SECTIONS ── */
+    section { padding: 7rem 3rem; max-width: var(--wrap); margin: 0 auto; }
+    .section-label {
+      display: block; font-size: .68rem; letter-spacing: .22em; text-transform: uppercase;
+      color: var(--accent); font-weight: 500; margin-bottom: .9rem;
+    }
+    .section-title {
+      font-family: var(--font-display); font-weight: 300;
+      font-size: clamp(2.2rem, 5vw, 3.4rem); line-height: 1.1; color: var(--white);
+      margin-bottom: 2.5rem;
+    }
+    .subhead {
+      font-family: var(--font-display); font-weight: 400; font-style: italic;
+      font-size: 1.5rem; color: var(--silver);
+      padding-bottom: .8rem; border-bottom: 1px solid var(--smoke); margin: 5rem 0 3rem;
+    }
+
+    /* ── ESTUDIO ── */
+    .about-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 5rem; align-items: center; }
+    .about-text p { color: var(--silver); font-size: 1rem; line-height: 1.85; margin-bottom: 1.3rem; max-width: 34em; }
+    .about-image img { width: 100%; aspect-ratio: 4/5; object-fit: cover; filter: brightness(.9) saturate(.85); }
+
+    /* ── SELECCIONES ── */
+    .selections { border-top: 1px solid var(--smoke); }
+    .selection {
+      display: grid; grid-template-columns: 200px 1fr auto; gap: 3rem; align-items: center;
+      padding: 2.4rem 0; border-bottom: 1px solid var(--smoke);
+    }
+    .selection-logo { display: flex; justify-content: center; }
+    .selection-logo img { max-height: 96px; width: auto; }
+    .selection h3 { font-family: var(--font-display); font-weight: 400; font-size: 1.7rem; color: var(--white); line-height: 1.2; }
+    .sel-link { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-dim); white-space: nowrap; transition: color .3s, border-color .3s; }
+    .sel-link:hover { color: var(--white); border-color: var(--white); }
+    .selection-logo-link img { transition: transform .5s cubic-bezier(.2,.8,.2,1), filter .5s ease; }
+    .selection-logo-link:hover img { transform: scale(1.08); filter: brightness(1.1); }
+    .selection p { color: var(--ash); font-size: .9rem; margin-top: .3rem; }
+    .selection .film { color: var(--silver); font-size: .9rem; text-align: right; }
+    .selection .film strong { display: block; font-family: var(--font-display); font-weight: 400; font-style: italic; font-size: 1.4rem; color: var(--cream); }
+
+    /* ── PELÍCULAS ── */
+    .film-card { display: grid; grid-template-columns: 340px 1fr; gap: 3.5rem; align-items: center; margin-bottom: 5rem; }
+    .film-card.flip { grid-template-columns: 1fr 340px; }
+    .film-card.flip .film-poster { order: 2; }
+    .film-poster a { display: block; }
+    .film-poster img { width: 100%; filter: brightness(.92); transition: filter .5s ease, transform .5s cubic-bezier(.2,.8,.2,1), box-shadow .5s ease; }
+    .film-poster a:hover img { filter: brightness(1.05); transform: translateY(-8px); box-shadow: 0 24px 60px rgba(0,0,0,.65); }
+    .upcoming-media-link { display: block; text-decoration: none; transition: transform .5s cubic-bezier(.2,.8,.2,1); }
+    .upcoming-media-link:hover { transform: translateY(-6px); }
+    .upcoming-media-link:hover .placeholder { border-color: var(--accent-dim); }
+    .film-links { display: flex; gap: 1.6rem; flex-wrap: wrap; align-items: baseline; }
+    .film-poster img.wide { aspect-ratio: 16/9; object-fit: cover; }
+
+    .film-status {
+      display: inline-block; font-size: .64rem; letter-spacing: .18em; text-transform: uppercase;
+      padding: .3rem .8rem; border: 1px solid var(--smoke); color: var(--ash); margin-bottom: 1rem;
+    }
+    .film-status.active { border-color: var(--accent-dim); color: var(--accent); }
+    .film-title { font-family: var(--font-display); font-weight: 400; font-size: 2.3rem; line-height: 1.1; color: var(--white); }
+    .film-year { font-family: var(--font-display); font-style: italic; color: var(--ash); font-size: 1.1rem; margin-bottom: 1.2rem; }
+    .film-kind { font-size: .78rem; letter-spacing: .06em; color: var(--silver); margin-bottom: .35rem; }
+    .film-funding { font-size: .8rem; color: var(--ash); margin: -.4rem 0 1.2rem; padding-left: .8rem; border-left: 1px solid var(--accent-dim); }
+    .credits { display: grid; grid-template-columns: max-content 1fr; gap: .25rem 1.2rem; font-size: .84rem; margin-bottom: 1.3rem; }
+    .credits dt { color: var(--ash); }
+    .credits dd { color: var(--cream); }
+    .credits dd a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--accent-dim); transition: color .3s, border-color .3s; }
+    .credits dd a:hover { color: var(--accent); border-color: var(--accent); }
+    .film-description { color: var(--silver); font-size: .95rem; line-height: 1.8; max-width: 36em; }
+    .film-laurels { display: flex; gap: 1.6rem; align-items: center; margin-top: 1.8rem; }
+    .film-laurels img { height: 58px; width: auto; }
+    .film-laurels img.quercus { height: 48px; }
+
+    .stills-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; margin: -2rem 0 5rem; }
+    .stills-row img { width: 100%; aspect-ratio: 16/9; object-fit: cover; cursor: pointer; filter: saturate(.8) brightness(.8); transition: filter .5s ease, transform .5s cubic-bezier(.2,.8,.2,1), box-shadow .5s ease; }
+    .stills-row img:hover { filter: none; transform: translateY(-6px); box-shadow: 0 18px 40px rgba(0,0,0,.6); position: relative; z-index: 2; }
+    .lightbox { position: fixed; inset: 0; z-index: 200; background: rgba(5,5,5,.96); display: none; align-items: center; justify-content: center; padding: 2rem; }
+    .lightbox.open { display: flex; }
+    .lightbox img { max-width: 100%; max-height: 100%; object-fit: contain; }
+    .lightbox-close, .lightbox-nav { position: absolute; background: none; border: 0; color: var(--cream); cursor: pointer; font-size: 1.6rem; padding: 1rem; opacity: .7; transition: opacity .3s; }
+    .lightbox-close:hover, .lightbox-nav:hover { opacity: 1; }
+    .lightbox-close { top: 1rem; right: 1rem; }
+    .video-modal-frame { width: min(1100px, 100%); aspect-ratio: 16/9; background: #000; box-shadow: 0 30px 80px rgba(0,0,0,.6); }
+    .video-modal-frame iframe { width: 100%; height: 100%; border: 0; display: block; }
+    .lightbox-prev { left: .5rem; top: 50%; transform: translateY(-50%); font-size: 2.4rem; }
+    .lightbox-next { right: .5rem; top: 50%; transform: translateY(-50%); font-size: 2.4rem; }
+
+    /* Proyectos en marcha */
+    .upcoming { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem 3.5rem; }
+    .upcoming .film-title { font-size: 1.9rem; margin-bottom: .2rem; }
+    .upcoming .film-year { margin-bottom: 1rem; }
+    .upcoming-media { margin-bottom: 1.6rem; }
+    .upcoming-media img { width: 100%; aspect-ratio: 16/9; object-fit: cover; filter: brightness(.9) saturate(.85); }
+    .placeholder {
+      aspect-ratio: 16/9; background: var(--charcoal);
+      display: flex; align-items: flex-end; padding: 1.4rem 1.6rem;
+      border: 1px solid var(--smoke);
+    }
+    .placeholder span {
+      font-family: var(--font-display); font-style: italic; font-weight: 300;
+      font-size: clamp(2rem, 4vw, 3rem); line-height: 1; color: var(--smoke);
+    }
+
+    /* ── EQUIPO ── */
+    .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+    .team-member { display: flex; gap: 2rem; align-items: flex-start; }
+    .team-photo { width: 140px; height: 175px; object-fit: cover; filter: saturate(.7); flex-shrink: 0; }
+    .team-info h3 { font-family: var(--font-display); font-weight: 400; font-size: 1.5rem; color: var(--white); }
+    .team-role { display: block; font-size: .8rem; color: var(--accent); margin-bottom: .8rem; }
+    .team-info p { font-size: .88rem; color: var(--ash); line-height: 1.75; }
+    .team-info p + p { margin-top: .8rem; }
+
+    /* ── COLABORA ── */
+    .collab-section { text-align: center; padding-top: 6rem; padding-bottom: 8rem; }
+    .collab-section .section-title { margin-bottom: 1.4rem; }
+    .collab-text { max-width: 32em; margin: 0 auto 2.4rem; color: var(--silver); }
+    .contact-big { display: flex; flex-direction: column; align-items: center; gap: .6rem; }
+    .contact-big a { font-family: var(--font-display); font-weight: 300; font-size: clamp(1.8rem, 4.5vw, 3rem); line-height: 1.15; color: var(--white); text-decoration: none; border-bottom: 1px solid transparent; transition: color .3s, border-color .3s; overflow-wrap: anywhere; }
+    .contact-big a:hover { color: var(--accent); border-color: var(--accent-dim); }
+    .collab-cta {
+      display: inline-block; padding: .9rem 2.6rem; border: 1px solid var(--accent-dim); color: var(--accent);
+      text-decoration: none; font-size: .74rem; letter-spacing: .16em; text-transform: uppercase; font-weight: 500;
+      transition: background .3s, color .3s;
+    }
+    .collab-cta:hover { background: var(--accent); color: var(--black); }
+
+    /* ── FOOTER ── */
+    footer { border-top: 1px solid var(--charcoal); padding: 4rem 3rem 2.5rem; max-width: var(--wrap); margin: 0 auto; }
+    .footer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; margin-bottom: 3rem; }
+    .footer-col h4 { font-family: var(--font-display); font-weight: 400; font-size: 1.15rem; color: var(--white); margin-bottom: .9rem; }
+    .footer-col a, .footer-col p { display: block; font-size: .86rem; color: var(--ash); text-decoration: none; line-height: 1.9; }
+    .footer-col a:hover { color: var(--accent); }
+    .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid var(--charcoal); font-size: .72rem; color: #555; }
+
+    .film-link { display: inline-block; margin-top: 1.4rem; font-size: .8rem; color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-dim); padding-bottom: 2px; }
+    .film-link:hover { color: var(--white); border-color: var(--white); }
+    .about-films { font-family: var(--font-display); font-style: italic; font-size: 1.35rem; line-height: 1.55; color: var(--cream); margin-bottom: 1.6rem; max-width: 30em; }
+
+
+    /* ── SERVICIOS ── */
+    .services-intro { color: var(--silver); max-width: 36em; margin: -1rem 0 3rem; font-size: 1rem; }
+    .services { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid var(--smoke); border-bottom: 1px solid var(--smoke); }
+    .service { padding: 2.6rem 3rem 2.8rem 0; }
+    .service + .service { padding: 2.6rem 0 2.8rem 3rem; border-left: 1px solid var(--smoke); }
+    .service h3 { font-family: var(--font-display); font-weight: 400; font-size: 1.9rem; color: var(--white); line-height: 1.15; margin-bottom: 1rem; }
+    .service > p { color: var(--silver); font-size: .95rem; line-height: 1.8; margin-bottom: 1rem; max-width: 32em; }
+    .service h4 { font-weight: 500; font-size: .8rem; color: var(--accent); margin: 1.8rem 0 .6rem; }
+    .service ul { list-style: none; }
+    .service li { color: var(--cream); font-size: .9rem; padding: .45rem 0; border-bottom: 1px solid var(--charcoal); }
+    .services-cta { display: flex; justify-content: space-between; align-items: center; gap: 2rem; flex-wrap: wrap; padding-top: 2.4rem; }
+    .services-cta p { font-family: var(--font-display); font-style: italic; font-size: 1.35rem; color: var(--cream); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex; flex-direction: column; position: fixed; inset: 0;
+        background: rgba(10,10,10,.97); justify-content: center; align-items: center; gap: 2rem; z-index: 99;
+      }
+      .nav-links.open a { font-size: 1rem; }
+      .nav-toggle { display: block; z-index: 101; }
+
+      section { padding: 4.5rem 1.5rem; }
+      .about-grid, .team-grid, .upcoming { grid-template-columns: 1fr; gap: 3rem; }
+      .film-card, .film-card.flip { grid-template-columns: 1fr; gap: 1.6rem; }
+      .film-card.flip .film-poster { order: 0; }
+      .film-poster img:not(.wide) { max-width: 300px; }
+      .stills-row { grid-template-columns: 1fr 1fr; margin-top: 0; }
+      .selection { grid-template-columns: 1fr; gap: 1.2rem; text-align: center; }
+      .selection .film { text-align: center; }
+      .team-member { flex-direction: column; }
+      .services { grid-template-columns: 1fr; }
+      .service, .service + .service { padding: 2.2rem 0; border-left: 0; }
+      .service + .service { border-top: 1px solid var(--smoke); }
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .hero-laurels { gap: 2rem; }
+      .hero-laurels img { height: 60px; }
+      .hero-laurels img.quercus { height: 50px; }
+    }
+    .rv { opacity: 0; transform: translateY(26px); transition: opacity 1s ease, transform 1s cubic-bezier(.2,.8,.2,1); }
+    .rv.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .rv { opacity: 1; transform: none; }
+      * { animation: none !important; transition: none !important; }
+      html { scroll-behavior: auto; }
+    }
+  
+    /* ── PÁGINA SERVICIOS ── */
+    .sv-hero { min-height: 78vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 9rem 3rem 5rem; max-width: var(--wrap); margin: 0 auto; }
+    .sv-hero h1 { font-family: var(--font-display); font-weight: 300; font-size: clamp(2.8rem, 7vw, 5.6rem); line-height: 1.02; color: var(--white); max-width: 14em; }
+    .sv-hero p { margin-top: 1.8rem; max-width: 36em; color: var(--silver); font-size: 1.05rem; line-height: 1.8; }
+    .sv-jump { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2.6rem; }
+    .sv-jump a { display: inline-block; padding: .85rem 1.8rem; border: 1px solid var(--smoke); color: var(--cream); text-decoration: none; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; transition: border-color .3s, color .3s; }
+    .sv-jump a:hover { border-color: var(--accent); color: var(--accent); }
+    .sv-jump a.primary { border-color: var(--accent-dim); color: var(--accent); }
+
+    .sv-block { padding-top: 6rem; padding-bottom: 6rem; border-top: 1px solid var(--charcoal); }
+    .sv-num { font-family: var(--font-display); font-style: italic; font-size: 1.1rem; color: var(--accent); display: block; margin-bottom: .6rem; }
+    .sv-lead { color: var(--silver); max-width: 38em; font-size: 1rem; line-height: 1.85; margin: -1rem 0 3.5rem; }
+    .sv-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem 3rem; }
+    .sv-col h3 { font-family: var(--font-display); font-weight: 400; font-size: 1.45rem; color: var(--white); margin-bottom: .9rem; }
+    .sv-col ul { list-style: none; }
+    .sv-col li { color: var(--cream); font-size: .9rem; padding: .5rem 0; border-bottom: 1px solid var(--charcoal); }
+
+    .sv-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 4rem; border-top: 1px solid var(--smoke); }
+    .sv-step { padding: 2rem 1.6rem 0 0; }
+    .sv-step + .sv-step { padding-left: 1.6rem; border-left: 1px solid var(--charcoal); }
+    .sv-step b { display: block; font-family: var(--font-display); font-weight: 300; font-size: 2.6rem; color: var(--smoke); line-height: 1; margin-bottom: .8rem; }
+    .sv-step h4 { font-weight: 500; font-size: .95rem; color: var(--white); margin-bottom: .5rem; }
+    .sv-step p { font-size: .86rem; color: var(--ash); line-height: 1.7; }
+
+    .sv-gallery { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 1rem; }
+    .sv-gallery::after { content: ''; flex: 10 1 0; }
+    .sv-gallery figure { position: relative; margin: 0; overflow: hidden; background: var(--charcoal); }
+    .sv-gallery img { display: block; width: 100%; height: auto; aspect-ratio: auto; cursor: pointer; filter: brightness(.9); transition: transform .6s cubic-bezier(.2,.8,.2,1), filter .5s ease; }
+    .sv-gallery figure:hover img { transform: scale(1.04); filter: brightness(1); }
+    .sv-gallery figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 1.4rem .9rem .7rem; font-size: .75rem; letter-spacing: .06em; color: var(--white); background: linear-gradient(to top, rgba(0,0,0,.75), transparent); opacity: 0; transform: translateY(6px); transition: opacity .4s, transform .4s; pointer-events: none; }
+    .sv-gallery figure:hover figcaption { opacity: 1; transform: none; }
+    .sv-caption { font-size: .85rem; color: var(--ash); margin-bottom: 3.5rem; }
+
+    .sv-people { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+    .sv-person img { width: 100%; aspect-ratio: 4/5; object-fit: cover; filter: saturate(.75); margin-bottom: 1.6rem; max-width: 360px; }
+    .sv-person h3 { font-family: var(--font-display); font-weight: 400; font-size: 2rem; color: var(--white); line-height: 1.1; }
+    .sv-role { display: block; color: var(--accent); font-size: .85rem; margin: .3rem 0 1.2rem; }
+    .sv-person > p { color: var(--silver); font-size: .95rem; line-height: 1.8; margin-bottom: 1.4rem; }
+    .sv-cv { display: grid; grid-template-columns: max-content 1fr; gap: .55rem 1.2rem; font-size: .86rem; border-top: 1px solid var(--charcoal); padding-top: 1.2rem; }
+    .sv-cv dt { color: var(--ash); }
+    .sv-cv dd { color: var(--cream); }
+
+    .sv-track { border-top: 1px solid var(--smoke); }
+    .sv-track-row { display: grid; grid-template-columns: 1.2fr 1fr 1.6fr; gap: 2rem; padding: 1.2rem 0; border-bottom: 1px solid var(--charcoal); align-items: baseline; }
+    .sv-track-row strong { font-family: var(--font-display); font-weight: 400; font-size: 1.3rem; color: var(--white); }
+    .sv-track-row span { font-size: .86rem; color: var(--ash); }
+    .sv-track-row em { font-style: normal; font-size: .88rem; color: var(--cream); }
+
+    .sv-cta { text-align: center; padding-top: 7rem; padding-bottom: 8rem; }
+    .sv-cta .section-title { margin-bottom: 1.2rem; }
+    .sv-cta p { color: var(--silver); max-width: 32em; margin: 0 auto 2.6rem; }
+
+    @media (max-width: 900px) {
+      .sv-hero { padding: 8rem 1.5rem 3.5rem; min-height: 70vh; }
+      .sv-cols, .sv-people { grid-template-columns: 1fr; gap: 3rem; }
+      .sv-steps { grid-template-columns: 1fr 1fr; }
+      .sv-step:nth-child(3) { border-left: 0; padding-left: 0; }
+      .sv-gallery figure { flex-basis: 40% !important; }
+      .sv-track-row { grid-template-columns: 1fr; gap: .2rem; }
+    }
+</style>
+  <link rel="alternate" hreflang="es" href="https://www.vzqstudio.com/servicios/">
+  <link rel="alternate" hreflang="en" href="https://www.vzqstudio.com/en/services/">
+  <style>
+    .lang-switch { display: flex; align-items: center; gap: .55rem; margin-left: 2rem; position: relative; z-index: 101; }
+    .lang-switch a { display: flex; line-height: 0; opacity: .45; filter: grayscale(.6); transition: opacity .3s, filter .3s, transform .3s; border-radius: 2px; overflow: hidden; }
+    .lang-switch a:hover { opacity: .9; filter: none; transform: translateY(-1px); }
+    .lang-switch a.on { opacity: 1; filter: none; box-shadow: 0 0 0 1px rgba(255,255,255,.35); }
+    @media (max-width: 900px) { .lang-switch { margin-left: auto; margin-right: 1rem; } }
+  </style>
+</head>
+<body>
+
+  <nav id="nav" class="scrolled">
+    <a href="../" class="nav-logo"><img src="../../img/0.%20General/LOGO_VZQ.png" alt="V·Z·Q Studio"></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../#origen">Studio</a></li>
+      <li><a href="../#filmografia">Films</a></li>
+      <li><a href="../#selecciones">Selections</a></li>
+      <li><a href="#produccion">Services</a></li>
+      <li><a href="../#equipo">Team</a></li>
+      <li><a href="#contacto">Contact</a></li>
+    </ul>
+    <div class="lang-switch"><a href="/servicios/" hreflang="es" lang="es" aria-label="Español" title="Español"><svg viewBox="0 0 3 2" width="22" height="15" aria-hidden="true"><rect width="3" height="2" fill="#c60b1e"/><rect y=".5" width="3" height="1" fill="#ffc400"/></svg></a><a href="/en/services/" hreflang="en" lang="en" aria-label="English" title="English" class="on"><svg viewBox="0 0 60 30" width="22" height="15" aria-hidden="true"><clipPath id="ukc"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#ukc)" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></svg></a></div>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <header class="sv-hero">
+    <span class="section-label">Services</span>
+    <h1>We help you get your film made</h1>
+    <p>Getting a short film made in Spain takes as much paperwork as filmmaking. We have been through it several times, so now we help others do it: from procedures and financing to the pitch deck that wins over a jury.</p>
+    <div class="sv-jump">
+      <a class="primary" href="#produccion">Executive production</a>
+      <a href="#diseno">Design and creative consulting</a>
+    </div>
+  </header>
+
+  <!-- PRODUCCIÓN EJECUTIVA -->
+  <section class="sv-block" id="produccion">
+    <span class="sv-num">01</span>
+    <h2 class="section-title">Executive production consulting</h2>
+    <p class="sv-lead">We guide you through the administrative, legal and financial side of your project so you can focus on the film. We do it the same way as on our own productions: organised, with clear deadlines and a realistic financing plan.</p>
+    <div class="sv-cols">
+      <div class="sv-col">
+        <h3>ICAA procedures</h3>
+        <ul>
+          <li>Registering your short film with the ICAA</li>
+          <li>Notifying the start-of-shoot date</li>
+          <li>Spanish nationality certificate</li>
+          <li>Age rating</li>
+        </ul>
+      </div>
+      <div class="sv-col">
+        <h3>Financing and contracts</h3>
+        <ul>
+          <li>Budget and financing plan</li>
+          <li>Applying for and justifying regional grants</li>
+          <li>Co-productions between companies and regions</li>
+          <li>Co-production, director and composer contracts</li>
+        </ul>
+      </div>
+      <div class="sv-col">
+        <h3>And also</h3>
+        <ul>
+          <li>Guidance on setting up your own production company</li>
+          <li>Distribution and festival strategy</li>
+          <li>Production schedule and plan</li>
+        </ul>
+      </div>
+    </div>
+    <div class="sv-steps">
+      <div class="sv-step"><b>1</b><h4>First conversation</h4><p>Tell us about your project and where it stands. No commitment.</p></div>
+      <div class="sv-step"><b>2</b><h4>Assessment</h4><p>We look at which grants fit, which production structure suits you and what is missing.</p></div>
+      <div class="sv-step"><b>3</b><h4>Plan and paperwork</h4><p>Budget, financing plan, applications and documentation.</p></div>
+      <div class="sv-step"><b>4</b><h4>Follow-up</h4><p>We stay with you until the grant decision, the shoot or the final report.</p></div>
+    </div>
+  </section>
+
+  <!-- DISEÑO -->
+  <section class="sv-block" id="diseno">
+    <span class="sv-num">02</span>
+    <h2 class="section-title">Pitch deck design and creative consulting</h2>
+    <p class="sv-lead">A good project badly presented loses to a weaker one told well. We design and structure your pitch deck for funding calls, labs, markets or crowdfunding, and help you define the film's visual identity. Our decks have already secured grants from the Junta de Castilla y León and the Government of Cantabria.</p>
+    <div class="sv-gallery stills-row">
+      <figure style="flex: 1.413 1 311px"><img src="../../img/servicios/dosier-camila-01.jpg" alt="Camila pitch deck" loading="lazy"><figcaption>Camila</figcaption></figure>
+      <figure style="flex: 1.779 1 391px"><img src="../../img/servicios/dosier-clemencia-01.jpg" alt="Clemencia pitch deck" loading="lazy"><figcaption>Clemencia</figcaption></figure>
+      <figure style="flex: 0.707 1 155px"><img src="../../img/servicios/dosier-ciervo-01.jpg" alt="El Ciervo pitch deck" loading="lazy"><figcaption>El Ciervo</figcaption></figure>
+      <figure style="flex: 1.779 1 391px"><img src="../../img/servicios/dosier-salimata-01.jpg" alt="La historia de Ma Salimata pitch deck" loading="lazy"><figcaption>La historia de Ma Salimata</figcaption></figure>
+      <figure style="flex: 0.707 1 155px"><img src="../../img/servicios/dosier-lqeej-01.jpg" alt="Lo que está en juego pitch deck" loading="lazy"><figcaption>Lo que está en juego</figcaption></figure>
+      <figure style="flex: 1.413 1 311px"><img src="../../img/servicios/dosier-camila-02.jpg" alt="Camila pitch deck" loading="lazy"><figcaption>Camila</figcaption></figure>
+      <figure style="flex: 1.779 1 391px"><img src="../../img/servicios/dosier-clemencia-02.jpg" alt="Clemencia pitch deck" loading="lazy"><figcaption>Clemencia</figcaption></figure>
+      <figure style="flex: 0.707 1 155px"><img src="../../img/servicios/dosier-ciervo-02.jpg" alt="El Ciervo pitch deck" loading="lazy"><figcaption>El Ciervo</figcaption></figure>
+      <figure style="flex: 1.779 1 391px"><img src="../../img/servicios/dosier-salimata-02.jpg" alt="La historia de Ma Salimata pitch deck" loading="lazy"><figcaption>La historia de Ma Salimata</figcaption></figure>
+      <figure style="flex: 0.707 1 155px"><img src="../../img/servicios/dosier-lqeej-02.jpg" alt="Lo que está en juego pitch deck" loading="lazy"><figcaption>Lo que está en juego</figcaption></figure>
+      <figure style="flex: 1.413 1 311px"><img src="../../img/servicios/dosier-camila-04.jpg" alt="Camila pitch deck" loading="lazy"><figcaption>Camila</figcaption></figure>
+      <figure style="flex: 0.707 1 155px"><img src="../../img/servicios/dosier-ciervo-03.jpg" alt="El Ciervo pitch deck" loading="lazy"><figcaption>El Ciervo</figcaption></figure>
+      <figure style="flex: 1.779 1 391px"><img src="../../img/servicios/dosier-clemencia-03.jpg" alt="Clemencia pitch deck" loading="lazy"><figcaption>Clemencia</figcaption></figure>
+    </div>
+    <p class="sv-caption">Some of the pitch decks we have designed: <em>Camila</em>, <em>Clemencia</em>, <em>El Ciervo</em>, <em>Lo que está en juego</em> and <em>La historia de Ma Salimata</em>. Click any of them to see it larger.</p>
+    <div class="sv-cols">
+      <div class="sv-col">
+        <h3>Pitch decks</h3>
+        <ul>
+          <li>Structure tailored to each call</li>
+          <li>Review of synopsis, statements and texts</li>
+          <li>Design and layout</li>
+          <li>Versions adapted to each grant or lab</li>
+        </ul>
+      </div>
+      <div class="sv-col">
+        <h3>Graphic design</h3>
+        <ul>
+          <li>Visual identity for the film</li>
+          <li>Posters and social media assets</li>
+          <li>Press kit and festival materials</li>
+        </ul>
+      </div>
+      <div class="sv-col">
+        <h3>Creative consulting</h3>
+        <ul>
+          <li>Visual approach and references</li>
+          <li>Art direction and costume</li>
+          <li>Moodboards for funders and crew</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUIÉN -->
+  <section class="sv-block" id="quien">
+    <span class="sv-num">03</span>
+    <h2 class="section-title">Who will work with you</h2>
+    <div class="sv-people">
+      <article class="sv-person">
+        <img src="../../img/0.%20General/tomas.jpg" alt="Tomás Vázquez" loading="lazy">
+        <h3>Tomás Vázquez</h3>
+        <span class="sv-role">Executive production</span>
+        <p>An engineer by training and executive producer of every V·Z·Q Studio film. Before film, he coordinated industrial projects on a huge scale, and he brings that way of working to every production: planning, budget control and no missed deadlines.</p>
+        <dl class="sv-cv">
+          <dt>Film</dt><dd>Master's in Film Industry Management, Universidad Carlos III de Madrid</dd>
+          <dt></dt><dd>Diploma in Filmmaking, Instituto del Cine de Madrid (top five of his class)</dd>
+          <dt>Engineering</dt><dd>Degree in Electronic, Robotic and Mechatronic Engineering, Universidad de Sevilla</dd>
+          <dt>Management</dt><dd>Master's in Project Management and Agile Methodologies, Structuralia</dd>
+          <dt>Experience</dt><dd>Digital Project Manager at Técnicas Reunidas: coordinating digital twins for large international industrial projects</dd>
+          <dt></dt><dd>GAMCO: predictive AI models for cash management at a major bank</dd>
+          <dt>Production</dt><dd>Executive producer of Camila, Chinchón, El Neunoide, Querida mamá, querido papá, Lo que está en juego and El Ciervo</dd>
+          <dt>Languages</dt><dd>Spanish, English (C1) and German (B1)</dd>
+        </dl>
+      </article>
+      <article class="sv-person">
+        <img src="../../img/0.%20General/constanza.jpg" alt="Constanza Padilla" loading="lazy">
+        <h3>Constanza Padilla</h3>
+        <span class="sv-role">Design and creative consulting</span>
+        <p>Architect and art director. Her training gives her a very precise spatial and visual eye, which she brings to pitch deck design, each project's graphic identity and the film's aesthetic approach.</p>
+        <dl class="sv-cv">
+          <dt>Education</dt><dd>Architecture, Universidad Iberoamericana (Mexico City)</dd>
+          <dt></dt><dd>Specialisation in Art Direction, Instituto del Cine de Madrid</dd>
+          <dt>Film</dt><dd>Art director on short film shoots</dd>
+          <dt></dt><dd>Costume design for Camila</dd>
+          <dt></dt><dd>Preparing her directorial debut, Clemencia</dd>
+        </dl>
+      </article>
+    </div>
+  </section>
+
+  <!-- TRAYECTORIA -->
+  <section class="sv-block" id="trayectoria">
+    <span class="sv-num">04</span>
+    <h2 class="section-title">What we have made happen</h2>
+    <div class="sv-track">
+      <div class="sv-track-row"><strong>Camila</strong><span>Short film, 2026</span><em>Grants from the Junta de Castilla y León and the Government of Cantabria. SEMINCI 2026 and QUERCUS catalogue</em></div>
+      <div class="sv-track-row"><strong>Chinchón</strong><span>Short film, 2026</span><em>Grant from the Government of Cantabria. In post-production</em></div>
+      <div class="sv-track-row"><strong>El Neunoide</strong><span>Short film, 2025</span><em>In distribution</em></div>
+      <div class="sv-track-row"><strong>Lo que está en juego</strong><span>Short film, 2027</span><em>Inter-regional co-production. In pre-production</em></div>
+      <div class="sv-track-row"><strong>El Ciervo</strong><span>Short film, 2027</span><em>Co-produced with Kamituga Films. In development</em></div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="sv-cta collab-section" id="contacto">
+    <span class="section-label">Let's talk</span>
+    <h2 class="section-title">Tell us about your project</h2>
+    <p>We adapt to every project and every budget. The first conversation comes with no commitment.</p>
+    <div class="contact-big">
+      <a href="mailto:contacto@vzqstudio.com?subject=Services%20enquiry">contacto@vzqstudio.com</a>
+      <a href="tel:+34722392524">+34 722 39 25 24</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:contacto@vzqstudio.com">contacto@vzqstudio.com</a>
+        <a href="tel:+34722392524">+34 722 39 25 24</a>
+        <p>Madrid, Spain</p>
+      </div>
+      <div class="footer-col">
+        <h4>Social</h4>
+        <a href="https://www.instagram.com/vzq_studio" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.youtube.com/@vzq_studio" target="_blank" rel="noopener">YouTube</a>
+      </div>
+      <div class="footer-col">
+        <h4>V·Z·Q Studio</h4>
+        <p>V.Z.Q FILMS S.L.<br>Independent film production company between Madrid and Seville.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 V·Z·Q Studio. All rights reserved.</div>
+  </footer>
+
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Full-screen still">
+    <button class="lightbox-close" id="lbClose" aria-label="Close">✕</button>
+    <button class="lightbox-nav lightbox-prev" id="lbPrev" aria-label="Previous">‹</button>
+    <img id="lbImg" src="" alt="">
+    <button class="lightbox-nav lightbox-next" id="lbNext" aria-label="Next">›</button>
+  </div>
+
+  <script>
+    (() => {
+      const lb = document.getElementById('lightbox'), img = document.getElementById('lbImg');
+      let group = [], i = 0;
+      const show = () => { img.src = group[i].src; img.alt = group[i].alt; };
+      const open = (g, n) => { group = g; i = n; show(); lb.classList.add('open'); document.body.style.overflow = 'hidden'; };
+      const close = () => { lb.classList.remove('open'); document.body.style.overflow = ''; };
+      const step = d => { i = (i + d + group.length) % group.length; show(); };
+      document.querySelectorAll('.stills-row').forEach(row => {
+        const imgs = [...row.querySelectorAll('img')];
+        imgs.forEach((im, n) => im.addEventListener('click', () => open(imgs, n)));
+      });
+      document.getElementById('lbClose').addEventListener('click', close);
+      document.getElementById('lbPrev').addEventListener('click', e => { e.stopPropagation(); step(-1); });
+      document.getElementById('lbNext').addEventListener('click', e => { e.stopPropagation(); step(1); });
+      lb.addEventListener('click', e => { if (e.target === lb) close(); });
+      document.addEventListener('keydown', e => {
+        if (!lb.classList.contains('open')) return;
+        if (e.key === 'Escape') close();
+        if (e.key === 'ArrowLeft') step(-1);
+        if (e.key === 'ArrowRight') step(1);
+      });
+    })();
+
+
+    // Aparición suave de los bloques al bajar
+    (() => {
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return;
+      const els = document.querySelectorAll('section > .section-label, section > .section-title, .about-grid, .film-card, .stills-row, .subhead, .upcoming > article, .selection, .services-intro, .svc-cards, .team-member, .collab-section > *, .sv-hero > *, .sv-lead, .sv-cols, .sv-steps, .sv-gallery, .sv-person, .sv-track-row');
+      const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px', threshold: .08 });
+      els.forEach(el => { if (el.getBoundingClientRect().top > innerHeight * .9) { el.classList.add('rv'); io.observe(el); } });
+    })();
+
+    // Desplazamiento suave sin mostrar #seccion en la dirección
+    (() => {
+      const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const clean = () => history.replaceState(null, '', location.pathname.replace(/index\.html$/, '').replace(/\.html$/, '') + location.search);
+      document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
+        const id = a.getAttribute('href').slice(1);
+        const t = id ? document.getElementById(id) : null;
+        if (!id) { e.preventDefault(); scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); clean(); return; }
+        if (t) { e.preventDefault(); t.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' }); clean(); }
+      }));
+      if (location.hash || /\.html$/.test(location.pathname)) {
+        const t = location.hash ? document.getElementById(decodeURIComponent(location.hash.slice(1))) : null;
+        clean();
+        if (t) addEventListener('load', () => t.scrollIntoView(), { once: true });
+      }
+    })();
+
+    const nav = document.getElementById('nav');
+    addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 60), { passive: true });
+    const toggle = document.getElementById('navToggle');
+    const links = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => {
+      const open = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      links.classList.remove('open'); toggle.setAttribute('aria-expanded', false);
+    }));
+  </script>
+</body>
+</html>

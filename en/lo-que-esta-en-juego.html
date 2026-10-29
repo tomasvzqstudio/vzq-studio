@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lo que está en juego — V·Z·Q Studio</title>
+  <link rel="icon" href="../favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="../img/0.%20General/favicon/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../img/0.%20General/favicon/favicon-16.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../img/0.%20General/favicon/favicon-192.png">
+  <link rel="apple-touch-icon" href="../img/0.%20General/favicon/apple-touch-icon.png">
+  <meta name="description" content="Lo que está en juego. Short film in pre-production directed by Tomás Vázquez and written by Rubén Jiménez.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+
+  <style>
+    /* Special hero for project without poster yet */
+    .project-hero-placeholder {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6rem 3rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .placeholder-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(137,191,233,0.08) 0%, transparent 70%),
+                  linear-gradient(135deg, #0f0f0f 0%, #0a0a0a 100%);
+    }
+    .placeholder-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(137,191,233,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(137,191,233,0.05) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
+    }
+    .placeholder-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      text-align: center;
+      opacity: 0;
+      animation: fadeUp 1.3s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.3s;
+    }
+    .project-status {
+      display: inline-block;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      padding: 0.4rem 1rem;
+      border: 1px solid var(--accent-dim);
+      color: var(--accent);
+      border-radius: 2px;
+      margin-bottom: 2rem;
+    }
+    .project-title {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+    .project-director {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-style: italic;
+      color: var(--accent);
+      margin-bottom: 3rem;
+    }
+    .project-logline {
+      font-family: var(--font-display);
+      font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+      font-style: italic;
+      color: var(--cream);
+      line-height: 1.5;
+      max-width: 700px;
+      margin: 0 auto 3rem;
+    }
+    .project-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+      padding-top: 3rem;
+      border-top: 1px solid var(--charcoal);
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .meta-item span:first-child {
+      display: block;
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--ash);
+      margin-bottom: 0.3rem;
+    }
+    .meta-item span:last-child {
+      font-size: 0.9rem;
+      color: var(--cream);
+    }
+
+    .project-content {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 5rem 3rem;
+    }
+    .project-content h2 {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+    .project-content p {
+      color: var(--silver);
+      font-size: 1rem;
+      line-height: 1.9;
+      margin-bottom: 1.3rem;
+    }
+    .content-block { margin-bottom: 4rem; }
+
+    .back-link {
+      position: fixed;
+      top: 50%;
+      left: 2rem;
+      transform: translateY(-50%);
+      color: var(--ash);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      writing-mode: vertical-rl;
+      z-index: 50;
+      transition: color 0.3s;
+    }
+    .back-link:hover { color: var(--accent); }
+
+    .next-project {
+      padding: 5rem 3rem;
+      text-align: center;
+      border-top: 1px solid var(--charcoal);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .next-project-label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .next-project a {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      color: var(--white);
+      font-weight: 400;
+      transition: color 0.3s;
+      display: inline-block;
+    }
+    .next-project a:hover { color: var(--accent); }
+
+    @media (max-width: 900px) {
+      .project-hero-placeholder { padding: 8rem 1.5rem 3rem; }
+      .project-meta-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .back-link { display: none; }
+      .project-content { padding: 3rem 1.5rem; }
+    }
+    html { scroll-padding-top: 90px; }
+  </style>
+  <link rel="alternate" hreflang="es" href="https://www.vzqstudio.com/lo-que-esta-en-juego">
+  <link rel="alternate" hreflang="en" href="https://www.vzqstudio.com/en/lo-que-esta-en-juego">
+  <style>
+    .lang-switch { display: flex; align-items: center; gap: .55rem; margin-left: 2rem; position: relative; z-index: 101; }
+    .lang-switch a { display: flex; line-height: 0; opacity: .45; filter: grayscale(.6); transition: opacity .3s, filter .3s, transform .3s; border-radius: 2px; overflow: hidden; }
+    .lang-switch a:hover { opacity: .9; filter: none; transform: translateY(-1px); }
+    .lang-switch a.on { opacity: 1; filter: none; box-shadow: 0 0 0 1px rgba(255,255,255,.35); }
+    @media (max-width: 900px) { .lang-switch { margin-left: auto; margin-right: 1rem; } }
+  </style>
+</head>
+<body>
+
+  <nav id="nav" class="scrolled">
+    <a href="./" class="nav-logo">
+      <img src="../img/0.%20General/LOGO_VZQ.png" alt="V·Z·Q Studio">
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="./#origen" onclick="closeNav()">About</a></li>
+      <li><a href="./#equipo" onclick="closeNav()">Team</a></li>
+      <li><a href="./#filmografia" onclick="closeNav()">Films</a></li>
+      <li><a href="./#contacto" onclick="closeNav()">Contact</a></li>
+    </ul>
+    <div class="lang-switch"><a href="/lo-que-esta-en-juego" hreflang="es" lang="es" aria-label="Español" title="Español"><svg viewBox="0 0 3 2" width="22" height="15" aria-hidden="true"><rect width="3" height="2" fill="#c60b1e"/><rect y=".5" width="3" height="1" fill="#ffc400"/></svg></a><a href="/en/lo-que-esta-en-juego" hreflang="en" lang="en" aria-label="English" title="English" class="on"><svg viewBox="0 0 60 30" width="22" height="15" aria-hidden="true"><clipPath id="ukc"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#ukc)" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></svg></a></div>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <a href="./#filmografia" class="back-link">← Back</a>
+
+  <header class="project-hero-placeholder">
+    <div class="placeholder-bg"></div>
+    <div class="placeholder-content">
+      <span class="project-status">In pre-production</span>
+      <h1 class="project-title">Lo que está en juego</h1>
+      <p class="project-director">A short film by Tomás Vázquez, written by Rubén Jiménez</p>
+      <p class="project-logline">After losing an online sports bet while having dinner with his girlfriend's parents, Christian must resort to desperate measures to pay the bill.</p>
+      <div class="project-meta-grid">
+        <div class="meta-item">
+          <span>Director</span>
+          <span>Tomás Vázquez</span>
+        </div>
+        <div class="meta-item">
+          <span>Screenplay</span>
+          <span>Rubén Jiménez</span>
+        </div>
+        <div class="meta-item">
+          <span>Genre</span>
+          <span>Black comedy</span>
+        </div>
+        <div class="meta-item">
+          <span>Cast</span>
+          <span>Álex Fernández</span>
+        </div>
+        <div class="meta-item">
+          <span>Shooting</span>
+          <span>Madrid, 2027</span>
+        </div>
+        <div class="meta-item">
+          <span>Production</span>
+          <span>V·Z·Q Studio, La Mala Fama, Estudio Clementine</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="project-content">
+
+    <div class="content-block reveal">
+      <h2>Synopsis</h2>
+      <p>In a small sports centre in Australia, the young Japanese tennis player <em>Sakura Watanabe</em> faces a game point under her opponent's astonished gaze. The tension is at its peak as she prepares to serve.</p>
+      <p>On the other side of the world, in Madrid, <em>Christian</em> (28) is facing his own match point: he is about to meet the parents of his girlfriend, <em>Ángela</em> (28). Determined to make a good impression, his mission is to pay the bill at the restaurant he has taken them to.</p>
+      <p>What the family doesn't know is that Christian is hiding his phone under the table, following a sports bet on which all his money depends.</p>
+      <p>When the bet collapses and he finds he has thirty cents left in his account, Christian spirals into a desperate race to get the money before the bill arrives. Each attempt is wilder than the last: lies to his mother, blackmailing an ex and decisions that strip away his dignity in front of the people he most needs to impress.</p>
+    </div>
+
+    <div class="content-block reveal">
+      <h2>The project</h2>
+      <p><em>Lo que está en juego</em> tackles one of the most urgent and least discussed problems of our generation: the normalisation of sports betting and its devastating consequences on young people's lives.</p>
+      <p>Inspired by personal experience and first-hand accounts, the short film sets out to portray, with a naturalistic and twistedly comic approach, how what starts as a harmless game can become a bottomless pit.</p>
+      <p>The project is conceived as a strongly personal piece with a clear social and cultural commitment, able to spark debate on a highly relevant issue in contemporary Spain.</p>
+    </div>
+
+    <div class="content-block reveal">
+      <h2>Current status</h2>
+      <p>The short film is a co-production between V·Z·Q Studio, La Mala Fama and Estudio Clementine. Shooting is planned in Madrid in 2027, with the lead cast and most locations already confirmed.</p>
+      <p>The short will also serve as the first piece in the narrative universe of the future feature film of the same name.</p>
+    </div>
+
+  </div>
+
+  <div class="next-project">
+    <div class="next-project-label">Next project</div>
+    <a href="camila">Camila →</a>
+  </div>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:contacto@vzqstudio.com">contacto@vzqstudio.com</a>
+        <a href="tel:+34722392524">+34 722 39 25 24</a>
+        <p>Madrid, Spain</p>
+      </div>
+      <div class="footer-col">
+        <h4>Social</h4>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/vzq_studio" target="_blank">Instagram ↗</a>
+          <a href="https://www.youtube.com/@vzq_studio" target="_blank">YouTube ↗</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>V·Z·Q Studio</h4>
+        <p style="font-size: 0.8rem; line-height: 1.7;">Independent film production company based in Madrid, specialising in auteur fiction and emerging cinema.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 V·Z·Q Studio. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('navToggle');
+    const links = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => links.classList.toggle('open'));
+    function closeNav() { links.classList.remove('open'); }
+
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+  <script>
+    // Desplazamiento suave sin mostrar #seccion en la dirección
+    (() => {
+      const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const clean = () => history.replaceState(null, '', location.pathname.replace(/index\.html$/, '').replace(/\.html$/, '') + location.search);
+      document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
+        const id = a.getAttribute('href').slice(1);
+        const t = id ? document.getElementById(id) : null;
+        if (!id) { e.preventDefault(); scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); clean(); return; }
+        if (t) { e.preventDefault(); t.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' }); clean(); }
+      }));
+      if (location.hash || /\.html$/.test(location.pathname)) {
+        const t = location.hash ? document.getElementById(decodeURIComponent(location.hash.slice(1))) : null;
+        clean();
+        if (t) addEventListener('load', () => t.scrollIntoView(), { once: true });
+      }
+    })();
+  </script>
+</body>
+</html>

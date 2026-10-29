@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>V·Z·Q Studio · Independent film production company · Madrid · Seville</title>
+  <link rel="icon" href="../favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="../img/0.%20General/favicon/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../img/0.%20General/favicon/favicon-16.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../img/0.%20General/favicon/favicon-192.png">
+  <link rel="apple-touch-icon" href="../img/0.%20General/favicon/apple-touch-icon.png">
+  <meta name="description" content="V·Z·Q Studio is an independent film production company based in Madrid. We produce and co-produce auteur fiction: Camila, El Neunoide, Chinchón, El Ciervo.">
+  <meta property="og:title" content="V·Z·Q Studio">
+  <meta property="og:description" content="Independent film production company · Madrid · Seville">
+  <meta property="og:image" content="../img/0.%20General/hero.jpeg">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --black: #0a0a0a;
+      --charcoal: #1a1a1a;
+      --smoke: #2a2a2a;
+      --ash: #8a8a8a;
+      --silver: #b4b4b4;
+      --cream: #e8e4df;
+      --white: #f5f3f0;
+      --accent: #7eafc4;
+      --accent-dim: #5a8ba3;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Manrope', system-ui, sans-serif;
+      --wrap: 1180px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    body {
+      font-family: var(--font-body);
+      background: var(--black);
+      color: var(--cream);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible { outline: 1px solid var(--accent); outline-offset: 4px; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      padding: 1.1rem 3rem;
+      display: flex; justify-content: space-between; align-items: center;
+      transition: background .4s;
+    }
+    nav.scrolled { background: rgba(10,10,10,.92); }
+    nav:not(.scrolled) { mix-blend-mode: lighten; }
+    .nav-logo img { height: 30px; mix-blend-mode: lighten; }
+    .nav-links { display: flex; gap: 2.4rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none; color: var(--silver);
+      font-size: .74rem; letter-spacing: .14em; text-transform: uppercase;
+      transition: color .3s;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-toggle { display: none; background: none; border: 0; cursor: pointer; padding: 8px; }
+    .nav-toggle span { display: block; width: 22px; height: 1.5px; background: var(--cream); margin: 5px 0; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh; position: relative; overflow: hidden;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      padding: 6rem 1.5rem 3rem; text-align: center;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: url('../img/0.%20General/hero.jpeg') center/cover no-repeat;
+      filter: brightness(.33) saturate(.8);
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(10,10,10,.25) 0%, rgba(10,10,10,.1) 45%, rgba(10,10,10,.85) 88%, var(--black) 100%);
+    }
+    .hero-grain { position: absolute; inset: -50%; z-index: 1; pointer-events: none; opacity: .09; mix-blend-mode: overlay; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); animation: grain 1.2s steps(6) infinite; }
+    @keyframes grain { 0%{transform:translate(0,0)} 20%{transform:translate(-4%,3%)} 40%{transform:translate(3%,-5%)} 60%{transform:translate(-6%,-2%)} 80%{transform:translate(5%,4%)} 100%{transform:translate(0,0)} }
+    .hero-content { position: relative; z-index: 2; margin-top: auto; mix-blend-mode: lighten; animation: fadeUp 1.2s ease both .2s; }
+    .hero-content > img { width: min(360px, 64vw); margin: 0 auto 1.6rem; mix-blend-mode: lighten; }
+    .hero-cities { display: block; margin-top: .7rem; font-size: .72rem; letter-spacing: .3em; color: var(--ash); }
+    .hero-tagline {
+      font-size: .8rem; letter-spacing: .22em; text-transform: uppercase; color: var(--silver);
+    }
+    .hero-laurels {
+      position: relative; z-index: 2;
+      margin-top: auto; padding-top: 4rem;
+      display: flex; gap: 3rem; align-items: center; justify-content: center; flex-wrap: wrap;
+      animation: fadeUp 1.2s ease both .8s;
+    }
+    .hero-laurels a { display: block; opacity: .9; transition: opacity .3s; }
+    .hero-laurels a:hover { opacity: 1; }
+    .hero-laurels img { height: 78px; width: auto; }
+    .hero-laurels img.quercus { height: 64px; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+
+    /* ── SECTIONS ── */
+    section { padding: 7rem 3rem; max-width: var(--wrap); margin: 0 auto; }
+    .section-label {
+      display: block; font-size: .68rem; letter-spacing: .22em; text-transform: uppercase;
+      color: var(--accent); font-weight: 500; margin-bottom: .9rem;
+    }
+    .section-title {
+      font-family: var(--font-display); font-weight: 300;
+      font-size: clamp(2.2rem, 5vw, 3.4rem); line-height: 1.1; color: var(--white);
+      margin-bottom: 2.5rem;
+    }
+    .subhead {
+      font-family: var(--font-display); font-weight: 400; font-style: italic;
+      font-size: 1.5rem; color: var(--silver);
+      padding-bottom: .8rem; border-bottom: 1px solid var(--smoke); margin: 5rem 0 3rem;
+    }
+
+    /* ── ESTUDIO ── */
+    .about-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 5rem; align-items: center; }
+    .about-text p { color: var(--silver); font-size: 1rem; line-height: 1.85; margin-bottom: 1.3rem; max-width: 34em; }
+    .about-image img { width: 100%; aspect-ratio: 4/5; object-fit: cover; filter: brightness(.9) saturate(.85); }
+
+    /* ── SELECCIONES ── */
+    .selections { border-top: 1px solid var(--smoke); }
+    .selection {
+      display: grid; grid-template-columns: 200px 1fr auto; gap: 3rem; align-items: center;
+      padding: 2.4rem 0; border-bottom: 1px solid var(--smoke);
+    }
+    .selection-logo { display: flex; justify-content: center; }
+    .selection-logo img { max-height: 96px; width: auto; }
+    .selection h3 { font-family: var(--font-display); font-weight: 400; font-size: 1.7rem; color: var(--white); line-height: 1.2; }
+    .sel-link { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-dim); white-space: nowrap; transition: color .3s, border-color .3s; }
+    .sel-link:hover { color: var(--white); border-color: var(--white); }
+    .selection-logo-link img { transition: transform .5s cubic-bezier(.2,.8,.2,1), filter .5s ease; }
+    .selection-logo-link:hover img { transform: scale(1.08); filter: brightness(1.1); }
+    .selection p { color: var(--ash); font-size: .9rem; margin-top: .3rem; }
+    .selection .film { color: var(--silver); font-size: .9rem; text-align: right; }
+    .selection .film strong { display: block; font-family: var(--font-display); font-weight: 400; font-style: italic; font-size: 1.4rem; color: var(--cream); }
+
+    /* ── PELÍCULAS ── */
+    .film-card { display: grid; grid-template-columns: 340px 1fr; gap: 3.5rem; align-items: center; margin-bottom: 5rem; }
+    .film-card.flip { grid-template-columns: 1fr 340px; }
+    .film-card.flip .film-poster { order: 2; }
+    .film-poster a { display: block; }
+    .film-poster img { width: 100%; filter: brightness(.92); transition: filter .5s ease, transform .5s cubic-bezier(.2,.8,.2,1), box-shadow .5s ease; }
+    .film-poster a:hover img { filter: brightness(1.05); transform: translateY(-8px); box-shadow: 0 24px 60px rgba(0,0,0,.65); }
+    .upcoming-media-link { display: block; text-decoration: none; transition: transform .5s cubic-bezier(.2,.8,.2,1); }
+    .upcoming-media-link:hover { transform: translateY(-6px); }
+    .upcoming-media-link:hover .placeholder { border-color: var(--accent-dim); }
+    .film-links { display: flex; gap: 1.6rem; flex-wrap: wrap; align-items: baseline; }
+    .film-poster img.wide { aspect-ratio: 16/9; object-fit: cover; }
+
+    .film-status {
+      display: inline-block; font-size: .64rem; letter-spacing: .18em; text-transform: uppercase;
+      padding: .3rem .8rem; border: 1px solid var(--smoke); color: var(--ash); margin-bottom: 1rem;
+    }
+    .film-status.active { border-color: var(--accent-dim); color: var(--accent); }
+    .film-title { font-family: var(--font-display); font-weight: 400; font-size: 2.3rem; line-height: 1.1; color: var(--white); }
+    .film-year { font-family: var(--font-display); font-style: italic; color: var(--ash); font-size: 1.1rem; margin-bottom: 1.2rem; }
+    .film-kind { font-size: .78rem; letter-spacing: .06em; color: var(--silver); margin-bottom: .35rem; }
+    .film-funding { font-size: .8rem; color: var(--ash); margin: -.4rem 0 1.2rem; padding-left: .8rem; border-left: 1px solid var(--accent-dim); }
+    .credits { display: grid; grid-template-columns: max-content 1fr; gap: .25rem 1.2rem; font-size: .84rem; margin-bottom: 1.3rem; }
+    .credits dt { color: var(--ash); }
+    .credits dd { color: var(--cream); }
+    .credits dd a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--accent-dim); transition: color .3s, border-color .3s; }
+    .credits dd a:hover { color: var(--accent); border-color: var(--accent); }
+    .film-description { color: var(--silver); font-size: .95rem; line-height: 1.8; max-width: 36em; }
+    .film-laurels { display: flex; gap: 1.6rem; align-items: center; margin-top: 1.8rem; }
+    .film-laurels img { height: 58px; width: auto; }
+    .film-laurels img.quercus { height: 48px; }
+
+    .stills-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; margin: -2rem 0 5rem; }
+    .stills-row img { width: 100%; aspect-ratio: 16/9; object-fit: cover; cursor: pointer; filter: saturate(.8) brightness(.8); transition: filter .5s ease, transform .5s cubic-bezier(.2,.8,.2,1), box-shadow .5s ease; }
+    .stills-row img:hover { filter: none; transform: translateY(-6px); box-shadow: 0 18px 40px rgba(0,0,0,.6); position: relative; z-index: 2; }
+    .lightbox { position: fixed; inset: 0; z-index: 200; background: rgba(5,5,5,.96); display: none; align-items: center; justify-content: center; padding: 2rem; }
+    .lightbox.open { display: flex; }
+    .lightbox img { max-width: 100%; max-height: 100%; object-fit: contain; }
+    .lightbox-close, .lightbox-nav { position: absolute; background: none; border: 0; color: var(--cream); cursor: pointer; font-size: 1.6rem; padding: 1rem; opacity: .7; transition: opacity .3s; }
+    .lightbox-close:hover, .lightbox-nav:hover { opacity: 1; }
+    .lightbox-close { top: 1rem; right: 1rem; }
+    .video-modal-frame { width: min(1100px, 100%); aspect-ratio: 16/9; background: #000; box-shadow: 0 30px 80px rgba(0,0,0,.6); }
+    .video-modal-frame iframe { width: 100%; height: 100%; border: 0; display: block; }
+    .lightbox-prev { left: .5rem; top: 50%; transform: translateY(-50%); font-size: 2.4rem; }
+    .lightbox-next { right: .5rem; top: 50%; transform: translateY(-50%); font-size: 2.4rem; }
+
+    /* Proyectos en marcha */
+    .upcoming { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem 3.5rem; }
+    .upcoming .film-title { font-size: 1.9rem; margin-bottom: .2rem; }
+    .upcoming .film-year { margin-bottom: 1rem; }
+    .upcoming-media { margin-bottom: 1.6rem; }
+    .upcoming-media img { width: 100%; aspect-ratio: 16/9; object-fit: cover; filter: brightness(.9) saturate(.85); }
+    .placeholder {
+      aspect-ratio: 16/9; background: var(--charcoal);
+      display: flex; align-items: flex-end; padding: 1.4rem 1.6rem;
+      border: 1px solid var(--smoke);
+    }
+    .placeholder span {
+      font-family: var(--font-display); font-style: italic; font-weight: 300;
+      font-size: clamp(2rem, 4vw, 3rem); line-height: 1; color: var(--smoke);
+    }
+
+    /* ── EQUIPO ── */
+    .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; }
+    .team-member { display: flex; flex-direction: column; }
+    .team-photo-wrap { overflow: hidden; margin-bottom: 1.8rem; max-width: 460px; }
+    .team-photo { display: block; width: 100%; aspect-ratio: 4/5; object-fit: cover; filter: saturate(.7) brightness(.95); transition: transform 1s cubic-bezier(.2,.8,.2,1), filter .6s ease; }
+    .team-member:hover .team-photo { transform: scale(1.03); filter: saturate(1) brightness(1); }
+    .team-info h3 { font-family: var(--font-display); font-weight: 300; font-size: clamp(2rem, 3.4vw, 2.8rem); line-height: 1.05; color: var(--white); }
+    .team-role { display: block; font-size: .8rem; letter-spacing: .04em; color: var(--accent); margin: .5rem 0 1.1rem; }
+    .team-info p { font-size: .92rem; color: var(--silver); line-height: 1.8; max-width: 34em; }
+    .team-info p + p { margin-top: .8rem; }
+
+    /* ── COLABORA ── */
+    .collab-section { text-align: center; padding-top: 6rem; padding-bottom: 8rem; }
+    .collab-section .section-title { margin-bottom: 1.4rem; }
+    .collab-text { max-width: 32em; margin: 0 auto 2.4rem; color: var(--silver); }
+    .contact-big { display: flex; flex-direction: column; align-items: center; gap: .6rem; }
+    .contact-big a { font-family: var(--font-display); font-weight: 300; font-size: clamp(1.8rem, 4.5vw, 3rem); line-height: 1.15; color: var(--white); text-decoration: none; border-bottom: 1px solid transparent; transition: color .3s, border-color .3s; overflow-wrap: anywhere; }
+    .contact-big a:hover { color: var(--accent); border-color: var(--accent-dim); }
+    .collab-cta {
+      display: inline-block; padding: .9rem 2.6rem; border: 1px solid var(--accent-dim); color: var(--accent);
+      text-decoration: none; font-size: .74rem; letter-spacing: .16em; text-transform: uppercase; font-weight: 500;
+      transition: background .3s, color .3s;
+    }
+    .collab-cta:hover { background: var(--accent); color: var(--black); }
+
+    /* ── FOOTER ── */
+    footer { border-top: 1px solid var(--charcoal); padding: 4rem 3rem 2.5rem; max-width: var(--wrap); margin: 0 auto; }
+    .footer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; margin-bottom: 3rem; }
+    .footer-col h4 { font-family: var(--font-display); font-weight: 400; font-size: 1.15rem; color: var(--white); margin-bottom: .9rem; }
+    .footer-col a, .footer-col p { display: block; font-size: .86rem; color: var(--ash); text-decoration: none; line-height: 1.9; }
+    .footer-col a:hover { color: var(--accent); }
+    .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid var(--charcoal); font-size: .72rem; color: #555; }
+
+    .film-link { display: inline-block; margin-top: 1.4rem; font-size: .8rem; color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-dim); padding-bottom: 2px; }
+    .film-link:hover { color: var(--white); border-color: var(--white); }
+    .about-films { font-family: var(--font-display); font-style: italic; font-size: 1.35rem; line-height: 1.55; color: var(--cream); margin-bottom: 1.6rem; max-width: 30em; }
+
+
+    /* ── SERVICIOS ── */
+    .svc-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: .5rem; }
+    .svc-card { position: relative; display: block; aspect-ratio: 16/10; overflow: hidden; text-decoration: none; background: var(--charcoal); }
+    .svc-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(.45) saturate(.8); transition: transform .8s cubic-bezier(.2,.8,.2,1), filter .6s ease; }
+    .svc-card:hover img { transform: scale(1.05); filter: brightness(.6) saturate(1); }
+    .svc-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,10,10,.92) 0%, rgba(10,10,10,.55) 45%, rgba(10,10,10,0) 75%); }
+    .svc-card-text { z-index: 1; position: absolute; left: 0; right: 0; bottom: 0; padding: 2rem 2.2rem; }
+    .svc-card-text span { font-family: var(--font-display); font-style: italic; color: var(--accent); }
+    .svc-card-text h3 { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.6rem, 3vw, 2.3rem); color: var(--white); line-height: 1.1; margin: .2rem 0 .5rem; }
+    .svc-card-text p { color: var(--silver); font-size: .9rem; }
+    .svc-more { margin-top: 2.4rem; }
+    @media (max-width: 900px) { .svc-cards { grid-template-columns: 1fr; } .svc-card { aspect-ratio: 4/3; } }
+
+    .services-intro { color: var(--silver); max-width: 36em; margin: -1rem 0 3rem; font-size: 1rem; }
+    .services { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid var(--smoke); border-bottom: 1px solid var(--smoke); }
+    .service { padding: 2.6rem 3rem 2.8rem 0; }
+    .service + .service { padding: 2.6rem 0 2.8rem 3rem; border-left: 1px solid var(--smoke); }
+    .service h3 { font-family: var(--font-display); font-weight: 400; font-size: 1.9rem; color: var(--white); line-height: 1.15; margin-bottom: 1rem; }
+    .service > p { color: var(--silver); font-size: .95rem; line-height: 1.8; margin-bottom: 1rem; max-width: 32em; }
+    .service h4 { font-weight: 500; font-size: .8rem; color: var(--accent); margin: 1.8rem 0 .6rem; }
+    .service ul { list-style: none; }
+    .service li { color: var(--cream); font-size: .9rem; padding: .45rem 0; border-bottom: 1px solid var(--charcoal); }
+    .services-cta { display: flex; justify-content: space-between; align-items: center; gap: 2rem; flex-wrap: wrap; padding-top: 2.4rem; }
+    .services-cta p { font-family: var(--font-display); font-style: italic; font-size: 1.35rem; color: var(--cream); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex; flex-direction: column; position: fixed; inset: 0;
+        background: rgba(10,10,10,.97); justify-content: center; align-items: center; gap: 2rem; z-index: 99;
+      }
+      .nav-links.open a { font-size: 1rem; }
+      .nav-toggle { display: block; z-index: 101; }
+
+      section { padding: 4.5rem 1.5rem; }
+      .about-grid, .team-grid, .upcoming { grid-template-columns: 1fr; gap: 3rem; }
+      .film-card, .film-card.flip { grid-template-columns: 1fr; gap: 1.6rem; }
+      .film-card.flip .film-poster { order: 0; }
+      .film-poster img:not(.wide) { max-width: 300px; }
+      .stills-row { grid-template-columns: 1fr 1fr; margin-top: 0; }
+      .selection { grid-template-columns: 1fr; gap: 1.2rem; text-align: center; }
+      .selection .film { text-align: center; }
+      .services { grid-template-columns: 1fr; }
+      .service, .service + .service { padding: 2.2rem 0; border-left: 0; }
+      .service + .service { border-top: 1px solid var(--smoke); }
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .hero-laurels { gap: 2rem; }
+      .hero-laurels img { height: 60px; }
+      .hero-laurels img.quercus { height: 50px; }
+    }
+    .rv { opacity: 0; transform: translateY(26px); transition: opacity 1s ease, transform 1s cubic-bezier(.2,.8,.2,1); }
+    .rv.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .rv { opacity: 1; transform: none; }
+      * { animation: none !important; transition: none !important; }
+      html { scroll-behavior: auto; }
+    }
+  </style>
+  <link rel="alternate" hreflang="es" href="https://www.vzqstudio.com/">
+  <link rel="alternate" hreflang="en" href="https://www.vzqstudio.com/en/">
+  <style>
+    .lang-switch { display: flex; align-items: center; gap: .55rem; margin-left: 2rem; position: relative; z-index: 101; }
+    .lang-switch a { display: flex; line-height: 0; opacity: .45; filter: grayscale(.6); transition: opacity .3s, filter .3s, transform .3s; border-radius: 2px; overflow: hidden; }
+    .lang-switch a:hover { opacity: .9; filter: none; transform: translateY(-1px); }
+    .lang-switch a.on { opacity: 1; filter: none; box-shadow: 0 0 0 1px rgba(255,255,255,.35); }
+    @media (max-width: 900px) { .lang-switch { margin-left: auto; margin-right: 1rem; } }
+  </style>
+</head>
+<body>
+
+  <nav id="nav">
+    <a href="#" class="nav-logo"><img src="../img/0.%20General/LOGO_VZQ.png" alt="V·Z·Q Studio"></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#origen">Studio</a></li>
+      <li><a href="#filmografia">Films</a></li>
+      <li><a href="#selecciones">Selections</a></li>
+      <li><a href="#servicios">Services</a></li>
+      <li><a href="#equipo">Team</a></li>
+      <li><a href="#contacto">Contact</a></li>
+    </ul>
+    <div class="lang-switch"><a href="/" hreflang="es" lang="es" aria-label="Español" title="Español"><svg viewBox="0 0 3 2" width="22" height="15" aria-hidden="true"><rect width="3" height="2" fill="#c60b1e"/><rect y=".5" width="3" height="1" fill="#ffc400"/></svg></a><a href="/en/" hreflang="en" lang="en" aria-label="English" title="English" class="on"><svg viewBox="0 0 60 30" width="22" height="15" aria-hidden="true"><clipPath id="ukc"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#ukc)" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></svg></a></div>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-grain" aria-hidden="true"></div>
+    <div class="hero-content">
+      <img src="../img/0.%20General/LOGO_VZQ.png" alt="V·Z·Q Studio">
+      <p class="hero-tagline">Independent film production company<span class="hero-cities">Madrid · Seville</span></p>
+    </div>
+    <div class="hero-laurels" aria-label="Selections">
+      <a href="#selecciones"><img src="../img/selecciones/seminci-cyl-en-corto.png" alt="Official Selection SEMINCI 2026, Castilla y León en Corto"></a>
+      <a href="#selecciones"><img class="quercus" src="../img/selecciones/quercus-2026.png" alt="QUERCUS 2026 catalogue, short films from Castilla y León"></a>
+    </div>
+  </header>
+
+  <!-- ESTUDIO -->
+  <section id="origen">
+    <div class="about-grid">
+      <div class="about-text">
+        <span class="section-label">The studio</span>
+        <h2 class="section-title">A home for the films we want to make</h2>
+        <p>V·Z·Q Studio is an independent film production company founded in Madrid in 2025 by Tomás Vázquez and Constanza Padilla.</p>
+        <p>We produce and co-produce auteur fiction, mostly short films, and we stay with every project from development and financing through the shoot and its festival run.</p>
+        <p>We are based in Madrid with roots in Seville. We work alongside production companies from Madrid, Andalusia, Castilla y León and Cantabria, and we back emerging filmmakers with stories of their own.</p>
+      </div>
+      <div class="about-image">
+        <img src="../img/0.%20General/hero.jpeg" alt="Still from a V·Z·Q Studio production">
+      </div>
+    </div>
+  </section>
+
+  <!-- PELÍCULAS -->
+  <section id="filmografia">
+    <span class="section-label">Our work</span>
+    <h2 class="section-title">Films</h2>
+
+    <!-- CAMILA -->
+    <article class="film-card">
+      <div class="film-poster"><a href="camila"><img src="../img/3.%20CAMILA/poster_final_seminci.jpeg" alt="Camila poster"></a></div>
+      <div class="film-info">
+        <span class="film-status active">In distribution</span>
+        <p class="film-kind">Short film · Social drama</p>
+        <h3 class="film-title">Camila</h3>
+        <p class="film-year">2026 · Burgos</p>
+        <dl class="credits">
+          <dt>Director</dt><dd>Ramón Sánchez Orense</dd>
+          <dt>Cast</dt><dd>Jeo Rosso, Santa Simona Esperanza, Pedro Alcántara</dd>
+          <dt>Production</dt><dd>Kamituga Films, Estudio Clementine, V·Z·Q Studio, Anomalía Films</dd>
+          <dt>Distribution</dt><dd><a href="https://www.digital104filmdistribution.com" target="_blank" rel="noopener">Digital 104</a></dd>
+        </dl>
+        <p class="film-funding">Funded by the Junta de Castilla y León and the Government of Cantabria</p>
+        <p class="film-description">When her family drops by on her first day working at a shoe shop, Camila pretends not to know them.</p>
+        <div class="film-laurels">
+          <img src="../img/selecciones/seminci-cyl-en-corto.png" alt="Official Selection SEMINCI 2026, Castilla y León en Corto">
+          <img class="quercus" src="../img/selecciones/quercus-2026.png" alt="QUERCUS 2026 catalogue">
+        </div>
+        <div class="film-links">
+          <a class="film-link" href="camila">More information</a>
+          <a class="film-link" href="https://youtu.be/QB8ytswAVMs" data-trailer="QB8ytswAVMs" data-title="Camila, official trailer">Watch trailer ▸</a>
+          <a class="film-link" href="https://www.imdb.com/title/tt48434080/" target="_blank" rel="noopener">IMDb ↗</a>
+          <a class="film-link" href="https://boxd.it/16FNI" target="_blank" rel="noopener">Letterboxd ↗</a>
+        </div>
+      </div>
+    </article>
+
+    <div class="stills-row">
+      <img src="../img/3.%20CAMILA/0e9cf8c5-83c1-45c1-b1c6-84df1711bcd3.JPG" alt="Still from Camila">
+      <img src="../img/3.%20CAMILA/4b4f0ef3-4840-4975-90f4-d9b165d45f48.JPG" alt="Still from Camila">
+      <img src="../img/3.%20CAMILA/7ac32311-46d2-47f7-87d1-7c9598474f2d.JPG" alt="Still from Camila">
+      <img src="../img/3.%20CAMILA/b393e7cc-3947-493d-b89c-b324dc715a36.JPG" alt="Still from Camila">
+    </div>
+
+    <!-- EL NEUNOIDE -->
+    <article class="film-card flip">
+      <div class="film-poster"><a href="el-neunoide"><img src="../img/2.%20NEUNOIDE/neunoide.png" alt="El Neunoide poster"></a></div>
+      <div class="film-info">
+        <span class="film-status">In distribution</span>
+        <p class="film-kind">Short film · Science fiction</p>
+        <h3 class="film-title">El Neunoide</h3>
+        <p class="film-year">2025</p>
+        <dl class="credits">
+          <dt>Written and directed by</dt><dd>Fernando Pardo</dd>
+          <dt>Cast</dt><dd>Antoni Ramírez, Gemma Costa, Laura Carrillo</dd>
+          <dt>Production</dt><dd>V·Z·Q Studio</dd>
+          <dt>Distribution</dt><dd>YAQ Distribución</dd>
+        </dl>
+        <p class="film-description">Juan is convinced that the Neunoides, aliens who visited him as a child, will soon come back for him. Our first production: a child trapped in an adult's body, clinging to the only fantasy that gives his life meaning.</p>
+        <a class="film-link" href="el-neunoide">More information</a>
+      </div>
+    </article>
+
+    <div class="stills-row">
+      <img src="../img/2.%20NEUNOIDE/still1.png" alt="Still from El Neunoide">
+      <img src="../img/2.%20NEUNOIDE/still2.png" alt="Still from El Neunoide">
+      <img src="../img/2.%20NEUNOIDE/still3.png" alt="Still from El Neunoide">
+      <img src="../img/2.%20NEUNOIDE/still4.png" alt="Still from El Neunoide">
+    </div>
+
+    <!-- QMQP -->
+    <article class="film-card">
+      <div class="film-poster"><a href="querida-mama-querido-papa"><img src="../img/1.%20QMQP/CARTEL_QMQP.jpeg" alt="Querida mamá, querido papá poster"></a></div>
+      <div class="film-info">
+        <span class="film-status">Completed</span>
+        <p class="film-kind">Short film · Experimental</p>
+        <h3 class="film-title">Querida mamá, querido papá</h3>
+        <p class="film-year">2024 · Madrid</p>
+        <dl class="credits">
+          <dt>Written and directed by</dt><dd>Fernando Pardo</dd>
+          <dt>Cast</dt><dd>Patricia Cobos</dd>
+          <dt>Production</dt><dd>V·Z·Q Studio, Rubén Grande, Manuel Flor</dd>
+        </dl>
+        <p class="film-description">A young woman newly arrived in Madrid writes to her absent parents as she discovers the city. A love letter to Madrid written from loneliness and grief.</p>
+        <a class="film-link" href="querida-mama-querido-papa">More information</a>
+      </div>
+    </article>
+
+    <!-- EN MARCHA -->
+    <h3 class="subhead">In the works</h3>
+    <div class="upcoming">
+
+      <article>
+        <div class="upcoming-media placeholder"><span>Chinchón</span></div>
+        <span class="film-status active">In post-production</span>
+        <p class="film-kind">Short film · Drama</p>
+        <h3 class="film-title">Chinchón</h3>
+        <p class="film-year">Santander</p>
+        <dl class="credits">
+          <dt>Written and directed by</dt><dd>Daniel González Catalina</dd>
+          <dt>Production</dt><dd>Alejandro Sánchez, V·Z·Q Studio</dd>
+        </dl>
+        <p class="film-funding">Supported by the Government of Cantabria</p>
+        <p class="film-description">Juan is a tour guide in Santander, and every summer weighs on him more: packed beaches, empty courtyards, holiday flats and friends he never manages to see. A game of cards may be the only thing that brings him back to the present.</p>
+      </article>
+
+      <article>
+        <a class="upcoming-media-link" href="lo-que-esta-en-juego" aria-label="See Lo que está en juego"><div class="upcoming-media placeholder"><span>Lo que está en juego</span></div></a>
+        <span class="film-status active">In pre-production</span>
+        <p class="film-kind">Short film · Black comedy</p>
+        <h3 class="film-title">Lo que está en juego</h3>
+        <p class="film-year">Shooting in Madrid, 2027</p>
+        <dl class="credits">
+          <dt>Director</dt><dd>Tomás Vázquez</dd>
+          <dt>Screenplay</dt><dd>Rubén Jiménez</dd>
+          <dt>Cast</dt><dd>Álex Fernández</dd>
+          <dt>Production</dt><dd>V·Z·Q Studio, La Mala Fama, Estudio Clementine</dd>
+        </dl>
+        <p class="film-description">After losing an online sports bet while having dinner with his girlfriend's parents, Christian must resort to desperate measures to pay the bill. A black comedy about gambling addiction that makes you laugh until it stops being funny.</p>
+        <a class="film-link" href="lo-que-esta-en-juego">More information</a>
+      </article>
+
+      <article>
+        <div class="upcoming-media placeholder"><span>El Ciervo</span></div>
+        <span class="film-status active">In development</span>
+        <p class="film-kind">Short film · Thriller</p>
+        <h3 class="film-title">El Ciervo</h3>
+        <p class="film-year">Shooting in Burgos, 2027 · Black and white</p>
+        <dl class="credits">
+          <dt>Written and directed by</dt><dd>Ramón Sánchez Orense</dd>
+          <dt>Production</dt><dd>Kamituga Films, V·Z·Q Studio</dd>
+        </dl>
+        <p class="film-description">A couple of robbers flee towards France at night in the pouring rain. On a mountain road they hit a deer, and deciding what to do with the wounded animal forces them to find out how well they really know each other. The escape becomes a test of their love.</p>
+      </article>
+
+      <article>
+        <div class="upcoming-media placeholder"><span>Clemencia</span></div>
+        <span class="film-status active">In development</span>
+        <p class="film-kind">Short film · Drama</p>
+        <h3 class="film-title">Clemencia</h3>
+        <p class="film-year">Coming soon</p>
+        <dl class="credits">
+          <dt>Director</dt><dd>Constanza Padilla</dd>
+          <dt>Production</dt><dd>V·Z·Q Studio, Kamituga Films</dd>
+        </dl>
+        <p class="film-description">A night that begins with alcohol and laughter turns into a nightmare when Tamara gets a phone call. From that moment, the fear of losing her father collides with her faith and with the belief that loving another woman may be punished. Constanza Padilla's directorial debut.</p>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- SELECCIONES -->
+  <section id="selecciones">
+    <span class="section-label">Festivals and catalogues</span>
+    <h2 class="section-title">Selections</h2>
+    <div class="selections">
+      <div class="selection">
+        <a class="selection-logo selection-logo-link" href="camila#estreno" aria-label="See photos of the Camila premiere at SEMINCI 2026"><img src="../img/selecciones/seminci-cyl-en-corto.png" alt="SEMINCI Castilla y León en Corto"></a>
+        <div>
+          <h3>SEMINCI 2026</h3>
+          <p>Valladolid International Film Festival. Castilla y León en Corto competitive section. Premiered on 25 October 2026. <a class="sel-link" href="camila#estreno">See premiere photos</a></p>
+        </div>
+        <div class="film"><strong>Camila</strong>Official Selection</div>
+      </div>
+      <div class="selection">
+        <a class="selection-logo selection-logo-link" href="https://www.cortosquercus.com/index.html" target="_blank" rel="noopener" aria-label="See the QUERCUS 2026 catalogue"><img src="../img/selecciones/quercus-2026.png" alt="QUERCUS, short films from Castilla y León"></a>
+        <div>
+          <h3>QUERCUS 2026 catalogue</h3>
+          <p>Catalogue of short films from Castilla y León, published by the Filmoteca de Castilla y León and distributed by Digital 104. Presented at SEMINCI on 26 October 2026. <a class="sel-link" href="https://www.cortosquercus.com/index.html" target="_blank" rel="noopener">See catalogue ↗</a></p>
+        </div>
+        <div class="film"><strong>Camila</strong>Selected</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section id="servicios">
+    <span class="section-label">Services</span>
+    <h2 class="section-title">We help you get your film made</h2>
+    <p class="services-intro">Getting a short film made in Spain takes as much paperwork as filmmaking. We have been through it several times, so now we help others do it.</p>
+    <div class="svc-cards">
+      <a class="svc-card" href="services/#produccion">
+        <img src="../img/3.%20CAMILA/seminci/seminci-2026-01.jpg" alt="" loading="lazy">
+        <div class="svc-card-text">
+          <span>01</span>
+          <h3>Executive production</h3>
+          <p>ICAA, grants, budgets, contracts and co-productions.</p>
+        </div>
+      </a>
+      <a class="svc-card" href="services/#diseno">
+        <img src="../img/servicios/dosier-camila-01.jpg" alt="" loading="lazy">
+        <div class="svc-card-text">
+          <span>02</span>
+          <h3>Design and creative consulting</h3>
+          <p>Pitch decks, visual identity and aesthetic approach.</p>
+        </div>
+      </a>
+    </div>
+    <a class="collab-cta svc-more" href="services/">See services</a>
+  </section>
+
+  <!-- EQUIPO -->
+  <section id="equipo">
+    <span class="section-label">Who we are</span>
+    <h2 class="section-title">Team</h2>
+    <div class="team-grid">
+      <div class="team-member">
+        <div class="team-photo-wrap"><img src="../img/0.%20General/tomas.jpg" alt="Tomás Vázquez" class="team-photo" loading="lazy"></div>
+        <div class="team-info">
+          <h3>Tomás Vázquez</h3>
+          <span class="team-role">Founder, producer and director</span>
+          <p>Born in Seville, trained as a robotics engineer. In 2023 he moved to Madrid to make films, studied at the Instituto del Cine de Madrid and took the Master's in Film Industry Management at Universidad Carlos III, and in 2025 founded V·Z·Q Studio. He still combines engineering with producing.</p>
+        </div>
+      </div>
+      <div class="team-member">
+        <div class="team-photo-wrap"><img src="../img/0.%20General/constanza.jpg" alt="Constanza Padilla" class="team-photo" loading="lazy"></div>
+        <div class="team-info">
+          <h3>Constanza Padilla</h3>
+          <span class="team-role">Co-founder, art director and director</span>
+          <p>Born in Mexico City in 1999 and trained as an architect. She moved to Madrid in 2023, driven by her passion for horror cinema, and specialised in art direction at the Instituto del Cine de Madrid. She is preparing her directorial debut, Clemencia.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COLABORA -->
+  <section class="collab-section" id="contacto">
+    <span class="section-label">Co-produce with us</span>
+    <h2 class="section-title">Got a project in the works?</h2>
+    <p class="collab-text">Almost all our films are co-productions between companies from different Spanish regions. If you are a production company looking for partners, or a filmmaker with a story you want to make, get in touch.</p>
+    <div class="contact-big">
+      <a href="mailto:contacto@vzqstudio.com">contacto@vzqstudio.com</a>
+      <a href="tel:+34722392524">+34 722 39 25 24</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:contacto@vzqstudio.com">contacto@vzqstudio.com</a>
+        <a href="tel:+34722392524">+34 722 39 25 24</a>
+        <p>Madrid, Spain</p>
+      </div>
+      <div class="footer-col">
+        <h4>Social</h4>
+        <a href="https://www.instagram.com/vzq_studio" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.youtube.com/@vzq_studio" target="_blank" rel="noopener">YouTube</a>
+      </div>
+      <div class="footer-col">
+        <h4>V·Z·Q Studio</h4>
+        <p>V.Z.Q FILMS S.L.<br>Independent film production company between Madrid and Seville.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 V·Z·Q Studio. All rights reserved.</div>
+  </footer>
+
+  <div class="lightbox video-modal" id="videoModal" role="dialog" aria-modal="true" aria-label="Trailer">
+    <button class="lightbox-close" id="vmClose" aria-label="Close">✕</button>
+    <div class="video-modal-frame"><iframe id="vmFrame" title="Trailer" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
+  </div>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Full-screen still">
+    <button class="lightbox-close" id="lbClose" aria-label="Close">✕</button>
+    <button class="lightbox-nav lightbox-prev" id="lbPrev" aria-label="Previous">‹</button>
+    <img id="lbImg" src="" alt="">
+    <button class="lightbox-nav lightbox-next" id="lbNext" aria-label="Next">›</button>
+  </div>
+
+  <script>
+    (() => {
+      const lb = document.getElementById('lightbox'), img = document.getElementById('lbImg');
+      let group = [], i = 0;
+      const show = () => { img.src = group[i].src; img.alt = group[i].alt; };
+      const open = (g, n) => { group = g; i = n; show(); lb.classList.add('open'); document.body.style.overflow = 'hidden'; };
+      const close = () => { lb.classList.remove('open'); document.body.style.overflow = ''; };
+      const step = d => { i = (i + d + group.length) % group.length; show(); };
+      document.querySelectorAll('.stills-row').forEach(row => {
+        const imgs = [...row.querySelectorAll('img')];
+        imgs.forEach((im, n) => im.addEventListener('click', () => open(imgs, n)));
+      });
+      document.getElementById('lbClose').addEventListener('click', close);
+      document.getElementById('lbPrev').addEventListener('click', e => { e.stopPropagation(); step(-1); });
+      document.getElementById('lbNext').addEventListener('click', e => { e.stopPropagation(); step(1); });
+      lb.addEventListener('click', e => { if (e.target === lb) close(); });
+      document.addEventListener('keydown', e => {
+        if (!lb.classList.contains('open')) return;
+        if (e.key === 'Escape') close();
+        if (e.key === 'ArrowLeft') step(-1);
+        if (e.key === 'ArrowRight') step(1);
+      });
+    })();
+
+    (() => {
+      const m = document.getElementById('videoModal'), f = document.getElementById('vmFrame');
+      const close = () => { m.classList.remove('open'); f.src = ''; document.body.style.overflow = ''; };
+      document.querySelectorAll('[data-trailer]').forEach(a => a.addEventListener('click', e => {
+        e.preventDefault();
+        f.title = a.dataset.title || 'Trailer';
+        f.src = 'https://www.youtube-nocookie.com/embed/' + a.dataset.trailer + '?autoplay=1&rel=0';
+        m.classList.add('open'); document.body.style.overflow = 'hidden';
+      }));
+      document.getElementById('vmClose').addEventListener('click', close);
+      m.addEventListener('click', e => { if (e.target === m) close(); });
+      document.addEventListener('keydown', e => { if (e.key === 'Escape' && m.classList.contains('open')) close(); });
+    })();
+
+    // Aparición suave de los bloques al bajar
+    (() => {
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return;
+      const els = document.querySelectorAll('section > .section-label, section > .section-title, .about-grid, .film-card, .stills-row, .subhead, .upcoming > article, .selection, .services-intro, .svc-cards, .team-member, .collab-section > *, .sv-hero > *, .sv-lead, .sv-cols, .sv-steps, .sv-gallery, .sv-person, .sv-track-row');
+      const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px', threshold: .08 });
+      els.forEach(el => { if (el.getBoundingClientRect().top > innerHeight * .9) { el.classList.add('rv'); io.observe(el); } });
+    })();
+
+    // Desplazamiento suave sin mostrar #seccion en la dirección
+    (() => {
+      const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const clean = () => history.replaceState(null, '', location.pathname.replace(/index\.html$/, '').replace(/\.html$/, '') + location.search);
+      document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
+        const id = a.getAttribute('href').slice(1);
+        const t = id ? document.getElementById(id) : null;
+        if (!id) { e.preventDefault(); scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); clean(); return; }
+        if (t) { e.preventDefault(); t.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' }); clean(); }
+      }));
+      if (location.hash || /\.html$/.test(location.pathname)) {
+        const t = location.hash ? document.getElementById(decodeURIComponent(location.hash.slice(1))) : null;
+        clean();
+        if (t) addEventListener('load', () => t.scrollIntoView(), { once: true });
+      }
+    })();
+
+    const nav = document.getElementById('nav');
+    addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 60), { passive: true });
+    const toggle = document.getElementById('navToggle');
+    const links = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => {
+      const open = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      links.classList.remove('open'); toggle.setAttribute('aria-expanded', false);
+    }));
+  </script>
+</body>
+</html>
