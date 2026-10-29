@@ -240,6 +240,18 @@
 
 
     /* ── SERVICIOS ── */
+    .svc-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: .5rem; }
+    .svc-card { position: relative; display: block; aspect-ratio: 16/10; overflow: hidden; text-decoration: none; background: var(--charcoal); }
+    .svc-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(.45) saturate(.8); transition: transform .8s cubic-bezier(.2,.8,.2,1), filter .6s ease; }
+    .svc-card:hover img { transform: scale(1.05); filter: brightness(.6) saturate(1); }
+    .svc-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,10,10,.92) 0%, rgba(10,10,10,.55) 45%, rgba(10,10,10,0) 75%); }
+    .svc-card-text { z-index: 1; position: absolute; left: 0; right: 0; bottom: 0; padding: 2rem 2.2rem; }
+    .svc-card-text span { font-family: var(--font-display); font-style: italic; color: var(--accent); }
+    .svc-card-text h3 { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.6rem, 3vw, 2.3rem); color: var(--white); line-height: 1.1; margin: .2rem 0 .5rem; }
+    .svc-card-text p { color: var(--silver); font-size: .9rem; }
+    .svc-more { margin-top: 2.4rem; }
+    @media (max-width: 900px) { .svc-cards { grid-template-columns: 1fr; } .svc-card { aspect-ratio: 4/3; } }
+
     .services-intro { color: var(--silver); max-width: 36em; margin: -1rem 0 3rem; font-size: 1rem; }
     .services { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid var(--smoke); border-bottom: 1px solid var(--smoke); }
     .service { padding: 2.6rem 3rem 2.8rem 0; }
@@ -508,49 +520,27 @@
   <!-- SERVICIOS -->
   <section id="servicios">
     <span class="section-label">Servicios</span>
-    <h2 class="section-title">Lo que hemos aprendido, a tu servicio</h2>
+    <h2 class="section-title">Te ayudamos a levantar tu película</h2>
     <p class="services-intro">Levantar un cortometraje en España implica tanto papeleo como cine. Ya hemos pasado por ahí varias veces, así que ahora ayudamos a otros a hacerlo.</p>
-    <div class="services">
-      <article class="service">
-        <h3>Consultoría de producción ejecutiva</h3>
-        <p>Te acompañamos en la parte administrativa, legal y financiera de tu proyecto, para que puedas centrarte en la película.</p>
-        <h4>Trámites en el ICAA</h4>
-        <ul>
-          <li>Alta de tu cortometraje en el ICAA</li>
-          <li>Comunicación de la fecha de inicio de rodaje</li>
-          <li>Certificado de nacionalidad española</li>
-          <li>Calificación por edades</li>
-        </ul>
-        <h4>Financiación y contratos</h4>
-        <ul>
-          <li>Presupuesto y plan de financiación</li>
-          <li>Solicitud y justificación de ayudas autonómicas</li>
-          <li>Coproducciones entre productoras y comunidades autónomas</li>
-          <li>Contratos de coproducción, dirección y composición musical</li>
-        </ul>
-        <h4>Y además</h4>
-        <ul>
-          <li>Orientación para fundar tu propia productora</li>
-          <li>Orientación para la distribución y el recorrido por festivales</li>
-        </ul>
-      </article>
-      <article class="service">
-        <h3>Diseño de dosieres</h3>
-        <p>Diseñamos y ayudamos a estructurar el dosier de tu proyecto para convocatorias de ayudas, laboratorios, mercados, festivales o campañas de crowdfunding.</p>
-        <p>Nuestros dosieres ya han conseguido ayudas públicas de la Junta de Castilla y León y del Gobierno de Cantabria. Sabemos qué se valora, cómo ordenar la memoria de dirección y de producción, y cómo hacer que un proyecto se entienda de un vistazo.</p>
-        <h4>Qué incluye</h4>
-        <ul>
-          <li>Estructura del dosier según la convocatoria</li>
-          <li>Revisión de sinopsis, memorias y textos</li>
-          <li>Diseño gráfico y maquetación</li>
-          <li>Versiones adaptadas para distintas convocatorias</li>
-        </ul>
-      </article>
+    <div class="svc-cards">
+      <a class="svc-card" href="servicios/#produccion">
+        <img src="img/3.%20CAMILA/seminci/seminci-2026-01.jpg" alt="" loading="lazy">
+        <div class="svc-card-text">
+          <span>01</span>
+          <h3>Producción ejecutiva</h3>
+          <p>ICAA, ayudas, presupuestos, contratos y coproducciones.</p>
+        </div>
+      </a>
+      <a class="svc-card" href="servicios/#diseno">
+        <img src="img/servicios/dosier-camila-01.jpg" alt="" loading="lazy">
+        <div class="svc-card-text">
+          <span>02</span>
+          <h3>Diseño y consultoría creativa</h3>
+          <p>Dosieres, identidad visual y propuesta estética.</p>
+        </div>
+      </a>
     </div>
-    <div class="services-cta">
-      <p>Nos adaptamos a cada proyecto. Escríbenos y te contamos cómo podemos ayudarte.</p>
-      <a href="mailto:contacto@vzqstudio.com?subject=Servicios%20V%C2%B7Z%C2%B7Q%20Studio" class="collab-cta">Pide información</a>
-    </div>
+    <a class="collab-cta svc-more" href="servicios/">Ver servicios</a>
   </section>
 
   <!-- EQUIPO -->
