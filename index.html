@@ -135,13 +135,8 @@
     .selection h3 { font-family: var(--font-display); font-weight: 400; font-size: 1.7rem; color: var(--white); line-height: 1.2; }
     .sel-link { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-dim); white-space: nowrap; transition: color .3s, border-color .3s; }
     .sel-link:hover { color: var(--white); border-color: var(--white); }
-    .selection-linked { position: relative; transition: background .4s; }
-    .selection-linked:hover { background: rgba(255,255,255,.025); }
-    .selection-link { color: inherit; text-decoration: none; }
-    .selection-link::after { content: ''; position: absolute; inset: 0; }
-    .selection-linked:hover .selection-link { color: var(--accent); }
-    .selection-linked .selection-logo img { transition: transform .5s cubic-bezier(.2,.8,.2,1); }
-    .selection-linked:hover .selection-logo img { transform: scale(1.05); }
+    .selection-logo-link img { transition: transform .5s cubic-bezier(.2,.8,.2,1), filter .5s ease; }
+    .selection-logo-link:hover img { transform: scale(1.08); filter: brightness(1.1); }
     .selection p { color: var(--ash); font-size: .9rem; margin-top: .3rem; }
     .selection .film { color: var(--silver); font-size: .9rem; text-align: right; }
     .selection .film strong { display: block; font-family: var(--font-display); font-weight: 400; font-style: italic; font-size: 1.4rem; color: var(--cream); }
@@ -491,11 +486,11 @@
     <span class="section-label">Festivales y catálogos</span>
     <h2 class="section-title">Selecciones</h2>
     <div class="selections">
-      <div class="selection selection-linked">
-        <div class="selection-logo"><img src="img/selecciones/seminci-cyl-en-corto.png" alt="SEMINCI Castilla y León en Corto"></div>
+      <div class="selection">
+        <a class="selection-logo selection-logo-link" href="proyectos/camila.html#estreno" aria-label="Ver fotos del estreno de Camila en SEMINCI 2026"><img src="img/selecciones/seminci-cyl-en-corto.png" alt="SEMINCI Castilla y León en Corto"></a>
         <div>
-          <h3><a class="selection-link" href="proyectos/camila.html#estreno">SEMINCI 2026</a></h3>
-          <p>Semana Internacional de Cine de Valladolid. Sección competitiva Castilla y León en Corto. Estreno el 25 de octubre de 2026. <span class="sel-link">Ver fotos del estreno</span></p>
+          <h3>SEMINCI 2026</h3>
+          <p>Semana Internacional de Cine de Valladolid. Sección competitiva Castilla y León en Corto. Estreno el 25 de octubre de 2026. <a class="sel-link" href="proyectos/camila.html#estreno">Ver fotos del estreno</a></p>
         </div>
         <div class="film"><strong>Camila</strong>Selección oficial</div>
       </div>
