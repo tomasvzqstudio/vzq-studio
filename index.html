@@ -122,6 +122,39 @@
       padding-bottom: .8rem; border-bottom: 1px solid var(--smoke); margin: 5rem 0 3rem;
     }
 
+    /* ── VZQ CONVOCA ── */
+    .convoca-band { position: relative; background: radial-gradient(120% 140% at 85% 0%, #13294b 0%, #0b1f3a 38%, #0a0a0a 100%); border-top: 1px solid rgba(138,189,230,.28); border-bottom: 1px solid rgba(138,189,230,.12); overflow: hidden; }
+    .convoca-band::after { content: ""; position: absolute; right: -14rem; top: -14rem; width: 34rem; height: 34rem; border-radius: 50%; border: 1px solid rgba(138,189,230,.10); box-shadow: 0 0 0 5rem rgba(138,189,230,.025); pointer-events: none; }
+    #convoca { position: relative; z-index: 1; display: grid; grid-template-columns: 1.05fr 1fr; gap: 4.5rem; align-items: center; }
+    .convoca-brand { display: flex; align-items: center; gap: .9rem; margin-bottom: 1.6rem; text-decoration: none; }
+    .convoca-brand img { height: 46px; width: auto; }
+    .convoca-brand span { font-family: var(--font-display); font-size: 3.1rem; line-height: 1; color: #8abde6; font-weight: 400; }
+    .convoca-lead { font-family: var(--font-display); font-style: italic; font-size: 1.55rem; line-height: 1.3; color: var(--white); margin-bottom: 1.3rem; }
+    .convoca-text p { color: var(--silver); line-height: 1.8; margin-bottom: 1rem; max-width: 34rem; }
+    .convoca-stats { display: grid; grid-template-columns: repeat(4, auto); gap: 1.6rem; margin: 2.2rem 0 2.4rem; padding: 1.4rem 0; border-top: 1px solid rgba(255,255,255,.08); border-bottom: 1px solid rgba(255,255,255,.08); }
+    .convoca-stats strong { display: block; font-family: var(--font-display); font-weight: 400; font-size: 2rem; color: #8abde6; line-height: 1; margin-bottom: .45rem; }
+    .convoca-stats span { font-size: .72rem; letter-spacing: .04em; color: var(--ash); line-height: 1.4; display: block; }
+    .convoca-ctas { display: flex; flex-wrap: wrap; gap: 1rem; }
+    .convoca-btn { display: inline-flex; align-items: center; gap: .5rem; padding: .9rem 1.4rem; border-radius: 999px; font-size: .74rem; letter-spacing: .1em; text-transform: uppercase; font-weight: 600; text-decoration: none; transition: transform .3s, background .3s, color .3s, border-color .3s; }
+    .convoca-btn.primary { background: #8abde6; color: #0b1f3a; }
+    .convoca-btn.primary:hover { background: var(--white); transform: translateY(-2px); }
+    .convoca-btn.ghost { border: 1px solid rgba(138,189,230,.45); color: #8abde6; }
+    .convoca-btn.ghost:hover { border-color: #8abde6; color: var(--white); transform: translateY(-2px); }
+    .convoca-tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .convoca-tile { display: flex; flex-direction: column; gap: .6rem; padding: 1.6rem 1.5rem 1.4rem; border-radius: 12px; background: rgba(255,255,255,.035); border: 1px solid rgba(138,189,230,.16); text-decoration: none; min-height: 12.5rem; transition: transform .4s cubic-bezier(.2,.8,.2,1), background .4s, border-color .4s; }
+    .convoca-tile:hover { transform: translateY(-4px); background: rgba(138,189,230,.08); border-color: rgba(138,189,230,.45); }
+    .convoca-tile svg { width: 26px; height: 26px; stroke: #8abde6; fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; margin-bottom: .3rem; }
+    .convoca-tile h3 { font-family: var(--font-display); font-weight: 400; font-size: 1.45rem; color: var(--white); }
+    .convoca-tile p { font-size: .86rem; line-height: 1.6; color: var(--silver); flex: 1; }
+    .convoca-tile em { font-style: normal; font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: #8abde6; }
+    @media (max-width: 900px) {
+      #convoca { grid-template-columns: 1fr; gap: 3rem; }
+      .convoca-stats { grid-template-columns: 1fr 1fr; }
+      .convoca-brand span { font-size: 2.5rem; }
+      .convoca-brand img { height: 38px; }
+    }
+    @media (max-width: 480px) { .convoca-tiles { grid-template-columns: 1fr; } .convoca-tile { min-height: 0; } }
+
     /* ── ESTUDIO ── */
     .about-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 5rem; align-items: center; }
     .about-text p { color: var(--silver); font-size: 1rem; line-height: 1.85; margin-bottom: 1.3rem; max-width: 34em; }
@@ -314,6 +347,7 @@
     .lang-switch a { display: flex; line-height: 0; opacity: .45; filter: grayscale(.6); transition: opacity .3s, filter .3s, transform .3s; border-radius: 2px; overflow: hidden; }
     .lang-switch a:hover { opacity: .9; filter: none; transform: translateY(-1px); }
     .lang-switch a.on { opacity: 1; filter: none; box-shadow: 0 0 0 1px rgba(255,255,255,.35); }
+    .nav-links a.nav-convoca { color: #8abde6; }
     nav:has(.nav-links.open) { mix-blend-mode: normal !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
     @media (min-width: 901px) { .nav-links { margin-left: auto; } }
     @media (max-width: 900px) { .lang-switch { margin-left: auto; margin-right: 1rem; } }
@@ -329,6 +363,7 @@
       <li><a href="#selecciones">Selecciones</a></li>
       <li><a href="#servicios">Servicios</a></li>
       <li><a href="#equipo">Equipo</a></li>
+      <li><a class="nav-convoca" href="#convoca">Convoca</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
     <div class="lang-switch"><a href="/" hreflang="es" lang="es" aria-label="Español" title="Español" class="on"><svg viewBox="0 0 3 2" width="22" height="15" aria-hidden="true"><rect width="3" height="2" fill="#c60b1e"/><rect y=".5" width="3" height="1" fill="#ffc400"/></svg></a><a href="/en/" hreflang="en" lang="en" aria-label="English" title="English"><svg viewBox="0 0 60 30" width="22" height="15" aria-hidden="true"><clipPath id="ukc"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#ukc)" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></svg></a></div>
@@ -352,6 +387,35 @@
       <a href="#selecciones"><img class="aguilar" src="img/selecciones/aguilar-2026.png" alt="Selección oficial 38 Aguilar Film Festival, sección Castilla y León"></a>
     </div>
   </header>
+
+  <!-- VZQ CONVOCA -->
+  <div class="convoca-band">
+  <section id="convoca">
+    <div class="convoca-text">
+      <span class="section-label">Nuestra herramienta</span>
+      <a class="convoca-brand" href="https://convoca.vzqstudio.com/" target="_blank" rel="noopener" aria-label="VZQ Convoca"><img src="img/convoca/vzq-celeste.svg" alt=""><span>Convoca</span></a>
+      <p class="convoca-lead">El hub de convocatorias, ayudas y oportunidades para proyectos cinematográficos.</p>
+      <p>Hemos desarrollado VZQ Convoca para reunir en un único sitio todas las convocatorias que necesita una productora: subvenciones, laboratorios, pitchings, premios y work in progress de España, Europa y Latinoamérica.</p>
+      <p>Cada convocatoria trae sus plazos, los requisitos resumidos y la previsión de su próxima apertura. Se actualiza a diario a partir de fuentes oficiales y el acceso es gratuito y sin registro.</p>
+      <div class="convoca-stats">
+        <div><strong>+500</strong><span>convocatorias y previsiones</span></div>
+        <div><strong>17</strong><span>comunidades autónomas</span></div>
+        <div><strong>Diaria</strong><span>actualización con fuentes oficiales</span></div>
+        <div><strong>Gratis</strong><span>acceso sin registro</span></div>
+      </div>
+      <div class="convoca-ctas">
+        <a class="convoca-btn primary" href="https://convoca.vzqstudio.com/" target="_blank" rel="noopener">Entrar en VZQ Convoca ↗</a>
+        <a class="convoca-btn ghost" href="https://convoca.vzqstudio.com/convocatorias.html?estado=abierta" target="_blank" rel="noopener">Ver abiertas ahora ↗</a>
+      </div>
+    </div>
+    <div class="convoca-tiles">
+          <a class="convoca-tile" href="https://convoca.vzqstudio.com/mapa.html" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></svg><h3>Mapa autonómico</h3><p>Las ayudas de cada comunidad autónoma, con sus plazos y las aperturas estimadas.</p><em>Abrir mapa ↗</em></a>
+          <a class="convoca-tile" href="https://convoca.vzqstudio.com/calendario.html" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><h3>Calendario</h3><p>Todos los cierres mes a mes, con la previsión de las próximas aperturas.</p><em>Ver calendario ↗</em></a>
+          <a class="convoca-tile" href="https://convoca.vzqstudio.com/guias.html" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5M8 7h7"/></svg><h3>Guías</h3><p>ICAA, MEDIA, Ibermedia e incentivos fiscales, explicados paso a paso.</p><em>Leer guías ↗</em></a>
+          <a class="convoca-tile" href="https://convoca.vzqstudio.com/entrar.html?modo=crear" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 16V11a6 6 0 1 1 12 0v5l2 2H4z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg><h3>Avisos a medida</h3><p>Crea tu cuenta, guarda tus proyectos y recibe las ayudas que encajan con ellos.</p><em>Crear cuenta ↗</em></a>
+    </div>
+  </section>
+  </div>
 
   <!-- ESTUDIO -->
   <section id="origen">
