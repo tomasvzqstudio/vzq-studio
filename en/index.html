@@ -102,6 +102,7 @@
     .hero-laurels a:hover { opacity: 1; }
     .hero-laurels img { height: 78px; width: auto; }
     .hero-laurels img.quercus { height: 64px; }
+    .hero-laurels img.aguilar { height: 46px; }
     @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
 
     /* ── SECTIONS ── */
@@ -174,6 +175,8 @@
     .film-laurels { display: flex; gap: 1.6rem; align-items: center; margin-top: 1.8rem; }
     .film-laurels img { height: 58px; width: auto; }
     .film-laurels img.quercus { height: 48px; }
+    .film-laurels img.aguilar { height: 36px; }
+    .selection-logo img.aguilar { max-height: none; width: 100%; max-width: 190px; }
 
     .stills-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; margin: -2rem 0 5rem; }
     .stills-row img { width: 100%; aspect-ratio: 16/9; object-fit: cover; cursor: pointer; filter: saturate(.8) brightness(.8); transition: filter .5s ease, transform .5s cubic-bezier(.2,.8,.2,1), box-shadow .5s ease; }
@@ -294,6 +297,7 @@
       .hero-laurels { gap: 2rem; }
       .hero-laurels img { height: 60px; }
       .hero-laurels img.quercus { height: 50px; }
+      .hero-laurels img.aguilar { height: 36px; }
     }
     .rv { opacity: 0; transform: translateY(26px); transition: opacity 1s ease, transform 1s cubic-bezier(.2,.8,.2,1); }
     .rv.in { opacity: 1; transform: none; }
@@ -345,6 +349,7 @@
     <div class="hero-laurels" aria-label="Selections">
       <a href="#selecciones"><img src="../img/selecciones/seminci-cyl-en-corto.png" alt="Official Selection SEMINCI 2026, Castilla y León en Corto"></a>
       <a href="#selecciones"><img class="quercus" src="../img/selecciones/quercus-2026.png" alt="QUERCUS 2026 catalogue, short films from Castilla y León"></a>
+      <a href="#selecciones"><img class="aguilar" src="../img/selecciones/aguilar-2026.png" alt="Official Selection, 38th Aguilar Film Festival, Castilla y León section"></a>
     </div>
   </header>
 
@@ -388,6 +393,7 @@
         <div class="film-laurels">
           <img src="../img/selecciones/seminci-cyl-en-corto.png" alt="Official Selection SEMINCI 2026, Castilla y León en Corto">
           <img class="quercus" src="../img/selecciones/quercus-2026.png" alt="QUERCUS 2026 catalogue">
+          <img class="aguilar" src="../img/selecciones/aguilar-2026.png" alt="Official Selection, 38th Aguilar Film Festival">
         </div>
         <div class="film-links">
           <a class="film-link" href="camila">More information</a>
@@ -532,6 +538,14 @@
           <p>Catalogue of short films from Castilla y León, published by the Filmoteca de Castilla y León and distributed by Digital 104. Presented at SEMINCI on 26 October 2026. <a class="sel-link" href="https://www.cortosquercus.com/index.html" target="_blank" rel="noopener">See catalogue ↗</a></p>
         </div>
         <div class="film"><strong>Camila</strong>Selected</div>
+      </div>
+      <div class="selection">
+        <a class="selection-logo selection-logo-link" href="https://aguilarfilmfestival.es/sesion/cyl1/" target="_blank" rel="noopener" aria-label="See the CyL1 session at Aguilar Film Festival"><img class="aguilar" src="../img/selecciones/aguilar-2026.png" alt="38 Aguilar Film Festival"></a>
+        <div>
+          <h3>Aguilar Film Festival 2026</h3>
+          <p>38th Aguilar de Campoo International Short Film Festival, 4–12 December 2026. Castilla y León section, session CyL1. <a class="sel-link" href="https://aguilarfilmfestival.es/sesion/cyl1/" target="_blank" rel="noopener">See session ↗</a></p>
+        </div>
+        <div class="film"><strong>Camila</strong>Official Selection</div>
       </div>
     </div>
   </section>
